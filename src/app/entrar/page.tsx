@@ -19,6 +19,11 @@ export default async function Entrar({ searchParams }: { searchParams: Promise<{
           <h1 className="text-2xl font-semibold tracking-tight">WEECREA</h1>
           <p className="text-sm opacity-70">Entre na sua conta</p>
         </div>
+        {!process.env.DATABASE_URL && (
+          <p role="status" className="rounded-lg bg-aviso-fraco px-3 py-2 text-sm text-aviso">
+            Ambiente em preparação: o banco de dados ainda não foi ligado, então o login não funciona aqui por enquanto.
+          </p>
+        )}
         {mensagem && (
           <p role="status" className={`rounded-lg px-3 py-2 text-sm ${erro ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`}>
             {mensagem}
