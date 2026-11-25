@@ -26,7 +26,7 @@ Cada pessoa cuida de **um módulo**, numa **pasta própria**. Ninguém mexe na p
 - `travado`: precisa de ajuda.
 
 ## Como ligar um módulo ao outro
-- Precisa de dado de outro módulo (ex.: M9 precisa de pedidos do M4)? Leia de `dados-exemplo/dados.json` agora. Quando o M4 terminar, trocamos pelo real no **Dia de junção (30/11)**.
+- Precisa de dado de outro módulo (ex.: M9 precisa de pedidos do M4)? Leia de `dados-exemplo/dados.json` agora. Quando o M4 terminar, trocamos pelo real na junção do seu módulo: são três (27/11, 29/11 e 30/11), veja o calendário em `docs/GUIA-CLAUDE.md`.
 - Precisa que outro módulo mude algo? Comente na issue dele.
 - Precisa mudar `contratos/tipos.ts`? Abra Pull Request e avise todo mundo no grupo.
 
