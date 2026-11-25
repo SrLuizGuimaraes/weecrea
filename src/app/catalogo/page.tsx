@@ -100,7 +100,7 @@ export default function Catalogo() {
         <Vazio titulo="Nenhum vídeo ainda" acao={<Botao variante="secundario">Enviar vídeo</Botao>}>Os vídeos dos creators aparecem aqui.</Vazio>
       </Secao>
 
-      <Secao titulo="Janela (modal) e mensagem rápida (toast)" codigo={`<Modal gatilho={<Botao>Abrir</Botao>} titulo="Título">{(fechar) => ...}</Modal>\nconst toast = useToast(); toast('Salvo'); toast('Erro', 'perigo');\n// Depois de uma Server Action: redirect('/x?aviso=Salvo')`}>
+      <Secao titulo="Janela (modal) e mensagem rápida (toast)" codigo={`<Modal gatilho={<Botao>Abrir</Botao>} titulo="Título">{(fechar) => ...}</Modal>\nconst toast = useToast(); toast('Salvo'); toast('Erro', 'perigo');\n// Depois de uma Server Action: redirect('/x?toast=Salvo')`}>
         <div className="flex flex-wrap gap-2"><DemoModal /><DemoToast /></div>
       </Secao>
 

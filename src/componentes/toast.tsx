@@ -2,7 +2,7 @@
 // Mensagem rápida (toast). Dono: M2.
 // O <ProvedorToast> já está no layout raiz. Em componentes cliente:
 //   const toast = useToast(); toast('Cupom copiado'); toast('Falhou', 'perigo');
-// Depois de uma Server Action que redireciona, use ?aviso=texto na URL: <AvisoDaUrl /> mostra e limpa.
+// Depois de uma Server Action que redireciona, use ?toast=texto (ou ?toast_erro=texto) na URL: <AvisoDaUrl /> mostra e limpa.
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
@@ -35,19 +35,19 @@ export function ProvedorToast({ children }: { children: ReactNode }) {
   );
 }
 
-/** Mostra ?aviso=... (ou ?erro=...) da URL como toast e limpa a URL. */
+/** Mostra ?toast=... (ou ?toast_erro=...) da URL como toast e limpa a URL. */
 export function AvisoDaUrl() {
   const params = useSearchParams();
   const router = useRouter();
   const caminho = usePathname();
   const toast = useToast();
   useEffect(() => {
-    const aviso = params.get('aviso');
-    const erro = params.get('erro');
+    const aviso = params.get('toast');
+    const erro = params.get('toast_erro');
     if (!aviso && !erro) return;
     toast((aviso ?? erro)!, erro ? 'perigo' : 'sucesso');
     const resto = new URLSearchParams(params);
-    resto.delete('aviso'); resto.delete('erro');
+    resto.delete('toast'); resto.delete('toast_erro');
     router.replace(resto.size ? `${caminho}?${resto}` : caminho, { scroll: false });
   }, [params, router, caminho, toast]);
   return null;
