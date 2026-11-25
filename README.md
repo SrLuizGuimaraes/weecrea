@@ -4,6 +4,7 @@ Plataforma para a loja gerir creators de UGC (campanhas, cupons, vídeos, comiss
 
 - **Painel de acompanhamento:** link do GitHub Pages (veja "Settings → Pages")
 - **Como todo mundo se junta:** [`docs/COMO-INTEGRAR.md`](docs/COMO-INTEGRAR.md)
+- **Prompt de cada módulo (para colar no Claude):** [`docs/PROMPTS.md`](docs/PROMPTS.md)
 - **Os 11 módulos:** [`modulos/`](modulos/) (um guia por pasta)
 - **Idioma comum entre módulos:** [`contratos/tipos.ts`](contratos/tipos.ts)
 - **Dados de mentira:** [`dados-exemplo/dados.json`](dados-exemplo/dados.json)
