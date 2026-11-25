@@ -16,3 +16,29 @@ Next.js + Prisma + Postgres (Neon) + Auth.js + Vercel Blob + Resend + Vercel. O 
 
 ## O caminho de uma campanha
 1. Loja conecta a Nuvemshop e cria a campanha. 2. Convida creators por link/QR. 3. Cadastro: aprovado na hora se bate os critérios, senão análise. 4. Creator recebe cupom, aceita e envia vídeo. 5. Vendas com o cupom entram no painel. 6. Sistema calcula a comissão e a loja registra o pagamento.
+
+## Rodar no seu computador
+Precisa só do Node 24. O banco local é o PGlite (Postgres que roda dentro do Node), sem instalar nada.
+
+```bash
+npm install
+cp .env.example .env          # preencha AUTH_SECRET, CRIPTO_CHAVE e CRON_SECRET (os comandos estão no arquivo)
+npm run db:local              # deixe este terminal aberto: banco na porta 5433
+npm run db:migrar             # em outro terminal: cria as tabelas
+npm run db:seed               # carrega dados-exemplo/dados.json
+npm run dev                   # http://localhost:3000
+```
+
+Pessoas de exemplo (senha local padrão: `weecrea-exemplo`, definida em `prisma/seed.ts`):
+
+| Perfil | E-mail | Vê |
+| --- | --- | --- |
+| Loja | `loja@exemplo.com` | só o Ateliê Jabuticaba (`/loja`) |
+| Creator | `creator@exemplo.com` | só os dados da Marina (`/creator`) |
+| Weethub | `weethub@exemplo.com` | todas as lojas (`/weethub`) |
+
+Outras lojas: `casaipe@exemplo.com` e `belaraiz@exemplo.com`. Cada creator dos dados de exemplo também entra com o próprio e-mail.
+
+Testes: `npm test`. Verificação completa antes do PR: `npx tsc --noEmit && npm test && npm run build`.
+
+Mudou o `dados-exemplo/gerar.ts`? Rode `npm run db:dados-exemplo` para regerar o `dados.json`.

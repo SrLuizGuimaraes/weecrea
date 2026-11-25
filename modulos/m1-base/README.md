@@ -29,3 +29,10 @@ Marque as caixinhas na **issue do seu módulo** no GitHub (o painel lê de lá).
 - Mexa só nas suas rotas e pastas, listadas no bloco M1 do guia. Precisa mudar algo de outro módulo? Peça na issue dele.
 - Trabalhe na sua branch `m1-base`.
 - Terminou uma parte? Abra um Pull Request (veja `docs/COMO-INTEGRAR.md`).
+
+## Como os outros usam o que o M1 entregou
+- **Quem está logado:** `const { lojaId } = await exigirLoja()` (ou `exigirCreator`, `exigirWeethub`) de `src/lib/acesso.ts`; filtre toda consulta por esse id.
+- **Banco:** `import { db } from "@/lib/db"`; tipos em `src/contratos/tipos.ts`; dinheiro com `formatarReais` e `paraCentavos` de `src/dominio/dinheiro.ts`.
+- **E-mail com link de senha:** `enviarLinkSenha(usuarioId, "aprovacao_creator", { loja, cupom })` de `src/lib/link-senha.ts`.
+- **Upload de vídeo:** `enviarArquivo(arquivo, "videos", setProgresso)` de `src/lib/upload-cliente.ts` e `lerVideo(arquivo)` para a miniatura.
+- **Cron e segredos:** `negarSeNaoForCron(req)` de `src/lib/cron.ts`; `cifrar`/`decifrar` de `src/lib/cripto.ts`.
