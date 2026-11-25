@@ -1,0 +1,495 @@
+// WEECREA: banco de dados. Dono: M1.
+// Gerado a partir de src/contratos/tipos.ts. Mudou algo aqui? Abra PR para o M1 e avise no grupo.
+// Convenções: dinheiro em centavos (Int), percentual em pontos-base (Int, 1% = 100),
+// datas em UTC (DateTime). Dias de calendário (início e fim de campanha) usam @db.Date.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------- Login ----------
+
+enum Perfil {
+  LOJA
+  CREATOR
+  WEETHUB
+}
+
+model Usuario {
+  id         String       @id @default(cuid())
+  email      String       @unique // sempre em minúsculas
+  nome       String
+  perfil     Perfil
+  senhaHash  String? // vazio até a pessoa definir a senha pelo link do e-mail
+  lojaId     String?
+  loja       Loja?        @relation(fields: [lojaId], references: [id])
+  creator    Creator?
+  tokens     TokenSenha[]
+  criadoEm   DateTime     @default(now())
+  atualizado DateTime     @updatedAt
+}
+
+// Link para definir senha (convite do dono da loja e aprovação do creator).
+// Guardamos só o hash do token; o token em si vai no e-mail.
+model TokenSenha {
+  id        String    @id @default(cuid())
+  usuarioId String
+  usuario   Usuario   @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  motivo    String // 'convite_loja' | 'aprovacao_creator' | 'esqueci_senha'
+  expiraEm  DateTime
+  usadoEm   DateTime?
+  criadoEm  DateTime  @default(now())
+}
+
+// ---------- Loja e creators ----------
+
+enum StatusLoja {
+  implantacao
+  ativa
+  suspensa
+  cancelada
+}
+
+enum Rede {
+  instagram
+  tiktok
+}
+
+model Loja {
+  id                    String     @id @default(cuid())
+  nome                  String
+  slug                  String     @unique
+  status                StatusLoja @default(implantacao)
+  nuvemshopStoreId      Int?       @unique // uma loja Nuvemshop só se liga a uma loja nossa
+  nuvemshopConectada    Boolean    @default(false)
+  nuvemshopTokenCifrado String? // cifrado com CRIPTO_CHAVE (src/lib/cripto.ts)
+  comissaoPadraoBps     Int        @default(1000)
+  cupomDescontoPct      Int        @default(10)
+  retencaoDias          Int        @default(7)
+  // Critérios de aprovação (CriteriosAprovacao)
+  aprovacaoAutomatica   Boolean    @default(false)
+  seguidoresMin         Int        @default(0)
+  engajamentoMinBps     Int        @default(0)
+  redesAceitas          Rede[]     @default([instagram, tiktok])
+  segmentosAceitos      String[]   @default([]) // vazio = todos
+  exigeTerProduto       Boolean    @default(false)
+  // Página de cadastro
+  paginaTitulo          String     @default("Seja creator da nossa loja")
+  paginaTexto           String     @default("")
+  paginaAberta          Boolean    @default(true)
+  criadoEm              DateTime   @default(now())
+
+  usuarios   Usuario[]
+  afiliacoes Afiliacao[]
+  cupons     Cupom[]
+  produtos   Produto[]
+  beneficios Beneficio[]
+  campanhas  Campanha[]
+  pedidos    Pedido[]
+  comissoes  Comissao[]
+  pagamentos Pagamento[]
+  videos     Video[]
+  colecoes   Colecao[]
+  avisos     AvisoWebhook[]
+}
+
+model Creator {
+  id                  String    @id @default(cuid())
+  usuarioId           String    @unique
+  usuario             Usuario   @relation(fields: [usuarioId], references: [id])
+  nome                String
+  email               String    @unique
+  whatsapp            String
+  uf                  String    @db.Char(2)
+  cidade              String
+  bio                 String
+  segmentos           String[]
+  instagramPerfil     String?
+  instagramSeguidores Int?
+  tiktokPerfil        String?
+  tiktokSeguidores    Int?
+  engajamentoBps      Int?
+  bloqueado           Boolean   @default(false)
+  nascimento          DateTime? @db.Date
+  fotoUrl             String?
+  // Dados de pagamento (M10): guardados cifrados, mostrados só os 4 últimos dígitos.
+  cpfCifrado          String?
+  pixCifrado          String?
+  criadoEm            DateTime  @default(now())
+
+  afiliacoes    Afiliacao[]
+  cupons        Cupom[]
+  participacoes Participacao[]
+  pedidos       Pedido[]
+  comissoes     Comissao[]
+  pagamentos    Pagamento[]
+  videos        Video[]
+}
+
+enum StatusAfiliacao {
+  pendente
+  aprovado
+  recusado
+  pausado
+  removido
+}
+
+enum OrigemAfiliacao {
+  link
+  qr_code
+  email
+  pagina
+}
+
+enum Decisao {
+  automatica
+  manual
+}
+
+// O status fica aqui, não no creator: um creator pode estar em várias lojas.
+model Afiliacao {
+  id                 String          @id @default(cuid())
+  lojaId             String
+  loja               Loja            @relation(fields: [lojaId], references: [id])
+  creatorId          String
+  creator            Creator         @relation(fields: [creatorId], references: [id])
+  status             StatusAfiliacao @default(pendente)
+  origem             OrigemAfiliacao
+  campanhaConviteId  String?
+  temProduto         Boolean         @default(false)
+  falhasCriterios    String[]        @default([])
+  decisao            Decisao?
+  decididaEm         DateTime?
+  comissaoPropriaBps Int?
+  motivoInterno      String? // motivo de recusa, pausa ou remoção (só a loja vê)
+  criadoEm           DateTime        @default(now())
+
+  @@unique([lojaId, creatorId])
+}
+
+enum StatusCupom {
+  ativo
+  pausado
+  desativado
+  erro_sync
+}
+
+model Cupom {
+  id                String      @id @default(cuid())
+  lojaId            String
+  loja              Loja        @relation(fields: [lojaId], references: [id])
+  creatorId         String
+  creator           Creator     @relation(fields: [creatorId], references: [id])
+  codigo            String
+  // Cópia em maiúsculas do código: garante unicidade sem diferenciar maiúsculas.
+  // Preenchida por src/lib/cupom-db.ts (normalizarCodigo).
+  codigoNormalizado String
+  nuvemshopId       Int?
+  status            StatusCupom @default(ativo)
+  erro              String?
+  criadoEm          DateTime    @default(now())
+
+  @@unique([lojaId, codigoNormalizado])
+}
+
+model Produto {
+  id            String  @id @default(cuid())
+  lojaId        String
+  loja          Loja    @relation(fields: [lojaId], references: [id])
+  nuvemshopId   Int
+  nome          String
+  categoria     String?
+  precoCentavos Int
+  imagemUrl     String?
+
+  @@unique([lojaId, nuvemshopId])
+}
+
+// ---------- Campanhas ----------
+
+enum TipoBeneficio {
+  meta
+  ranking
+  periodo
+}
+
+enum RecompensaBeneficio {
+  multiplicador
+  bonus_bps
+  premio
+}
+
+model Beneficio {
+  id                String              @id @default(cuid())
+  lojaId            String
+  loja              Loja                @relation(fields: [lojaId], references: [id])
+  nome              String
+  tipo              TipoBeneficio
+  recompensa        RecompensaBeneficio
+  multiplicadorX100 Int?
+  bonusBps          Int?
+  topN              Int?
+  premioDescricao   String?
+  periodoInicio     DateTime?           @db.Date
+  periodoFim        DateTime?           @db.Date
+}
+
+enum Visibilidade {
+  aberta
+  so_convidados
+}
+
+enum Entrega {
+  publicar
+  entregar_arquivo
+  publicar_e_entregar
+}
+
+enum StatusCampanha {
+  rascunho
+  agendada
+  ativa
+  encerrada
+  cancelada
+}
+
+model Campanha {
+  id                     String         @id @default(cuid())
+  lojaId                 String
+  loja                   Loja           @relation(fields: [lojaId], references: [id])
+  nome                   String
+  produtoIds             String[]       @default([]) // vazio = todos os produtos
+  inicio                 DateTime       @db.Date // dia, fuso de São Paulo
+  fim                    DateTime       @db.Date
+  metaCentavos           Int
+  metaIndividualCentavos Int?
+  comissaoBps            Int
+  visibilidade           Visibilidade   @default(aberta)
+  entrega                Entrega        @default(publicar)
+  briefing               String
+  tags                   String[]       @default([])
+  beneficioIds           String[]       @default([])
+  status                 StatusCampanha @default(rascunho)
+  criadoEm               DateTime       @default(now())
+
+  participacoes Participacao[]
+  pedidos       Pedido[]
+  comissoes     Comissao[]
+  videos        Video[]
+}
+
+enum StatusParticipacao {
+  convidado
+  aceito
+  recusado
+  removido
+}
+
+model Participacao {
+  campanhaId          String
+  campanha            Campanha           @relation(fields: [campanhaId], references: [id])
+  creatorId           String
+  creator             Creator            @relation(fields: [creatorId], references: [id])
+  status              StatusParticipacao
+  aceitaEm            DateTime?
+  comissaoBpsNoAceite Int?
+
+  @@id([campanhaId, creatorId])
+}
+
+// ---------- Vendas ----------
+
+enum EstadoPedido {
+  aberto
+  pago
+  cancelado
+  devolvido
+  devolvido_parcial
+}
+
+// Regra de ouro: só pedido PAGO gera comissão. Cancelado ou devolvido estorna.
+model Pedido {
+  id                   String       @id @default(cuid())
+  lojaId               String
+  loja                 Loja         @relation(fields: [lojaId], references: [id])
+  nuvemshopId          Int
+  numero               String
+  cupom                String?
+  creatorId            String?
+  creator              Creator?     @relation(fields: [creatorId], references: [id])
+  campanhaId           String?
+  campanha             Campanha?    @relation(fields: [campanhaId], references: [id])
+  subtotalCentavos     Int
+  descontoCentavos     Int
+  freteCentavos        Int
+  totalCentavos        Int
+  baseComissaoCentavos Int
+  devolvidoCentavos    Int          @default(0)
+  ufComprador          String?      @db.Char(2)
+  emailComprador       String? // só para checar autocompra (R-04)
+  estado               EstadoPedido
+  criadoEm             DateTime
+  pagoEm               DateTime?
+  canceladoEm          DateTime?
+  autocompra           Boolean      @default(false)
+  envioCreator         Boolean      @default(false)
+
+  itens     ItemPedido[]
+  comissoes Comissao[]
+
+  @@unique([lojaId, nuvemshopId])
+  @@index([lojaId, pagoEm])
+}
+
+model ItemPedido {
+  id                    String  @id @default(cuid())
+  pedidoId              String
+  pedido                Pedido  @relation(fields: [pedidoId], references: [id], onDelete: Cascade)
+  produtoNuvemshopId    Int
+  produtoId             String?
+  nome                  String
+  quantidade            Int
+  precoUnitarioCentavos Int
+}
+
+// Aviso recebido da Nuvemshop (webhook). Gravado antes de processar.
+model AvisoWebhook {
+  id           String    @id @default(cuid())
+  lojaId       String?
+  loja         Loja?     @relation(fields: [lojaId], references: [id])
+  storeId      Int
+  evento       String
+  recursoId    Int?
+  corpo        Json
+  recebidoEm   DateTime  @default(now())
+  processadoEm DateTime?
+  erro         String?
+}
+
+// ---------- Financeiro ----------
+
+enum TipoComissao {
+  venda
+  estorno
+}
+
+enum StatusComissao {
+  prevista
+  liberada
+  paga
+  estornada
+}
+
+model Comissao {
+  id            String         @id @default(cuid())
+  lojaId        String
+  loja          Loja           @relation(fields: [lojaId], references: [id])
+  creatorId     String
+  creator       Creator        @relation(fields: [creatorId], references: [id])
+  pedidoId      String
+  pedido        Pedido         @relation(fields: [pedidoId], references: [id])
+  campanhaId    String?
+  campanha      Campanha?      @relation(fields: [campanhaId], references: [id])
+  baseCentavos  Int
+  taxaBps       Int
+  valorCentavos Int // estorno = negativo
+  tipo          TipoComissao
+  status        StatusComissao
+  liberaEm      DateTime
+  retida        Boolean        @default(false)
+  pagamentoId   String?
+  pagamento     Pagamento?     @relation(fields: [pagamentoId], references: [id])
+  criadoEm      DateTime       @default(now())
+
+  @@unique([pedidoId, tipo])
+  @@index([lojaId, status])
+}
+
+enum FormaPagamento {
+  pix
+  transferencia
+  outro
+}
+
+model Pagamento {
+  id             String         @id @default(cuid())
+  lojaId         String
+  loja           Loja           @relation(fields: [lojaId], references: [id])
+  creatorId      String
+  creator        Creator        @relation(fields: [creatorId], references: [id])
+  valorCentavos  Int
+  pagoEm         DateTime
+  forma          FormaPagamento
+  comprovanteUrl String?
+  registradoPor  String // usuarioId
+  comissoes      Comissao[]
+}
+
+// ---------- Vídeos ----------
+
+enum OrigemVideo {
+  creator
+  upload_loja
+  link
+}
+
+enum FormatoVideo {
+  reels
+  story
+  feed
+  tiktok
+}
+
+enum StatusVideo {
+  em_analise
+  aprovado
+  reprovado
+}
+
+enum DireitoVideo {
+  organico
+  organico_e_anuncio
+  sem_direito
+}
+
+model Video {
+  id               String        @id @default(cuid())
+  lojaId           String
+  loja             Loja          @relation(fields: [lojaId], references: [id])
+  campanhaId       String?
+  campanha         Campanha?     @relation(fields: [campanhaId], references: [id])
+  creatorId        String?
+  creator          Creator?      @relation(fields: [creatorId], references: [id])
+  origem           OrigemVideo
+  rede             Rede?
+  formato          FormatoVideo?
+  link             String?
+  arquivoUrl       String?
+  miniaturaUrl     String?
+  duracaoSeg       Int?
+  tamanhoBytes     Int? // até 2 GB
+  tags             String[]      @default([])
+  status           StatusVideo   @default(em_analise)
+  motivoReprovacao String?
+  views            Int?
+  curtidas         Int?
+  comentarios      Int?
+  publicadoEm      DateTime?
+  direito          DireitoVideo  @default(organico)
+  direitoAte       DateTime?
+  enviadoEm        DateTime      @default(now())
+}
+
+model Colecao {
+  id       String   @id @default(cuid())
+  lojaId   String
+  loja     Loja     @relation(fields: [lojaId], references: [id])
+  nome     String
+  videoIds String[] @default([])
+}
