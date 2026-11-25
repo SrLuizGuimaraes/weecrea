@@ -6,7 +6,9 @@ Plataforma para a loja gerir creators de UGC (campanhas, cupons, vídeos, comiss
 - **Como todo mundo se junta:** [`docs/COMO-INTEGRAR.md`](docs/COMO-INTEGRAR.md)
 - **Guia para o Claude Code (prompt base + bloco de cada módulo):** [`docs/GUIA-CLAUDE.md`](docs/GUIA-CLAUDE.md)
 - **Os 11 módulos:** [`modulos/`](modulos/) (um guia por pasta)
-- **Idioma comum entre módulos:** [`contratos/tipos.ts`](contratos/tipos.ts)
+- **Idioma comum entre módulos:** [`src/contratos/tipos.ts`](src/contratos/tipos.ts)
+> **Mudança de lugar (25/11):** o antigo `contratos/tipos.ts` foi para `src/contratos/tipos.ts`, já na versão ampliada do guia (afiliação, itens do pedido, centavos, ciclo da comissão, vídeo com status e direitos). Importe com `import type { Pedido } from "@/contratos/tipos"`.
+
 - **Dados de mentira:** [`dados-exemplo/dados.json`](dados-exemplo/dados.json)
 
 ## Stack
