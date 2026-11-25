@@ -51,10 +51,14 @@ describe('R-01 venda atribuída', () => {
     expect(atribuir(pedido({ cupom: ' Marina10 ' })).creatorId).toBe('c1');
   });
   it('sem cupom de creator, fica sem creator', () => {
-    expect(atribuir(pedido({ cupom: 'BLACKFRIDAY' }))).toMatchObject({ creatorId: undefined, geraComissao: false });
+    const outro = atribuir(pedido({ cupom: 'BLACKFRIDAY' }));
+    expect(outro.creatorId).toBeUndefined();
+    expect(outro.geraComissao).toBe(false);
     const semCupom = pedido();
     delete semCupom.cupom;
-    expect(atribuir(semCupom)).toMatchObject({ creatorId: undefined, geraComissao: false });
+    const r = atribuir(semCupom);
+    expect(r.creatorId).toBeUndefined();
+    expect(r.geraComissao).toBe(false);
   });
   it('não usa cupom de outra loja', () => {
     expect(atribuir(pedido(), { cupons: [cupom('MARINA10', 'c1', 'l2')] }).creatorId).toBeUndefined();
