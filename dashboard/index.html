@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WEECREA · Painel da equipe</title>
+<style>
+:root{--bg:#F1F0F6;--surface:#fff;--ink:#1A1830;--muted:#6A6880;--line:#DDDBE8;--brand:#5B3DF5;--brand-soft:#E9E4FF;--hot:#D42A62;--ok:#0B7F53;--ok-soft:#DDF3EA;--warn:#96580A;--warn-soft:#FBEBD0;--bad-soft:#FBE1EA}
+@media (prefers-color-scheme:dark){:root{--bg:#121120;--surface:#1C1A2E;--ink:#EEEDF7;--muted:#A09DB8;--line:#302D48;--brand:#9C88FF;--brand-soft:#2B2552;--hot:#FF6A97;--ok:#4FD3A0;--ok-soft:#153A2D;--warn:#F0B050;--warn-soft:#3D2E12;--bad-soft:#3F1A28}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:20px 24px;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.02em;display:flex;gap:8px;align-items:center}
+.logo i{width:14px;height:22px;border-radius:4px;background:var(--brand);transform:rotate(-8deg);display:block}
+header .r{margin-left:auto;color:var(--muted);font-size:13px;text-align:right}
+main{max-width:1180px;margin:0 auto;padding:24px}
+h1{font-size:26px;margin:0 0 4px}
+.sub{color:var(--muted)}
+.top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin:20px 0}
+@media(max-width:800px){.top{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.big{font-size:32px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.bar{height:10px;border-radius:99px;background:var(--brand-soft);overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;background:var(--brand);border-radius:99px;transition:width .5s}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.mod h3{margin:0;font-size:15px}
+.mod .id{font-weight:800;color:var(--brand);margin-right:6px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pill{font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.p-a{background:var(--bg);color:var(--muted)}.p-f{background:var(--warn-soft);color:var(--warn)}.p-d{background:var(--ok-soft);color:var(--ok)}.p-t{background:var(--bad-soft);color:var(--hot)}
+.meta{font-size:13px;color:var(--muted);margin-top:8px;display:flex;flex-wrap:wrap;gap:4px 14px}
+.who{display:flex;align-items:center;gap:6px}
+.who img{width:20px;height:20px;border-radius:50%}
+.ok .bar i{background:var(--ok)}
+.sec{margin:28px 0 12px;font-size:17px;font-weight:700}
+.dep{font-size:12px;color:var(--muted);margin-top:6px}
+a{color:var(--brand)}
+.msg{padding:14px;border-radius:12px;background:var(--warn-soft);color:var(--warn);margin:16px 0}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.tools button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:6px 14px;cursor:pointer;font:inherit;font-size:13px}
+.tools button[aria-pressed=true]{background:var(--ink);color:var(--surface)}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><i></i>WEECREA <span class="sub" style="font-weight:500">painel da equipe</span></div>
+  <div class="r" id="upd">carregando…</div>
+</header>
+<main>
+  <h1>Como está o projeto</h1>
+  <p class="sub">Atualiza sozinho. Para mexer aqui, marque as caixinhas da issue do seu módulo no GitHub.</p>
+  <div id="aviso"></div>
+  <div class="top" id="top"></div>
+  <div class="tools" id="tools"></div>
+  <div class="sec">Módulos</div>
+  <div class="grid" id="mods"></div>
+  <div class="sec" id="travTit" hidden>Travados, precisam de ajuda</div>
+  <div class="grid" id="trav"></div>
+</main>
+<script>
+// ===== CONFIGURAÇÃO =====
+// Dono/repositório: detectado pelo endereço (dono.github.io/repo) ou por ?repo=dono/repo
+const REPO = (()=>{
+  const q=new URLSearchParams(location.search).get('repo'); if(q) return q;
+  const m=location.hostname.match(/^(.+)\.github\.io$/); const p=location.pathname.split('/')[1];
+  return m&&p ? `${m[1]}/${p}` : null;
+})();
+const PRAZO = '2026-12-02';
+const API = 'https://api.github.com/repos/'+REPO;
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let filtro='todos', estado=[];
+
+async function carregar(){
+  const mods=(await (await fetch('modulos.json').catch(()=>fetch('../modulos/modulos.json'))).json()).modulos;
+  let issues=[], prs=[], demo=false;
+  if(REPO){
+    try{
+      const r=await fetch(`${API}/issues?labels=modulo&state=all&per_page=100`);
+      if(!r.ok) throw new Error(r.status);
+      issues=(await r.json()).filter(i=>!i.pull_request);
+      const p=await fetch(`${API}/pulls?state=open&per_page=100`); prs=p.ok?await p.json():[];
+    }catch(e){ demo=true; $('#aviso').innerHTML='<div class="msg">Não consegui ler o GitHub agora (limite de acessos ou repositório privado). Mostrando só a lista de módulos.</div>'; }
+  } else { demo=true; $('#aviso').innerHTML='<div class="msg">Abra este painel pelo link do GitHub Pages, ou use <code>?repo=dono/weecrea</code>. Mostrando a lista de módulos sem progresso.</div>'; }
+
+  estado=mods.map(m=>{
+    const is=issues.find(i=>new RegExp('^'+m.id+'\\.','i').test(i.title));
+    const body=is?.body||''; const tot=(body.match(/- \[[ xX]\]/g)||[]).length||m.tarefas.length;
+    const feitas=(body.match(/- \[[xX]\]/g)||[]).length;
+    const labels=(is?.labels||[]).map(l=>l.name);
+    const pr=prs.filter(p=>p.head.ref.toLowerCase().startsWith(m.id+'-'));
+    let st='A fazer';
+    if(is&&(is.state==='closed'||labels.includes('feito')||(tot&&feitas===tot))) st='Feito';
+    else if(labels.includes('travado')) st='Travado';
+    else if(labels.includes('fazendo')||feitas>0||pr.length) st='Fazendo';
+    return {m,is,pct:tot?Math.round(feitas/tot*100):0,feitas,tot,st,pr,quem:is?.assignees||[],mov:is?.updated_at};
+  });
+  pintar(demo);
+}
+
+function ha(d){ if(!d) return '—'; const s=(Date.now()-new Date(d))/1000;
+  if(s<3600) return Math.max(1,Math.round(s/60))+' min'; if(s<86400) return Math.round(s/3600)+' h'; return Math.round(s/86400)+' d'; }
+
+function pintar(demo){
+  const tot=estado.length, feitos=estado.filter(e=>e.st==='Feito').length;
+  const geral=Math.round(estado.reduce((a,e)=>a+e.pct,0)/tot);
+  const dias=Math.ceil((new Date(PRAZO+'T23:59:59')-new Date())/864e5);
+  const trav=estado.filter(e=>e.st==='Travado').length, faz=estado.filter(e=>e.st==='Fazendo').length;
+  $('#top').innerHTML=`
+   <div class="card"><div class="sub">Progresso geral</div><div class="big">${geral}%</div><div class="bar"><i style="width:${geral}%"></i></div></div>
+   <div class="card"><div class="sub">Dias para 02/12</div><div class="big">${dias>0?dias:0}</div></div>
+   <div class="card"><div class="sub">Módulos prontos</div><div class="big">${feitos}/${tot}</div><div class="sub">${faz} em andamento</div></div>
+   <div class="card"><div class="sub">Travados</div><div class="big" style="color:${trav?'var(--hot)':'inherit'}">${trav}</div></div>`;
+  $('#tools').innerHTML=['todos','A fazer','Fazendo','Feito','Travado'].map(f=>`<button aria-pressed="${filtro===f}" data-f="${f}">${f==='todos'?'Todos':f}</button>`).join('');
+  const cls={'A fazer':'p-a','Fazendo':'p-f','Feito':'p-d','Travado':'p-t'};
+  const card=e=>`<div class="card mod ${e.st==='Feito'?'ok':''}">
+    <div class="row"><h3><span class="id">${e.m.id.toUpperCase()}</span>${esc(e.m.nome)}</h3><span class="pill ${cls[e.st]}">${e.st}</span></div>
+    <div class="bar"><i style="width:${e.pct}%"></i></div>
+    <div class="meta"><span><b>${e.pct}%</b> (${e.feitas}/${e.tot} tarefas)</span>
+      <span class="who">${e.quem.length?e.quem.map(a=>`<img src="${a.avatar_url}" alt=""> ${esc(a.login)}`).join(', '):'sem responsável'}</span>
+      ${e.pr.length?`<span>${e.pr.length} PR aberto</span>`:''}
+      ${e.mov?`<span>mexeu há ${ha(e.mov)}</span>`:''}</div>
+    ${e.m.recebe.length?`<div class="dep">Precisa de: ${e.m.recebe.map(i=>i.toUpperCase()).join(', ')}</div>`:''}
+    ${e.is?`<div class="dep"><a href="${e.is.html_url}" target="_blank" rel="noopener">abrir issue</a></div>`:''}
+  </div>`;
+  $('#mods').innerHTML=estado.filter(e=>filtro==='todos'||e.st===filtro).map(card).join('');
+  const t=estado.filter(e=>e.st==='Travado');
+  $('#travTit').hidden=!t.length; $('#trav').innerHTML=t.map(card).join('');
+  $('#upd').textContent=(demo?'sem dados ao vivo · ':'')+'atualizado às '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-f]'); if(b){filtro=b.dataset.f; pintar(!REPO);}});
+carregar(); setInterval(carregar,120000);
+</script>
+</body>
+</html>

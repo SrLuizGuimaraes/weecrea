@@ -1,0 +1,23 @@
+{
+  "loja": {"id":"l1","nome":"Ateliê Jabuticaba","slug":"atelie-jabuticaba"},
+  "creators": [
+    {"id":"c1","nome":"Marina Couto","arroba":"marinacouto","rede":"Instagram","seguidores":48200,"engajamento":4.8,"segmentos":["Moda"],"uf":"MG","status":"ativo"},
+    {"id":"c2","nome":"Rafa Lima","arroba":"rafalima","rede":"TikTok","seguidores":12900,"engajamento":6.1,"segmentos":["Lifestyle"],"uf":"SP","status":"ativo"},
+    {"id":"c3","nome":"Bia Torres","arroba":"biatorres","rede":"Instagram","seguidores":2100,"engajamento":2.0,"segmentos":["Moda"],"uf":"BA","status":"pendente"}
+  ],
+  "campanhas": [
+    {"id":"k1","lojaId":"l1","nome":"Verão 27 no linho","produtoId":"p1","metaVendas":20000,"comissaoPct":10,"inicio":"2026-11-01","fim":"2026-11-30","briefing":"Mostre o look no dia a dia.","tags":["linho","verão"],"beneficios":["Peça grátis"],"status":"ativa"}
+  ],
+  "cupons": [
+    {"codigo":"MARINA10","creatorId":"c1","lojaId":"l1"},
+    {"codigo":"RAFA10","creatorId":"c2","lojaId":"l1"}
+  ],
+  "pedidos": [
+    {"id":"o1","lojaId":"l1","cupom":"MARINA10","valor":389.9,"uf":"MG","produtoId":"p1","data":"2026-11-10","estado":"pago"},
+    {"id":"o2","lojaId":"l1","cupom":"MARINA10","valor":259.0,"uf":"SP","produtoId":"p1","data":"2026-11-12","estado":"cancelado"},
+    {"id":"o3","lojaId":"l1","cupom":"RAFA10","valor":512.5,"uf":"RJ","produtoId":"p1","data":"2026-11-14","estado":"pago"}
+  ],
+  "videos": [
+    {"id":"v1","creatorId":"c1","campanhaId":"k1","rede":"Instagram","link":"https://instagram.com/reel/exemplo","views":15400,"curtidas":980,"data":"2026-11-09"}
+  ]
+}
