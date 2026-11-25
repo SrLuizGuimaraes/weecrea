@@ -1,0 +1,37 @@
+# Publica o painel da equipe na Vercel (projeto "weecrea-painel") quando o painel ou a lista de módulos muda na main.
+# O status dos módulos não precisa de deploy: o painel lê as issues do GitHub ao vivo (dashboard/api/status.js).
+# Segredo necessário no repositório: VERCEL_TOKEN (o mesmo do deploy do sistema).
+name: Deploy do painel
+on:
+  push:
+    branches: [main]
+    paths: ['dashboard/**', 'modulos/modulos.json']
+  workflow_dispatch:
+concurrency:
+  group: deploy-painel
+  cancel-in-progress: true
+permissions:
+  contents: read
+env:
+  VERCEL_ORG_ID: team_tpAQ5oOgBX68bNgBFTSADAGP
+  VERCEL_PROJECT_ID: prj_v11NO3Wc1wfifQ1lu82BNechnwrK
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --global vercel@latest
+      - name: Monta a pasta do painel
+        run: |
+          mkdir -p /tmp/painel
+          cp dashboard/index.html /tmp/painel/
+          cp -r dashboard/api /tmp/painel/api
+          cp modulos/modulos.json /tmp/painel/modulos.json
+      - working-directory: /tmp/painel
+        run: |
+          mkdir -p .vercel
+          echo "{\"orgId\":\"$VERCEL_ORG_ID\",\"projectId\":\"$VERCEL_PROJECT_ID\"}" > .vercel/project.json
+          vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
