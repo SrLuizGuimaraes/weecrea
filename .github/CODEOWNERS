@@ -1,0 +1,78 @@
+# Quem revisa cada pasta. O GitHub pede a revisão do dono quando alguém mexe em pasta alheia.
+# Por enquanto todos apontam para o dono do repositório. Cada dono troca a linha do seu módulo
+# pelo próprio usuário do GitHub (ex.: @maria) num PR para o M1. A última regra que casa vale.
+
+*                                         @SrLuizGuimaraes
+
+# M1. Base e login
+/src/app/entrar/                          @SrLuizGuimaraes
+/src/lib/                                 @SrLuizGuimaraes
+/src/contratos/                           @SrLuizGuimaraes
+/src/proxy.ts                             @SrLuizGuimaraes
+/src/app/api/auth/                        @SrLuizGuimaraes
+/src/app/api/upload/                      @SrLuizGuimaraes
+/prisma/                                  @SrLuizGuimaraes
+/dados-exemplo/                           @SrLuizGuimaraes
+/.github/                                 @SrLuizGuimaraes
+/src/dominio/dinheiro.ts                  @SrLuizGuimaraes
+
+# M2. Visual
+/src/componentes/                         @SrLuizGuimaraes
+/src/app/catalogo/                        @SrLuizGuimaraes
+
+# M3. Nuvemshop: conexão, produtos e cupons
+/src/app/api/nuvemshop/oauth/             @SrLuizGuimaraes
+/src/app/(loja)/loja/conexoes/            @SrLuizGuimaraes
+/src/app/(loja)/loja/produtos/            @SrLuizGuimaraes
+/src/modulos/m3-nuvemshop/                @SrLuizGuimaraes
+/src/dominio/cupom*                       @SrLuizGuimaraes
+
+# M4. Nuvemshop: vendas
+/src/app/api/nuvemshop/webhooks/          @SrLuizGuimaraes
+/src/app/api/cron/reconciliar/            @SrLuizGuimaraes
+/src/modulos/m4-vendas/                   @SrLuizGuimaraes
+/src/dominio/atribuicao*                  @SrLuizGuimaraes
+
+# M5. Campanhas e benefícios
+/src/app/(loja)/loja/campanhas/           @SrLuizGuimaraes
+/src/app/(creator)/creator/campanhas/     @SrLuizGuimaraes
+/src/modulos/m5-campanhas/                @SrLuizGuimaraes
+/src/dominio/campanha*                    @SrLuizGuimaraes
+
+# M6. Convite e página de cadastro (e a parte "Página de cadastro" de loja/configuracoes)
+/src/app/(publico)/c/                     @SrLuizGuimaraes
+/src/modulos/m6-cadastro/                 @SrLuizGuimaraes
+
+# M7. Aprovação e critérios (e a parte "Aprovação" de loja/configuracoes)
+/src/app/(loja)/loja/creators/            @SrLuizGuimaraes
+/src/modulos/m7-aprovacao/                @SrLuizGuimaraes
+/src/dominio/criterios*                   @SrLuizGuimaraes
+
+# M6 e M7 dividem esta pasta
+/src/app/(loja)/loja/configuracoes/       @SrLuizGuimaraes
+
+# M8. Biblioteca de vídeos
+/src/app/(loja)/loja/biblioteca/          @SrLuizGuimaraes
+/src/app/(creator)/creator/conteudos/     @SrLuizGuimaraes
+/src/modulos/m8-biblioteca/               @SrLuizGuimaraes
+
+# M9. Painel de vendas
+/src/app/(loja)/loja/painel/              @SrLuizGuimaraes
+/src/app/(creator)/creator/inicio/        @SrLuizGuimaraes
+/src/modulos/m9-painel/                   @SrLuizGuimaraes
+
+# M10. Financeiro e comissões
+/src/app/(loja)/loja/financeiro/          @SrLuizGuimaraes
+/src/app/(creator)/creator/financeiro/    @SrLuizGuimaraes
+/src/app/api/cron/liberar/                @SrLuizGuimaraes
+/src/modulos/m10-financeiro/              @SrLuizGuimaraes
+/src/dominio/comissao*                    @SrLuizGuimaraes
+
+# M11. Visão Weethub e testes
+/src/app/(weethub)/weethub/               @SrLuizGuimaraes
+/src/modulos/m11-weethub/                 @SrLuizGuimaraes
+/docs/roteiro-teste.md                    @SrLuizGuimaraes
+
+# Painel da equipe (GitHub Pages)
+/dashboard/                               @SrLuizGuimaraes
+/modulos/                                 @SrLuizGuimaraes
