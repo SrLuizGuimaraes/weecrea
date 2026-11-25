@@ -2,7 +2,7 @@
 
 Plataforma para a loja gerir creators de UGC (campanhas, cupons, vídeos, comissões, aprovação), ligada à Nuvemshop. Entrega: **02/12/2026**.
 
-- **Painel de acompanhamento:** link do GitHub Pages (veja "Settings → Pages")
+- **Painel de acompanhamento:** https://weecrea-painel.vercel.app (atualizar: `bash scripts/publicar-painel.sh`)
 - **Como todo mundo se junta:** [`docs/COMO-INTEGRAR.md`](docs/COMO-INTEGRAR.md)
 - **Guia para o Claude Code (prompt base + bloco de cada módulo):** [`docs/GUIA-CLAUDE.md`](docs/GUIA-CLAUDE.md)
 - **Os 11 módulos:** [`modulos/`](modulos/) (um guia por pasta)
