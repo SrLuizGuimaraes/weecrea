@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Suspense } from 'react';
 import { ScriptTema } from '@/componentes/tema';
 import { AvisoDaUrl, ProvedorToast } from '@/componentes/toast';
+import { ProvedorDemo } from '@/lib/demo/estado';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen antialiased">
         <ProvedorToast>
-          {children}
+          <ProvedorDemo>{children}</ProvedorDemo>
           <Suspense><AvisoDaUrl /></Suspense>
         </ProvedorToast>
       </body>

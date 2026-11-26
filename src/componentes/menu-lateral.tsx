@@ -9,6 +9,7 @@ import { useState, type ComponentType } from 'react';
 import type { Perfil } from '@/contratos/tipos';
 import { cx } from './cx';
 import { BotaoTema } from './tema';
+import { AvisoDemonstracao } from '@/lib/demo/estado';
 
 type Item = { href: string; rotulo: string; Icone: ComponentType<{ size?: number }> };
 
@@ -62,7 +63,8 @@ export function MenuLateral({ perfil, titulo, nome, sair }: { perfil: Perfil; ti
             </Link>
           ))}
         </nav>
-        <div className="mt-auto flex items-center justify-between gap-2 border-t border-borda pt-3">
+        <div className="mt-auto pt-3"><AvisoDemonstracao /></div>
+        <div className="mt-3 flex items-center justify-between gap-2 border-t border-borda pt-3">
           <p className="min-w-0 truncate text-sm">{nome}</p>
           <div className="flex gap-1">
             <BotaoTema />
