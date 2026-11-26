@@ -10,23 +10,23 @@ import { useDemo } from '@/lib/demo/estado';
 import { csvDoLote, liberarComissoes, pagarCreator, pagarLote, revisarRetida } from '@/modulos/m10-financeiro/acoes';
 import { carteiraDaLoja, faturasDaLoja, financeiroDaLoja } from '@/modulos/m10-financeiro/dados';
 
-export function TelaFinanceiroLoja({ lojaId, usuarioId, aba: a, pagina, somenteLeitura }: { lojaId: string; usuarioId: string; aba?: string; pagina?: number; somenteLeitura?: boolean }) {
+export function TelaFinanceiroLoja({ lojaId, usuarioId, aba: a, pagina, somenteLeitura, prefixo = '?' }: { lojaId: string; usuarioId: string; aba?: string; pagina?: number; somenteLeitura?: boolean; prefixo?: string }) {
   const aba = a === 'carteira' || a === 'faturas' ? a : 'visao';
   return (
     <>
       <CabecalhoPagina titulo="Financeiro" descricao="Comissões dos creators, pagamentos e faturas da Weethub." />
       <div className="mb-4"><Abas ativa={aba} abas={[
-        { chave: 'visao', rotulo: 'Visão geral', href: '?aba=visao' },
-        { chave: 'carteira', rotulo: 'Carteira de creators', href: '?aba=carteira' },
-        { chave: 'faturas', rotulo: 'Faturas', href: '?aba=faturas' },
+        { chave: 'visao', rotulo: 'Visão geral', href: `${prefixo}aba=visao` },
+        { chave: 'carteira', rotulo: 'Carteira de creators', href: `${prefixo}aba=carteira` },
+        { chave: 'faturas', rotulo: 'Faturas', href: `${prefixo}aba=faturas` },
       ]} /></div>
-      {aba === 'visao' ? <Visao lojaId={lojaId} pagina={pagina ?? 1} leitura={somenteLeitura} />
+      {aba === 'visao' ? <Visao lojaId={lojaId} pagina={pagina ?? 1} leitura={somenteLeitura} prefixo={prefixo} />
         : aba === 'carteira' ? <Carteira lojaId={lojaId} usuarioId={usuarioId} leitura={somenteLeitura} /> : <Faturas lojaId={lojaId} />}
     </>
   );
 }
 
-function Visao({ lojaId, pagina, leitura }: { lojaId: string; pagina: number; leitura?: boolean }) {
+function Visao({ lojaId, pagina, leitura, prefixo }: { lojaId: string; pagina: number; leitura?: boolean; prefixo: string }) {
   const { D, mudar } = useDemo();
   const toast = useToast();
   const f = financeiroDaLoja(D, lojaId);
@@ -62,7 +62,7 @@ function Visao({ lojaId, pagina, leitura }: { lojaId: string; pagina: number; le
             </tr>
           ))}
         </Tabela>
-        <div className="mt-3"><Paginacao pagina={pg.pagina} totalPaginas={pg.totalPaginas} hrefDaPagina={(n) => `?aba=visao&p=${n}`} /></div>
+        <div className="mt-3"><Paginacao pagina={pg.pagina} totalPaginas={pg.totalPaginas} hrefDaPagina={(n) => `${prefixo}aba=visao&p=${n}`} /></div>
       </Cartao>
     </div>
   );
