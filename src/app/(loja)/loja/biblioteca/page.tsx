@@ -50,7 +50,7 @@ export default async function Biblioteca({ searchParams }: { searchParams: Promi
       )}
 
       <Cartao className="mb-4">
-        <form method="get" className="grid gap-2 sm:grid-cols-2 lg:grid-cols-6">
+        <form method="get" className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
           <input type="hidden" name="modo" value={modo} />
           {p.colecao && <input type="hidden" name="colecao" value={p.colecao} />}
           <select name="campanha" defaultValue={p.campanha ?? ''} className={classeEntrada} aria-label="Campanha">
@@ -106,7 +106,7 @@ export default async function Biblioteca({ searchParams }: { searchParams: Promi
                 {lista.map(({ video: v, creator }) => (
                   <CartaoVideo key={v.id} perfil={creator} rede={v.rede ? REDE[v.rede] : 'Arquivo'} formato={v.formato} status={v.status}
                     selecao={{ name: 'videoIds', value: v.id }} href={v.link ?? v.arquivoUrl} miniaturaUrl={v.miniaturaUrl}
-                    rodape={<div className="flex items-center justify-between gap-1"><span className="text-suave">{v.views ? `${formatarCompacto(v.views)} views` : formatarData(v.enviadoEm)}</span><AcoesVideo status={v.status} /></div>} />
+                    rodape={<div className="space-y-1"><p className="text-suave">{v.views ? `${formatarCompacto(v.views)} views` : formatarData(v.enviadoEm)}</p><AcoesVideo status={v.status} /></div>} />
                 ))}
               </div>
             </section>
@@ -120,7 +120,7 @@ export default async function Biblioteca({ searchParams }: { searchParams: Promi
 function AcoesVideo({ status }: { status: string }) {
   if (status !== 'em_analise') return null;
   return (
-    <div className="flex gap-1">
+    <div className="flex flex-wrap gap-1">
       <Modal titulo="Reprovar vídeo" gatilho={<Botao tamanho="p" variante="fantasma">Reprovar</Botao>}>
         <FormSimulado mensagem="Vídeo reprovado (simulação). O creator vê o motivo." className="space-y-3">
           <AreaTexto rotulo="Motivo (obrigatório)" required placeholder="O que precisa mudar" />
