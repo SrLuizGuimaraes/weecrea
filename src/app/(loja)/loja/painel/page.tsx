@@ -1,17 +1,14 @@
-// Provisório do M1. Dono desta rota: M9 (Painel de vendas).
+// Painel de vendas da loja. Dono: M9. Dados de exemplo por enquanto (src/modulos/m9-painel/dados.ts).
+import { CabecalhoPagina } from '@/componentes';
 import { exigirLoja } from '@/lib/acesso';
-import { db } from '@/lib/db';
+import { PainelLoja, type ParamsPainel } from '@/modulos/m9-painel/painel-loja';
 
-export default async function PainelLoja() {
+export default async function PainelDaLoja({ searchParams }: { searchParams: Promise<ParamsPainel> }) {
   const { lojaId } = await exigirLoja();
-  const [pedidos, creators] = await Promise.all([
-    db.pedido.count({ where: { lojaId } }),
-    db.afiliacao.count({ where: { lojaId, status: 'aprovado' } }),
-  ]);
   return (
-    <section>
-      <h1 className="text-2xl font-semibold">Painel</h1>
-      <p className="mt-2 opacity-70">{pedidos} pedidos e {creators} creators aprovados nesta loja.</p>
-    </section>
+    <>
+      <CabecalhoPagina titulo="Painel" descricao="Vendas com cupom dos seus creators, por período ou por creator." />
+      <PainelLoja lojaId={lojaId} params={await searchParams} base="/loja/painel" />
+    </>
   );
 }
