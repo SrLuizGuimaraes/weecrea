@@ -4,6 +4,7 @@ import { classeEntrada } from '@/componentes/campos';
 import { formatarReais } from '@/dominio/dinheiro';
 import { exigirWeethub } from '@/lib/acesso';
 import { dados, formatarNumero } from '@/lib/dados-exemplo';
+import { Pessoa } from '@/componentes/avatar';
 import { creatorsDaBase } from '@/modulos/m11-weethub/dados';
 
 export default async function CreatorsDaBase({ searchParams }: { searchParams: Promise<{ uf?: string; status?: string; loja?: string; busca?: string }> }) {
@@ -32,7 +33,7 @@ export default async function CreatorsDaBase({ searchParams }: { searchParams: P
       <Tabela colunas={['Creator', 'Perfil', 'Seguidores', 'Estado', 'Lojas', 'Vendas']} alinharDireita={[2, 5]} vazio="Nenhum creator com esses filtros.">
         {lista.map((r) => (
           <tr key={r.creator.id}>
-            <Td className="font-medium">{r.creator.nome}<div className="text-xs font-normal text-suave">{r.creator.segmentos.join(', ')}</div></Td>
+            <Td><Pessoa nome={r.creator.nome} detalhe={r.creator.segmentos.join(', ')} /></Td>
             <Td>{r.perfil.rede} <span className="text-suave">{r.perfil.perfil}</span></Td>
             <Td direita>{formatarNumero(r.perfil.seguidores)}</Td><Td>{r.creator.cidade}/{r.creator.uf}</Td>
             <Td><div className="flex flex-col gap-1">{r.lojas.map((l) => <span key={l.loja.id} className="flex items-center gap-1 text-xs">{l.loja.nome} <EtiquetaStatus status={l.status} /></span>)}</div></Td>

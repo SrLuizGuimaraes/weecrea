@@ -4,6 +4,7 @@
 // <MapaBrasil valores={{ SP: 4, MG: 2 }} />
 import type { ReactNode } from 'react';
 import { cx } from './cx';
+import { ALTURA_MAPA, FORMAS_UF } from './mapa-brasil-formas';
 
 export interface Ponto { rotulo: string; valor: number; texto?: string }
 
@@ -51,38 +52,25 @@ export function BarrasHorizontais({ itens, vazio = 'Sem dados no período.' }: {
   );
 }
 
-// Mapa do Brasil em grade (cada estado é um quadrado na posição aproximada).
-const GRADE: [string, number, number][] = [
-  ['RR', 0, 2], ['AP', 0, 4],
-  ['AM', 1, 1], ['PA', 1, 3], ['MA', 1, 5], ['CE', 1, 6], ['RN', 1, 7],
-  ['AC', 2, 0], ['RO', 2, 1], ['TO', 2, 4], ['PI', 2, 5], ['PB', 2, 7],
-  ['MT', 3, 2], ['GO', 3, 3], ['DF', 3, 4], ['BA', 3, 5], ['PE', 3, 6], ['AL', 3, 7],
-  ['MS', 4, 2], ['MG', 4, 4], ['ES', 4, 5], ['SE', 4, 6],
-  ['PR', 5, 3], ['SP', 5, 4], ['RJ', 5, 5],
-  ['SC', 6, 3],
-  ['RS', 7, 3],
-];
-
-export function MapaBrasil({ valores, rotuloValor = (n: number) => String(n) }: { valores: Record<string, number>; rotuloValor?: (n: number) => string }) {
+// Mapa do Brasil com os 27 estados, mais escuro onde há mais creators (como o protótipo).
+export function MapaBrasil({ valores, rotuloValor = (n: number) => `${n} creator${n === 1 ? '' : 's'}` }: { valores: Record<string, number>; rotuloValor?: (n: number) => string }) {
   const max = Math.max(1, ...Object.values(valores));
   return (
-    <div className="grid grid-cols-8 gap-1" role="img" aria-label="Mapa do Brasil por estado">
-      {Array.from({ length: 8 * 8 }, (_, i) => {
-        const linha = Math.floor(i / 8), coluna = i % 8;
-        const uf = GRADE.find(([, l, c]) => l === linha && c === coluna);
-        if (!uf) return <div key={i} />;
-        const v = valores[uf[0]] ?? 0;
-        const intensidade = v ? 0.15 + (v / max) * 0.85 : 0;
+    <svg viewBox={`-4 -4 408 ${ALTURA_MAPA + 8}`} role="img" aria-label="Mapa do Brasil por estado" className="block h-auto w-full">
+      {Object.entries(FORMAS_UF).map(([uf, f]) => {
+        const n = valores[uf] ?? 0;
+        const pct = n ? Math.round((0.16 + 0.84 * (n / max)) * 100) : 0;
         return (
-          <div key={i} title={`${uf[0]}: ${rotuloValor(v)}`}
-            className={cx('flex aspect-square flex-col items-center justify-center rounded-md border text-[10px] leading-tight',
-              v ? 'border-transparent' : 'border-borda text-suave')}
-            style={v ? { background: `color-mix(in srgb, var(--cor-destaque) ${Math.round(intensidade * 100)}%, transparent)`, color: intensidade > 0.55 ? 'var(--cor-destaque-texto)' : undefined } : undefined}>
-            <span className="font-semibold">{uf[0]}</span>
-            {v > 0 && <span className="tabular-nums">{v}</span>}
-          </div>
+          <path key={uf} d={f.d} strokeWidth={1} strokeLinejoin="round" stroke="var(--cor-superficie)"
+            fill={n ? `color-mix(in srgb, var(--cor-destaque) ${pct}%, var(--cor-superficie))` : 'var(--cor-superficie-2)'}>
+            <title>{`${uf}: ${rotuloValor(n)}`}</title>
+          </path>
         );
       })}
-    </div>
+      {Object.entries(FORMAS_UF).filter(([, f]) => f.area >= 8).map(([uf, f]) => (
+        <text key={uf} x={f.x} y={f.y + 3} textAnchor="middle" fontSize={9.5} fontWeight={600} pointerEvents="none"
+          fill={(valores[uf] ?? 0) / max > 0.45 ? 'var(--cor-destaque-texto)' : 'var(--cor-texto)'}>{uf}</text>
+      ))}
+    </svg>
   );
 }

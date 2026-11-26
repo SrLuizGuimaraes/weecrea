@@ -20,7 +20,7 @@ export const metadata: Metadata = { title: 'Catálogo · WEECREA' };
 
 function Secao({ titulo, codigo, children }: { titulo: string; codigo: string; children: ReactNode }) {
   return (
-    <section className="space-y-3 rounded-xl border border-borda bg-superficie p-4 md:p-5">
+    <section className="space-y-3 rounded-cartao border border-borda bg-superficie p-4 md:p-5">
       <h2 className="font-semibold">{titulo}</h2>
       <div className="space-y-3">{children}</div>
       <pre className="overflow-x-auto rounded-lg bg-superficie-2 p-3 text-xs"><code>{codigo}</code></pre>

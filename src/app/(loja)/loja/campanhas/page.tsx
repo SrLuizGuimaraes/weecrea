@@ -51,7 +51,7 @@ export default async function Campanhas({ searchParams }: { searchParams: Promis
           <div className="grid gap-4 md:grid-cols-2">
             {lista.map((r) => (
               <Link key={r.campanha.id} href={`/loja/campanhas/${r.campanha.id}`}
-                className="block rounded-xl border border-borda bg-superficie p-4 transition hover:border-texto">
+                className="block rounded-cartao border border-borda bg-superficie p-4 transition hover:border-texto">
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <h2 className="font-semibold">{r.campanha.nome}</h2>

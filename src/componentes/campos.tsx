@@ -4,7 +4,7 @@ import type { ComponentProps, ReactNode } from 'react';
 import { cx } from './cx';
 
 export const classeEntrada =
-  'w-full rounded-lg border border-borda bg-superficie px-3 py-2 text-sm text-texto placeholder:text-suave focus:border-destaque focus:outline-none disabled:opacity-60';
+  'w-full rounded-controle border border-borda bg-superficie px-3 py-2 text-sm text-texto placeholder:text-suave focus:border-destaque focus:outline-none disabled:opacity-60';
 
 function Moldura({ rotulo, ajuda, erro, children, className }: { rotulo?: ReactNode; ajuda?: ReactNode; erro?: ReactNode; children: ReactNode; className?: string }) {
   return (

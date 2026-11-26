@@ -28,7 +28,7 @@ export function ProvedorToast({ children }: { children: ReactNode }) {
       {children}
       <div aria-live="polite" className="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex flex-col items-center gap-2 px-4">
         {lista.map((t) => (
-          <div key={t.id} className={`pointer-events-auto rounded-xl px-4 py-2 text-sm shadow-lg ${cores[t.tom]}`}>{t.texto}</div>
+          <div key={t.id} className={`pointer-events-auto rounded-cartao px-4 py-2 text-sm shadow-lg ${cores[t.tom]}`}>{t.texto}</div>
         ))}
       </div>
     </Contexto.Provider>

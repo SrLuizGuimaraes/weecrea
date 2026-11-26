@@ -9,7 +9,7 @@ export function CartaoVideo({ miniaturaUrl, perfil, formato, rede, status, titul
   href?: string; selecao?: { name: string; value: string; defaultChecked?: boolean; form?: string }; rodape?: ReactNode;
 }) {
   return (
-    <article className="group relative overflow-hidden rounded-xl border border-borda bg-superficie">
+    <article className="group relative overflow-hidden rounded-cartao border border-borda bg-superficie">
       <div className="relative aspect-[9/16] bg-superficie-2">
         {miniaturaUrl ? (
           // eslint-disable-next-line @next/next/no-img-element

@@ -81,7 +81,7 @@ export function FormCadastro({ lojaNome, desconto, criterios }: { lojaNome: stri
         <Selecao rotulo="UF" name="uf" required defaultValue=""><option value="" disabled>UF</option>{UFS.map((u) => <option key={u}>{u}</option>)}</Selecao>
         <Campo rotulo="Cidade" name="cidade" required />
       </div>
-      <fieldset className="space-y-3 rounded-xl border border-borda p-3">
+      <fieldset className="space-y-3 rounded-cartao border border-borda p-3">
         <legend className="px-1 text-sm font-medium">Redes (ao menos uma)</legend>
         <div className="grid grid-cols-[1fr_120px] gap-3">
           <Campo rotulo="Instagram" name="igPerfil" placeholder="@seuperfil" />

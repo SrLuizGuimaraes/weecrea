@@ -6,6 +6,7 @@ import { formatarReais } from '@/dominio/dinheiro';
 import { exigirLoja } from '@/lib/acesso';
 import { formatarData } from '@/lib/datas';
 import { formatarNumero } from '@/lib/dados-exemplo';
+import { Pessoa } from '@/componentes/avatar';
 import { contagemPorAba, creatorsDaLoja } from '@/modulos/m7-aprovacao/dados';
 
 type Aba = 'aprovacao' | 'ativos' | 'recusados';
@@ -32,8 +33,7 @@ export default async function Creators({ searchParams }: { searchParams: Promise
           <Tabela colunas={['Creator', 'Rede', 'Seguidores', 'Segmentos', 'Primeiro critério não atendido', '']}>
             {lista.map((r) => (
               <tr key={r.afiliacao.id}>
-                <Td><Link href={`/loja/creators/${r.creator.id}`} className="font-medium underline-offset-2 hover:underline">{r.creator.nome}</Link>
-                  <div className="text-xs text-suave">{r.creator.cidade}/{r.creator.uf}</div></Td>
+                <Td><Link href={`/loja/creators/${r.creator.id}`} className="hover:underline"><Pessoa nome={r.creator.nome} detalhe={`${r.creator.cidade}/${r.creator.uf}`} /></Link></Td>
                 <Td>{r.perfil.rede} <span className="text-suave">{r.perfil.perfil}</span></Td>
                 <Td>{formatarNumero(r.perfil.seguidores)}</Td>
                 <Td>{r.creator.segmentos.join(', ')}</Td>
@@ -49,8 +49,7 @@ export default async function Creators({ searchParams }: { searchParams: Promise
           <Tabela colunas={['Creator', 'Status', 'Seguidores', 'Cupom', 'Vídeos', 'Pedidos', 'Vendas', aba === 'ativos' ? '' : 'Decidido em']} alinharDireita={[4, 5, 6]}>
             {lista.map((r) => (
               <tr key={r.afiliacao.id}>
-                <Td><Link href={`/loja/creators/${r.creator.id}`} className="font-medium underline-offset-2 hover:underline">{r.creator.nome}</Link>
-                  <div className="text-xs text-suave">{r.perfil.perfil} · {r.creator.uf}</div></Td>
+                <Td><Link href={`/loja/creators/${r.creator.id}`} className="hover:underline"><Pessoa nome={r.creator.nome} detalhe={`${r.perfil.perfil}, ${r.creator.uf}`} /></Link></Td>
                 <Td><EtiquetaStatus status={r.afiliacao.status} /></Td>
                 <Td>{formatarNumero(r.perfil.seguidores)}</Td>
                 <Td>{r.cupom ? <span className="font-mono text-xs">{r.cupom.codigo}</span> : '—'} {r.cupom && r.cupom.status !== 'ativo' && <EtiquetaStatus status={r.cupom.status} />}</Td>

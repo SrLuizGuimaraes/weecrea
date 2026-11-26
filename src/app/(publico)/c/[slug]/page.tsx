@@ -40,16 +40,16 @@ export default async function PaginaCadastro({ params, searchParams }: Props) {
       ) : (
         <>
           {convite && (
-            <div className="mb-4 rounded-xl bg-destaque-fraco p-4 text-sm">
+            <div className="mb-4 rounded-cartao bg-destaque-fraco p-4 text-sm">
               Você foi convidada(o) para a campanha <b>{convite.nome}</b>, de {formatarData(convite.inicio)} a {formatarData(convite.fim)}.
             </div>
           )}
           <section className="mb-6 grid grid-cols-3 gap-2 text-center">
-            <div className="rounded-xl border border-borda bg-superficie p-3"><BadgePercent size={18} className="mx-auto text-destaque" />
+            <div className="rounded-cartao border border-borda bg-superficie p-3"><BadgePercent size={18} className="mx-auto text-destaque" />
               <p className="mt-1 text-lg font-semibold">{bpsParaTexto(loja.comissaoPadraoBps)}</p><p className="text-xs text-suave">de comissão</p></div>
-            <div className="rounded-xl border border-borda bg-superficie p-3"><Ticket size={18} className="mx-auto text-destaque" />
+            <div className="rounded-cartao border border-borda bg-superficie p-3"><Ticket size={18} className="mx-auto text-destaque" />
               <p className="mt-1 text-lg font-semibold">{loja.cupomDescontoPct}%</p><p className="text-xs text-suave">cupom exclusivo</p></div>
-            <div className="rounded-xl border border-borda bg-superficie p-3"><Megaphone size={18} className="mx-auto text-destaque" />
+            <div className="rounded-cartao border border-borda bg-superficie p-3"><Megaphone size={18} className="mx-auto text-destaque" />
               <p className="mt-1 text-lg font-semibold">{ativas.length}</p><p className="text-xs text-suave">campanha(s) ativa(s)</p></div>
           </section>
 

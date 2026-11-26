@@ -6,6 +6,7 @@ import { BarrasHorizontais, GraficoColunas, MapaBrasil } from '@/componentes/gra
 import { formatarReais } from '@/dominio/dinheiro';
 import { formatarData } from '@/lib/datas';
 import { formatarNumero } from '@/lib/dados-exemplo';
+import { Pessoa } from '@/componentes/avatar';
 import { lerFiltro, painelDaLoja } from './dados';
 
 export type ParamsPainel = { dias?: string; de?: string; ate?: string; creator?: string; visao?: string };
@@ -23,7 +24,7 @@ export function PainelLoja({ lojaId, params, base }: { lojaId: string; params: P
   const i = d.indicadores;
   return (
     <div className="space-y-6">
-      <div className="flex flex-col gap-3 rounded-xl border border-borda bg-superficie p-4 lg:flex-row lg:items-end lg:justify-between">
+      <div className="flex flex-col gap-3 rounded-cartao border border-borda bg-superficie p-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-wrap gap-2">
           {[7, 30, 90].map((n) => <Chip key={n} href={link({ dias: String(n), de: undefined, ate: undefined })} ativo={f.dias === n}>{n} dias</Chip>)}
         </div>
@@ -70,7 +71,7 @@ export function PainelLoja({ lojaId, params, base }: { lojaId: string; params: P
         <Cartao titulo="Ranking de creators">
           <Tabela colunas={['#', 'Creator', 'Cupom', 'Pedidos', 'Vendas']} alinharDireita={[3, 4]} vazio="Nenhuma venda no período.">
             {d.rankingCreators.map((c, n) => (
-              <tr key={c.creatorId}><Td>{n + 1}</Td><Td>{c.nome}</Td><Td className="font-mono text-xs">{c.cupom}</Td><Td direita>{c.pedidos}</Td><Td direita>{formatarReais(c.vendas)}</Td></tr>
+              <tr key={c.creatorId}><Td>{n + 1}</Td><Td><Pessoa nome={c.nome} /></Td><Td className="font-mono text-xs">{c.cupom}</Td><Td direita>{c.pedidos}</Td><Td direita>{formatarReais(c.vendas)}</Td></tr>
             ))}
           </Tabela>
         </Cartao>

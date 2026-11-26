@@ -25,10 +25,10 @@ export default async function InicioCreator({ searchParams }: { searchParams: Pr
       )}
 
       {d.cupom && (
-        <div className="mb-6 flex flex-col gap-3 rounded-xl border border-borda bg-superficie p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-6 flex flex-col gap-3 rounded-cartao border-2 border-dashed border-destaque bg-destaque-fraco p-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs text-suave">Seu cupom em {d.loja.nome}</p>
-            <p className="font-mono text-2xl font-semibold tracking-wide">{d.cupom.codigo}</p>
+            <p className="text-3xl font-bold tracking-wider text-destaque">{d.cupom.codigo}</p>
             <p className="text-xs text-suave">{d.loja.cupomDescontoPct}% de desconto para quem comprar</p>
           </div>
           <div className="flex items-center gap-2"><EtiquetaStatus status={d.cupom.status} /><BotaoCopiar texto={d.cupom.codigo} rotulo="Copiar cupom" /></div>

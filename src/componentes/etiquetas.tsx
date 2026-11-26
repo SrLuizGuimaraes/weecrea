@@ -16,7 +16,7 @@ const tons: Record<Tom, string> = {
 };
 
 export function Etiqueta({ tom = 'neutro', children, className }: { tom?: Tom; children: ReactNode; className?: string }) {
-  return <span className={cx('inline-flex items-center whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-medium', tons[tom], className)}>{children}</span>;
+  return <span className={cx('inline-flex items-center whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-semibold', tons[tom], className)}>{children}</span>;
 }
 
 /** Rótulo e cor de cada status usado no sistema. */

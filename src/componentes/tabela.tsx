@@ -8,12 +8,12 @@ export function Tabela({ colunas, children, vazio = 'Nada por aqui ainda.', alin
   { colunas: ReactNode[]; children: ReactNode; vazio?: string; alinharDireita?: number[] }) {
   const temLinhas = Array.isArray(children) ? children.length > 0 : !!children;
   return (
-    <div className="overflow-x-auto rounded-xl border border-borda bg-superficie">
-      <table className="w-full min-w-[640px] border-collapse text-sm">
+    <div className="overflow-x-auto rounded-cartao border border-borda bg-superficie">
+      <table className="w-full min-w-[520px] border-collapse text-sm">
         <thead>
-          <tr className="border-b border-borda text-left text-xs uppercase tracking-wide text-suave">
+          <tr className="border-b border-borda text-left text-[13px] text-suave">
             {colunas.map((c, i) => (
-              <th key={i} className={cx('px-4 py-3 font-medium', alinharDireita.includes(i) && 'text-right')}>{c}</th>
+              <th key={i} className={cx('px-4 py-2.5 font-semibold', alinharDireita.includes(i) && 'text-right')}>{c}</th>
             ))}
           </tr>
         </thead>
@@ -33,11 +33,11 @@ export function Td({ children, direita, className, colSpan }: { children?: React
 
 export function Abas({ abas, ativa }: { abas: { chave: string; rotulo: ReactNode; href: string }[]; ativa: string }) {
   return (
-    <nav className="flex w-fit max-w-full gap-1 overflow-x-auto rounded-full border border-borda bg-superficie p-1" aria-label="Abas">
+    <nav className="flex w-fit max-w-full gap-0.5 overflow-x-auto rounded-controle bg-superficie-2 p-[3px]" aria-label="Abas">
       {abas.map((a) => (
         <Link key={a.chave} href={a.href} aria-current={a.chave === ativa ? 'page' : undefined}
-          className={cx('whitespace-nowrap rounded-full px-4 py-1.5 text-sm transition',
-            a.chave === ativa ? 'bg-texto text-fundo' : 'text-suave hover:text-texto')}>
+          className={cx('whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium transition',
+            a.chave === ativa ? 'bg-superficie font-semibold text-texto shadow-sm' : 'text-suave hover:text-texto')}>
           {a.rotulo}
         </Link>
       ))}

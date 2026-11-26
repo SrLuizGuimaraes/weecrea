@@ -8,6 +8,7 @@ import { BarraProgresso } from '@/componentes/progresso';
 import { bpsParaTexto, formatarReais } from '@/dominio/dinheiro';
 import { exigirLoja } from '@/lib/acesso';
 import { formatarData } from '@/lib/datas';
+import { Pessoa } from '@/componentes/avatar';
 import { campanhaDaLoja } from '@/modulos/m5-campanhas/dados';
 
 const ENTREGA = { publicar: 'Publicar nas redes', entregar_arquivo: 'Entregar o arquivo', publicar_e_entregar: 'Publicar e entregar o arquivo' };
@@ -36,7 +37,7 @@ export default async function DetalheCampanha({ params, searchParams }: { params
         </>} />
 
       <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="rounded-xl border border-borda bg-superficie p-4 sm:col-span-2">
+        <div className="rounded-cartao border border-borda bg-superficie p-4 sm:col-span-2">
           <p className="text-xs text-suave">Meta geral</p>
           <p className="mt-1 text-2xl font-semibold tabular-nums">{formatarReais(d.realizado)}</p>
           <BarraProgresso className="mt-2" valor={d.realizado} total={k.metaCentavos} legenda={`de ${formatarReais(k.metaCentavos)}`} />
@@ -76,7 +77,7 @@ export default async function DetalheCampanha({ params, searchParams }: { params
         <Tabela colunas={['#', 'Creator', 'Perfil', 'Status', 'Vídeos', 'Vendas', k.metaIndividualCentavos ? 'Meta individual' : '']} alinharDireita={[4, 5]} vazio="Ninguém na campanha ainda.">
           {d.participantes.map((p, n) => (
             <tr key={p.creator.id}>
-              <Td>{n + 1}</Td><Td className="font-medium">{p.creator.nome}</Td><Td className="text-suave">{p.perfil.perfil}</Td>
+              <Td>{n + 1}</Td><Td><Pessoa nome={p.creator.nome} /></Td><Td className="text-suave">{p.perfil.perfil}</Td>
               <Td><EtiquetaStatus status={p.participacao.status} /></Td><Td direita>{p.videos}</Td><Td direita>{formatarReais(p.vendas)}</Td>
               <Td className="min-w-32">{k.metaIndividualCentavos ? <BarraProgresso valor={p.vendas} total={k.metaIndividualCentavos} /> : null}</Td>
             </tr>

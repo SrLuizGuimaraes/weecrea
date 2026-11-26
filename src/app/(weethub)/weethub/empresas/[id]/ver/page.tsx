@@ -15,7 +15,7 @@ export default async function VerComoCliente({ params, searchParams }: { params:
   if (!loja) notFound();
   return (
     <>
-      <div className="sticky top-0 z-20 -mx-4 -mt-4 mb-6 flex flex-wrap items-center justify-between gap-2 bg-aviso px-4 py-2 text-sm font-medium text-fundo md:-mx-8 md:-mt-8 md:px-8">
+      <div className="sticky top-0 z-20 -mx-4 -mt-4 mb-6 flex flex-wrap items-center justify-between gap-2 bg-aviso px-4 py-2 text-sm font-medium text-fundo md:-mx-7 md:-mt-7 md:px-7">
         <span className="flex items-center gap-2"><Eye size={16} />Você está vendo como {loja.nome}, só para leitura.</span>
         <Link href={`/weethub/empresas/${id}`} className="underline">Sair da visão do cliente</Link>
       </div>
