@@ -12,3 +12,5 @@ export { ProvedorToast, useToast, AvisoDaUrl } from './toast';
 export { MenuLateral, ITENS_MENU } from './menu-lateral';
 export { ScriptTema, BotaoTema } from './tema';
 export { BotaoEmBreve, FormSimulado, BotaoCopiar } from './em-breve';
+export { BarraProgresso } from './progresso';
+export { GraficoColunas, BarrasHorizontais, MapaBrasil } from './graficos';
