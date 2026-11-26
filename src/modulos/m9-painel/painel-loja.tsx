@@ -1,19 +1,23 @@
-// Painel de vendas da loja (M9). Usado em /loja/painel e no "ver como cliente" da Weethub.
+'use client';
+// Painel de vendas da loja (M9). Usado em /loja/painel e no "ver como cliente" da Weethub. Lê o estado da demonstração.
 import { BarChart3, DollarSign, Film, ShoppingBag, Users, Wallet } from 'lucide-react';
 import { Abas, Cartao, CartaoIndicador, Chip, Tabela, Td } from '@/componentes';
 import { classeEntrada } from '@/componentes/campos';
 import { BarrasHorizontais, GraficoColunas, MapaBrasil } from '@/componentes/graficos';
 import { formatarReais } from '@/dominio/dinheiro';
 import { formatarData } from '@/lib/datas';
-import { formatarNumero } from '@/lib/dados-exemplo';
+import { formatarNumero } from '@/lib/demo/util';
+import { useDemo } from '@/lib/demo/estado';
+import Form from 'next/form';
 import { Pessoa } from '@/componentes/avatar';
 import { lerFiltro, painelDaLoja } from './dados';
 
 export type ParamsPainel = { dias?: string; de?: string; ate?: string; creator?: string; visao?: string };
 
 export function PainelLoja({ lojaId, params, base }: { lojaId: string; params: ParamsPainel; base: string }) {
-  const f = lerFiltro(params);
-  const d = painelDaLoja(lojaId, f);
+  const { D } = useDemo();
+  const f = lerFiltro(D, params);
+  const d = painelDaLoja(D, lojaId, f);
   const visao = params.visao === 'creator' ? 'creator' : 'periodo';
   const link = (extra: Record<string, string | undefined>) => {
     const q = new URLSearchParams();
@@ -28,7 +32,7 @@ export function PainelLoja({ lojaId, params, base }: { lojaId: string; params: P
         <div className="flex flex-wrap gap-2">
           {[7, 30, 90].map((n) => <Chip key={n} href={link({ dias: String(n), de: undefined, ate: undefined })} ativo={f.dias === n}>{n} dias</Chip>)}
         </div>
-        <form method="get" action={base} className="flex flex-wrap items-end gap-2">
+        <Form action={base} className="flex flex-wrap items-end gap-2">
           <input type="hidden" name="visao" value={visao} />
           <label className="text-xs text-suave">De<input type="date" name="de" defaultValue={f.de} className={classeEntrada} /></label>
           <label className="text-xs text-suave">Até<input type="date" name="ate" defaultValue={f.ate} className={classeEntrada} /></label>
@@ -38,8 +42,8 @@ export function PainelLoja({ lojaId, params, base }: { lojaId: string; params: P
               {d.creatorsDoFiltro.map((c) => <option key={c.id} value={c.id}>{c.nome}</option>)}
             </select>
           </label>
-          <button type="submit" className="h-10 rounded-lg bg-texto px-4 text-sm font-medium text-fundo">Filtrar</button>
-        </form>
+          <button type="submit" className="h-10 rounded-controle bg-texto px-4 text-sm font-semibold text-fundo">Filtrar</button>
+        </Form>
       </div>
       <p className="text-xs text-suave">Período: {formatarData(f.de)} a {formatarData(f.ate)}. Vendas = base de comissão dos pedidos pagos com cupom de creator, menos devoluções.</p>
 
