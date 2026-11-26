@@ -64,3 +64,30 @@ export function salvarPaginaCadastro(D: DadosExemplo, lojaId: string, p: { titul
 }
 
 export const REDES: Rede[] = ['instagram', 'tiktok'];
+
+/** Marketplace: o creator já cadastrado se candidata a outra loja. Usa os mesmos critérios (R-22, R-23, R-25). */
+export function candidatarALoja(D: DadosExemplo, creatorId: string, lojaId: string, temProduto: boolean): ResultadoCadastro {
+  const creator = D.creators.find((c) => c.id === creatorId);
+  const loja = D.lojas.find((l) => l.id === lojaId);
+  if (!creator || !loja) throw new Error('Loja ou creator não encontrado.');
+  return cadastrarCreator(D, loja.slug, {
+    nome: creator.nome, email: creator.email, whatsapp: creator.whatsapp, nascimento: '', uf: creator.uf, cidade: creator.cidade,
+    ...(creator.instagram ? { instagram: creator.instagram } : {}), ...(creator.tiktok ? { tiktok: creator.tiktok } : {}),
+    bio: creator.bio, segmentos: creator.segmentos, temProduto, origem: 'pagina',
+  });
+}
+
+/** Perfil do creator (nome, contatos, bio, segmentos e redes). */
+export function atualizarPerfil(D: DadosExemplo, creatorId: string, p: {
+  nome: string; whatsapp: string; uf: string; cidade: string; bio: string; segmentos: string[];
+  instagram?: { perfil: string; seguidores: number }; tiktok?: { perfil: string; seguidores: number };
+}) {
+  const c = D.creators.find((x) => x.id === creatorId);
+  if (!c) throw new Error('Creator não encontrado.');
+  if (p.bio.length < 30 || p.bio.length > 500) throw new Error('Fale sobre você em 30 a 500 caracteres.');
+  if (p.segmentos.length < 1 || p.segmentos.length > 3) throw new Error('Escolha de 1 a 3 segmentos.');
+  if (!p.instagram && !p.tiktok) throw new Error('Informe ao menos uma rede.');
+  Object.assign(c, { nome: p.nome.trim(), whatsapp: p.whatsapp, uf: p.uf, cidade: p.cidade, bio: p.bio, segmentos: p.segmentos });
+  if (p.instagram) c.instagram = p.instagram; else delete c.instagram;
+  if (p.tiktok) c.tiktok = p.tiktok; else delete c.tiktok;
+}

@@ -1,7 +1,7 @@
 'use client';
 // Menu lateral das 3 áreas, com ícones. Dono: M2. No celular vira barra no topo com menu que abre.
 import {
-  BarChart3, Building2, Cable, Film, Home, LogOut, Megaphone, Menu, Package, Settings, Users, Wallet, X, Clapperboard, LineChart,
+  BarChart3, Building2, Cable, Film, Home, LogOut, Megaphone, Menu, Package, Settings, Users, Wallet, X, Clapperboard, LineChart, Store, UserRound,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -29,6 +29,8 @@ export const ITENS_MENU: Record<Perfil, Item[]> = {
     { href: '/creator/campanhas', rotulo: 'Campanhas', Icone: Megaphone },
     { href: '/creator/conteudos', rotulo: 'Conteúdos', Icone: Clapperboard },
     { href: '/creator/financeiro', rotulo: 'Financeiro', Icone: Wallet },
+    { href: '/creator/marketplace', rotulo: 'Marketplace', Icone: Store },
+    { href: '/creator/perfil', rotulo: 'Perfil', Icone: UserRound },
   ],
   WEETHUB: [
     { href: '/weethub', rotulo: 'Painel', Icone: BarChart3 },
