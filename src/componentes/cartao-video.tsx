@@ -17,7 +17,7 @@ export function CartaoVideo({ miniaturaUrl, perfil, formato, rede, status, titul
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-suave"><Play size={32} /></div>
         )}
-        <div className="absolute inset-x-0 top-0 flex items-start justify-between p-2">
+        <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between p-2">
           {selecao ? (
             <label className="rounded-md bg-black/50 p-1">
               <input type="checkbox" name={selecao.name} value={selecao.value} defaultChecked={selecao.defaultChecked} form={selecao.form}
