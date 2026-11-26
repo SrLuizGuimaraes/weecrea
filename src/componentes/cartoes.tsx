@@ -7,7 +7,7 @@ import { cx } from './cx';
 export function Cartao({ titulo, acao, children, className }:
   { titulo?: ReactNode; acao?: ReactNode; children: ReactNode; className?: string }) {
   return (
-    <section className={cx('rounded-xl border border-borda bg-superficie p-4 md:p-5', className)}>
+    <section className={cx('min-w-0 rounded-xl border border-borda bg-superficie p-4 md:p-5', className)}>
       {(titulo || acao) && (
         <header className="mb-3 flex items-center justify-between gap-2">
           {titulo && <h2 className="text-sm font-semibold">{titulo}</h2>}
