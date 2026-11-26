@@ -1,6 +1,7 @@
 'use client';
 // Configurações da loja. Abas: "Página de cadastro" e convites (M6) e "Aprovação" (critérios, M7). Estado da demonstração.
 import Form from 'next/form';
+import Link from 'next/link';
 import { Download } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import QRCode from 'qrcode';
@@ -22,7 +23,7 @@ export function TelaConfiguracoes({ lojaId, aba: a, campanha, urlApp }: { lojaId
   const campanhas = D.campanhas.filter((k) => k.lojaId === lojaId && (k.status === 'ativa' || k.status === 'agendada'));
   const link = `${urlApp}/c/${loja.slug}${campanha ? `?campanha=${campanha}` : ''}`;
   const [qr, setQr] = useState('');
-  useEffect(() => { QRCode.toDataURL(link, { margin: 1, width: 480 }).then(setQr).catch(() => setQr('')); }, [link]);
+  useEffect(() => { QRCode.toDataURL(`${link}${link.includes('?') ? '&' : '?'}origem=qr_code`, { margin: 1, width: 480 }).then(setQr).catch(() => setQr('')); }, [link]);
   const k = loja.criterios;
   const pendentes = D.afiliacoes.filter((x) => x.lojaId === lojaId && x.status === 'pendente').length;
 
@@ -46,7 +47,7 @@ export function TelaConfiguracoes({ lojaId, aba: a, campanha, urlApp }: { lojaId
               <AreaTexto rotulo="Texto" name="texto" defaultValue={loja.paginaCadastro.texto} rows={4} />
               <CaixaSelecao name="aberta" rotulo="Inscrições abertas" defaultChecked={loja.paginaCadastro.aberta} />
               <div className="flex flex-wrap justify-between gap-2">
-                <a href={`/c/${loja.slug}`} className="self-center text-sm underline">Ver a página</a>
+                <Link href={`/c/${loja.slug}`} className="self-center text-sm underline">Ver a página</Link>
                 <Botao type="submit">Salvar</Botao>
               </div>
             </form>

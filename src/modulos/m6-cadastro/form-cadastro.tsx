@@ -1,14 +1,15 @@
 'use client';
 // Formulário público de cadastro do creator. Dono: M6.
-// Por enquanto simula o resultado (aprovado com cupom ou em análise) com os critérios da loja; não grava nada.
+// Cadastra de verdade no estado da demonstração (creator, afiliação, critérios R-22/R-23 e cupom R-19); nada é gravado.
 import { useState } from 'react';
 import { CheckCircle2, Clock } from 'lucide-react';
-import type { CriteriosAprovacao } from '@/contratos/tipos';
 import { AreaTexto, Botao, CaixaSelecao, Campo, Selecao } from '@/componentes';
 import { BotaoCopiar } from '@/componentes/em-breve';
+import { useDemo } from '@/lib/demo/estado';
+import { cadastrarCreator, type ResultadoCadastro } from './acoes';
 
 const UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO'.split(' ');
-const SEGMENTOS = ['Moda', 'Beleza', 'Lifestyle', 'Casa', 'Decoração', 'Fitness', 'Gastronomia', 'Maternidade', 'Pets', 'Tecnologia'];
+const SEGMENTOS = ['Moda', 'Beleza', 'Lifestyle', 'Casa', 'Decoração', 'Fitness', 'Gastronomia', 'Maternidade', 'Pets', 'Tecnologia', 'Dia a dia', 'Viagem'];
 
 type Resultado = { tipo: 'aprovado'; cupom: string } | { tipo: 'analise'; motivo: string };
 
@@ -18,7 +19,8 @@ function maiorDeIdade(nascimento: string) {
   return d <= limite;
 }
 
-export function FormCadastro({ lojaNome, desconto, criterios }: { lojaNome: string; desconto: number; criterios: CriteriosAprovacao }) {
+export function FormCadastro({ slug, lojaNome, campanhaId, origem = 'pagina' }: { slug: string; lojaNome: string; campanhaId?: string; origem?: 'link' | 'qr_code' | 'email' | 'pagina' }) {
+  const { mudar } = useDemo();
   const [resultado, setResultado] = useState<Resultado | null>(null);
   const [erro, setErro] = useState<string | null>(null);
   const [segmentos, setSegmentos] = useState<string[]>([]);
@@ -26,24 +28,30 @@ export function FormCadastro({ lojaNome, desconto, criterios }: { lojaNome: stri
   function enviar(form: FormData) {
     setErro(null);
     if (form.get('site')) return; // campo isca contra robôs
-    const ig = Number(form.get('igSeguidores') || 0), tt = Number(form.get('ttSeguidores') || 0);
     const bio = String(form.get('bio') ?? '');
-    if (!form.get('igPerfil') && !form.get('ttPerfil')) return setErro('Informe ao menos um perfil, do Instagram ou do TikTok.');
+    const rede = (r: string) => {
+      const perfil = String(form.get(`${r}Perfil`) ?? '').replace(/^@/, '').trim();
+      return perfil ? { perfil, seguidores: Number(form.get(`${r}Seguidores`) || 0) } : undefined;
+    };
+    const instagram = rede('ig'), tiktok = rede('tt');
+    if (!instagram && !tiktok) return setErro('Informe ao menos um perfil, do Instagram ou do TikTok.');
     if (!maiorDeIdade(String(form.get('nascimento')))) return setErro('O cadastro é só para maiores de 18 anos.');
     if (bio.length < 30 || bio.length > 500) return setErro('Fale sobre você em 30 a 500 caracteres.');
     if (segmentos.length < 1 || segmentos.length > 3) return setErro('Escolha de 1 a 3 segmentos.');
-    const seguidores = Math.max(criterios.redesAceitas.includes('instagram') ? ig : 0, criterios.redesAceitas.includes('tiktok') ? tt : 0);
-    const falhas = [
-      ...(seguidores < criterios.seguidoresMin ? [`Seguidores abaixo do mínimo de ${criterios.seguidoresMin.toLocaleString('pt-BR')}`] : []),
-      ...(criterios.segmentosAceitos.length && !segmentos.some((s) => criterios.segmentosAceitos.includes(s)) ? ['Segmento fora do perfil da loja'] : []),
-      ...(criterios.exigeTerProduto && !form.get('temProduto') ? ['A loja pede que você já tenha o produto'] : []),
-    ];
-    if (criterios.aprovacaoAutomatica && !falhas.length) {
-      const nome = String(form.get('nome')).trim().split(/\s+/)[0]!.normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 12);
-      setResultado({ tipo: 'aprovado', cupom: `${nome || 'CREATOR'}${desconto}` });
-    } else {
-      setResultado({ tipo: 'analise', motivo: falhas[0] ?? 'A loja analisa cada cadastro.' });
-    }
+    let r: ResultadoCadastro | undefined;
+    let falha = '';
+    const ok = mudar((d) => {
+      try {
+        r = cadastrarCreator(d, slug, {
+          nome: String(form.get('nome')), email: String(form.get('email')), whatsapp: String(form.get('whatsapp')),
+          nascimento: String(form.get('nascimento')), uf: String(form.get('uf')), cidade: String(form.get('cidade')),
+          ...(instagram ? { instagram } : {}), ...(tiktok ? { tiktok } : {}), bio, segmentos, temProduto: form.get('temProduto') === 'on',
+          origem, ...(campanhaId ? { campanhaId } : {}),
+        });
+      } catch (e) { falha = e instanceof Error ? e.message : 'Não foi possível enviar.'; throw e; }
+    });
+    if (!ok || !r) { setErro(falha || 'Não foi possível enviar.'); return; }
+    setResultado(r.status === 'aprovado' ? { tipo: 'aprovado', cupom: r.cupom } : { tipo: 'analise', motivo: r.motivo });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -55,14 +63,15 @@ export function FormCadastro({ lojaNome, desconto, criterios }: { lojaNome: stri
         <p className="text-sm text-suave">Seu cupom exclusivo da {lojaNome}:</p>
         <p className="font-mono text-3xl font-bold tracking-wider">{resultado.cupom}</p>
         <BotaoCopiar texto={resultado.cupom} rotulo="Copiar cupom" />
-        <p className="text-sm text-suave">Enviamos um e-mail com o link para você definir a senha e ver as campanhas. (Simulação: nada foi gravado.)</p>
+        <p className="text-sm text-suave">Enviamos um e-mail com o link para você definir a senha e ver as campanhas. (Demonstração: o e-mail é simulado e nada fica gravado.)</p>
       </div>
     ) : (
       <div className="space-y-3 rounded-2xl border border-borda bg-superficie p-6 text-center">
         <Clock size={40} className="mx-auto text-aviso" />
         <h2 className="text-xl font-semibold">Cadastro em análise</h2>
         <p className="text-sm">A {lojaNome} vai olhar o seu perfil e você recebe a resposta por e-mail.</p>
-        <p className="text-xs text-suave">(Simulação: nada foi gravado.)</p>
+        <p className="text-sm text-suave">Motivo: {resultado.motivo}</p>
+        <p className="text-xs text-suave">(Demonstração: nada fica gravado.)</p>
       </div>
     );
   }

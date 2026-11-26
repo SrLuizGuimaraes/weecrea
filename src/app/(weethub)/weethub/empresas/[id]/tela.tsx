@@ -18,7 +18,7 @@ export function TelaFichaEmpresa({ id }: { id: string }) {
   const l = e.loja;
   return (
     <>
-      <CabecalhoPagina titulo={l.nome} voltar={<Link href="/weethub/empresas">← Empresas</Link>} descricao={<a href={`/c/${l.slug}`} className="underline">/c/{l.slug}</a>}
+      <CabecalhoPagina titulo={l.nome} voltar={<Link href="/weethub/empresas">← Empresas</Link>} descricao={<Link href={`/c/${l.slug}`} className="underline">/c/{l.slug}</Link>}
         acoes={<><EtiquetaStatus status={l.status} /><BotaoLink href={`/weethub/empresas/${l.id}/ver`}><Eye size={16} />Ver como cliente</BotaoLink></>} />
       <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <CartaoIndicador rotulo="Vendas com creators" valor={formatarReais(e.vendas)} detalhe={`${e.pedidos} pedidos`} />
