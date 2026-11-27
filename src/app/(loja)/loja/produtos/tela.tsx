@@ -2,15 +2,13 @@
 // Produtos e cupons. Dono: M3. Estado da demonstração (a Nuvemshop é simulada).
 import { Package, RefreshCw } from 'lucide-react';
 import { Abas, Botao, CabecalhoPagina, EtiquetaStatus, Pessoa, Tabela, Td } from '@/componentes';
-import { useToast } from '@/componentes/toast';
 import { formatarReais } from '@/dominio/dinheiro';
-import { useDemo } from '@/lib/demo/estado';
-import { mudarCupom } from '@/modulos/m3-nuvemshop/acoes';
+import { useDados } from '@/lib/dados-reais-cliente';
+import { mudarCupomServidor, sincronizarProdutosServidor } from '@/modulos/m3-nuvemshop/servidor';
 import { cuponsDaLoja, produtosDaLoja } from '@/modulos/m3-nuvemshop/dados';
 
 export function TelaProdutos({ lojaId, aba: a }: { lojaId: string; aba?: string }) {
-  const { D, mudar } = useDemo();
-  const toast = useToast();
+  const { D, executar } = useDados();
   const aba = a === 'cupons' ? 'cupons' : 'produtos';
   const produtos = produtosDaLoja(D, lojaId);
   const cupons = cuponsDaLoja(D, lojaId);
@@ -18,7 +16,8 @@ export function TelaProdutos({ lojaId, aba: a }: { lojaId: string; aba?: string 
   return (
     <>
       <CabecalhoPagina titulo="Produtos e cupons" descricao="Produtos importados da Nuvemshop e o cupom de cada creator."
-        acoes={<Botao variante="secundario" onClick={() => toast(conectada ? `${produtos.length} produtos conferidos com a Nuvemshop (simulado).` : 'Conecte a Nuvemshop em Conexões para importar produtos.', conectada ? 'sucesso' : 'perigo')}>
+        acoes={<Botao variante="secundario" disabled={!conectada} title={conectada ? undefined : 'Conecte a Nuvemshop em Conexões'}
+          onClick={() => executar(() => sincronizarProdutosServidor(), (n) => `${n} produtos conferidos com a Nuvemshop.`)}>
           <RefreshCw size={16} />Sincronizar produtos</Botao>} />
       <div className="mb-4"><Abas ativa={aba} abas={[
         { chave: 'produtos', rotulo: `Produtos (${produtos.length})`, href: '?aba=produtos' },
@@ -44,13 +43,14 @@ export function TelaProdutos({ lojaId, aba: a }: { lojaId: string; aba?: string 
           {cupons.map(({ cupom: c, creator, usos }) => (
             <tr key={c.id}>
               <Td className="font-mono">{c.codigo}</Td><Td><Pessoa nome={creator.nome} /></Td>
-              <Td><EtiquetaStatus status={c.status} />{c.status === 'erro_sync' && <div className="text-xs text-perigo">Não foi criado na Nuvemshop.</div>}</Td>
+              <Td><EtiquetaStatus status={c.status} />{c.status === 'erro_sync' && <div className="text-xs text-perigo">Não foi criado na Nuvemshop.{c.erro ? ` ${c.erro}` : ''}</div>}</Td>
               <Td direita>{usos}</Td>
               <Td><div className="flex justify-end gap-2">
-                {c.status === 'erro_sync' && <Botao tamanho="p" onClick={() => mudar((d) => mudarCupom(d, lojaId, c.id, 'tentar'), 'Cupom criado na Nuvemshop')}>Tentar de novo</Botao>}
-                {c.status === 'ativo' && <Botao tamanho="p" variante="secundario" onClick={() => mudar((d) => mudarCupom(d, lojaId, c.id, 'pausar'), 'Cupom pausado na loja')}>Pausar</Botao>}
-                {c.status === 'pausado' && <Botao tamanho="p" variante="secundario" onClick={() => mudar((d) => mudarCupom(d, lojaId, c.id, 'reativar'), 'Cupom reativado na loja')}>Reativar</Botao>}
-                {(c.status === 'ativo' || c.status === 'pausado') && <Botao tamanho="p" variante="fantasma" onClick={() => mudar((d) => mudarCupom(d, lojaId, c.id, 'desativar'), 'Cupom desativado')}>Desativar</Botao>}
+                {/* Cupom "ativo" sem id na Nuvemshop nunca foi criado lá (criado antes da conexão): também pode tentar de novo. */}
+                {(c.status === 'erro_sync' || (c.status === 'ativo' && !c.nuvemshopId)) && <Botao tamanho="p" onClick={() => executar(() => mudarCupomServidor(c.id, 'tentar'), 'Cupom criado na Nuvemshop')}>Tentar de novo</Botao>}
+                {c.status === 'ativo' && <Botao tamanho="p" variante="secundario" onClick={() => executar(() => mudarCupomServidor(c.id, 'pausar'), 'Cupom pausado na loja')}>Pausar</Botao>}
+                {c.status === 'pausado' && <Botao tamanho="p" variante="secundario" onClick={() => executar(() => mudarCupomServidor(c.id, 'reativar'), 'Cupom reativado na loja')}>Reativar</Botao>}
+                {(c.status === 'ativo' || c.status === 'pausado') && <Botao tamanho="p" variante="fantasma" onClick={() => executar(() => mudarCupomServidor(c.id, 'desativar'), 'Cupom desativado')}>Desativar</Botao>}
               </div></Td>
             </tr>
           ))}

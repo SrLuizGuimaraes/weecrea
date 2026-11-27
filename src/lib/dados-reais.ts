@@ -46,6 +46,7 @@ export const mapAfiliacao = (a: any): Afiliacao => ({
 export const mapCupom = (c: any): Cupom => ({
   id: c.id, lojaId: c.lojaId, creatorId: c.creatorId, codigo: c.codigo,
   ...(c.nuvemshopId != null ? { nuvemshopId: c.nuvemshopId } : {}), status: c.status,
+  ...(c.erro ? { erro: c.erro } : {}),
 });
 
 export const mapProduto = (p: any): Produto => ({

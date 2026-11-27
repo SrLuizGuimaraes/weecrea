@@ -48,6 +48,7 @@ export interface Afiliacao {
 export interface Cupom {
   id: string; lojaId: string; creatorId: string; codigo: string; nuvemshopId?: number;
   status: 'ativo' | 'pausado' | 'desativado' | 'erro_sync';
+  erro?: string; // motivo da falha ao criar na Nuvemshop (M3); só em erro_sync
 }
 
 export interface Produto {
