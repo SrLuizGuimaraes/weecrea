@@ -53,7 +53,7 @@ export function AvisoDemonstracao() {
   const { reiniciar } = useDemo();
   return (
     <div className="rounded-controle border border-dashed border-borda p-2 text-xs text-suave">
-      <p><b className="text-texto">Demonstração.</b> Tudo funciona, mas nada é gravado: ao recarregar a página, os dados voltam ao exemplo.</p>
+      <p><b className="text-texto">Em construção.</b> Campanhas, cadastro e aprovação de creators já gravam no banco. As demais telas ainda usam dados de exemplo e voltam ao início ao recarregar.</p>
       <button type="button" onClick={reiniciar} className="mt-1 inline-flex items-center gap-1 underline"><RotateCcw size={12} />Restaurar agora</button>
     </div>
   );

@@ -3,11 +3,11 @@
 import { BadgePercent, Megaphone, Ticket } from 'lucide-react';
 import { bpsParaTexto } from '@/dominio/dinheiro';
 import { formatarData } from '@/lib/datas';
-import { useDemo } from '@/lib/demo/estado';
+import { useDados } from '@/lib/dados-reais-cliente';
 import { FormCadastro } from '@/modulos/m6-cadastro/form-cadastro';
 
 export function TelaCadastro({ slug, campanhaId, origem }: { slug: string; campanhaId?: string; origem?: 'link' | 'qr_code' | 'email' | 'pagina' }) {
-  const { D } = useDemo();
+  const { D } = useDados();
   const loja = D.lojas.find((l) => l.slug === slug);
   if (!loja) return <main className="mx-auto max-w-lg px-4 py-16 text-center"><h1 className="text-xl font-semibold">Página não encontrada</h1><p className="mt-2 text-suave">Confira o link que você recebeu.</p></main>;
   const ativas = D.campanhas.filter((k) => k.lojaId === loja.id && k.status === 'ativa' && k.visibilidade === 'aberta');

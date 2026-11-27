@@ -13,7 +13,7 @@ import type { DadosExemplo } from '../../dados-exemplo/gerar';
 type Contexto = {
   D: DadosExemplo;
   /** Roda a ação. Mostra o erro (e devolve null) ou o aviso, atualiza a página e devolve o dado. */
-  executar: <T>(fn: () => Promise<Resultado<T>>, aviso?: string) => Promise<{ dado: T } | null>;
+  executar: <T>(fn: () => Promise<Resultado<T>>, aviso?: string | ((dado: T) => string)) => Promise<{ dado: T } | null>;
 };
 
 const Ctx = createContext<Contexto | null>(null);
@@ -21,7 +21,7 @@ const Ctx = createContext<Contexto | null>(null);
 export function ProvedorDados({ D, children }: { D: DadosExemplo; children: ReactNode }) {
   const toast = useToast();
   const router = useRouter();
-  const executar = useCallback(async <T,>(fn: () => Promise<Resultado<T>>, aviso?: string) => {
+  const executar = useCallback(async <T,>(fn: () => Promise<Resultado<T>>, aviso?: string | ((dado: T) => string)) => {
     let r: Resultado<T>;
     try {
       r = await fn();
@@ -30,7 +30,7 @@ export function ProvedorDados({ D, children }: { D: DadosExemplo; children: Reac
       return null;
     }
     if (!r.ok) { toast(r.erro, 'perigo'); return null; }
-    if (aviso) toast(aviso);
+    if (aviso) toast(typeof aviso === 'function' ? aviso(r.dado) : aviso);
     router.refresh();
     return { dado: r.dado };
   }, [router, toast]);

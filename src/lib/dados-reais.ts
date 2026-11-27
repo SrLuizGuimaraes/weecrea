@@ -137,6 +137,23 @@ export async function carregarDadosLoja(lojaId: string, hoje: string): Promise<D
   return D;
 }
 
+/**
+ * Página pública da loja (sem login): só o que o visitante pode ver. Os critérios de aprovação
+ * (mínimos de seguidores, etc.) NÃO saem daqui; só se a aprovação é automática.
+ */
+export async function carregarDadosPublicos(slug: string, hoje: string, campanhaId?: string): Promise<DadosExemplo> {
+  const D = vazio(hoje);
+  const loja = await db.loja.findUnique({ where: { slug } });
+  if (!loja) return D;
+  const m = mapLoja(loja);
+  D.lojas = [{ ...m, criterios: { aprovacaoAutomatica: m.criterios.aprovacaoAutomatica, seguidoresMin: 0, engajamentoMinBps: 0, redesAceitas: ['instagram', 'tiktok'], segmentosAceitos: [], exigeTerProduto: false } }];
+  const campanhas = await db.campanha.findMany({
+    where: { lojaId: loja.id, status: { notIn: ['rascunho', 'cancelada'] }, OR: [{ visibilidade: 'aberta' }, ...(campanhaId ? [{ id: campanhaId }] : [])] },
+  });
+  D.campanhas = campanhas.map((k) => { const c = mapCampanha(k); return { ...c, briefing: '', status: statusDaCampanha(c, hoje) }; });
+  return D;
+}
+
 /** Visão do creator: os seus dados e só números agregados do resto (sem cupom, comprador ou arquivos de outros). */
 export async function carregarDadosCreator(creatorId: string, hoje: string): Promise<DadosExemplo> {
   const creator = await db.creator.findUnique({ where: { id: creatorId } });
