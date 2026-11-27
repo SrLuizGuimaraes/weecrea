@@ -35,7 +35,7 @@ export async function mudarCupomServidor(cupomId: string, acao: 'pausar' | 'reat
       const depois = await db.cupom.findUniqueOrThrow({ where: { id: cupomId } });
       if (depois.status === 'erro_sync') throw new ErroDeRegra(depois.erro ?? 'Não foi possível criar o cupom na Nuvemshop.');
     } else {
-      if (c.status === 'erro_sync') throw new ErroDeRegra('Este cupom ainda não existe na Nuvemshop. Use "Tentar de novo".');
+      if (c.status === 'erro_sync' || !c.nuvemshopId) throw new ErroDeRegra('Este cupom ainda não existe na Nuvemshop. Use "Tentar de novo".');
       try { await alterarCupomNaLoja(cupomId, acao === 'pausar' ? 'pausado' : acao === 'reativar' ? 'ativo' : 'desativado'); }
       catch (e) { throw new ErroDeRegra(e instanceof Error ? e.message : 'Não foi possível atualizar o cupom.'); }
     }

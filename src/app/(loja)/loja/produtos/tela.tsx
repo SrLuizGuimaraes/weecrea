@@ -46,7 +46,8 @@ export function TelaProdutos({ lojaId, aba: a }: { lojaId: string; aba?: string 
               <Td><EtiquetaStatus status={c.status} />{c.status === 'erro_sync' && <div className="text-xs text-perigo">Não foi criado na Nuvemshop.{c.erro ? ` ${c.erro}` : ''}</div>}</Td>
               <Td direita>{usos}</Td>
               <Td><div className="flex justify-end gap-2">
-                {c.status === 'erro_sync' && <Botao tamanho="p" onClick={() => executar(() => mudarCupomServidor(c.id, 'tentar'), 'Cupom criado na Nuvemshop')}>Tentar de novo</Botao>}
+                {/* Cupom "ativo" sem id na Nuvemshop nunca foi criado lá (criado antes da conexão): também pode tentar de novo. */}
+                {(c.status === 'erro_sync' || (c.status === 'ativo' && !c.nuvemshopId)) && <Botao tamanho="p" onClick={() => executar(() => mudarCupomServidor(c.id, 'tentar'), 'Cupom criado na Nuvemshop')}>Tentar de novo</Botao>}
                 {c.status === 'ativo' && <Botao tamanho="p" variante="secundario" onClick={() => executar(() => mudarCupomServidor(c.id, 'pausar'), 'Cupom pausado na loja')}>Pausar</Botao>}
                 {c.status === 'pausado' && <Botao tamanho="p" variante="secundario" onClick={() => executar(() => mudarCupomServidor(c.id, 'reativar'), 'Cupom reativado na loja')}>Reativar</Botao>}
                 {(c.status === 'ativo' || c.status === 'pausado') && <Botao tamanho="p" variante="fantasma" onClick={() => executar(() => mudarCupomServidor(c.id, 'desativar'), 'Cupom desativado')}>Desativar</Botao>}
