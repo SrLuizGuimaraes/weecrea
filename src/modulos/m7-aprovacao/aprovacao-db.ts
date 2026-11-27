@@ -8,13 +8,20 @@ import { db } from '@/lib/db';
 import { enviarEmail, escaparHtml, moldeEmail } from '@/lib/email';
 import { enviarLinkSenha, urlDoApp } from '@/lib/link-senha';
 import { mapAfiliacao, mapCreator, mapLoja } from '@/lib/dados-reais';
+import { criarCupomNaLoja } from '@/modulos/m3-nuvemshop/cupons-db';
 
 /** Cria o cupom do creator na loja (R-19) se ainda não existir; reativa se estava pausado. Devolve o código. */
 export async function garantirCupomNoBanco(lojaId: string, creatorId: string): Promise<string> {
   const existente = await db.cupom.findFirst({ where: { lojaId, creatorId } });
   if (existente) {
-    if (existente.status === 'pausado' || existente.status === 'desativado') await db.cupom.update({ where: { id: existente.id }, data: { status: 'ativo' } });
-    return existente.codigo;
+    if (existente.status === 'pausado' || existente.status === 'desativado' || existente.status === 'erro_sync') {
+      // Reativa lá também; se o cupom ainda não existe na Nuvemshop, tenta criar de novo.
+      // Sem id na Nuvemshop (nunca criado, ou apagado ao desativar) o cupom precisa ser criado de novo.
+      await db.cupom.update({ where: { id: existente.id }, data: { status: existente.nuvemshopId ? 'ativo' : 'erro_sync' } });
+      const loja = await db.loja.findUniqueOrThrow({ where: { id: lojaId } });
+      if (loja.nuvemshopConectada) await criarCupomNaLoja(existente.id);
+    }
+    return (await db.cupom.findUniqueOrThrow({ where: { id: existente.id } })).codigo;
   }
   const [loja, creator, codigos] = await Promise.all([
     db.loja.findUniqueOrThrow({ where: { id: lojaId } }),
@@ -23,10 +30,13 @@ export async function garantirCupomNoBanco(lojaId: string, creatorId: string): P
   ]);
   const codigo = gerarCodigoCupom(creator.nome, loja.cupomDescontoPct, codigos.map((c) => c.codigo));
   // Sem a loja conectada o cupom ainda não existe na Nuvemshop: fica em erro_sync até o M3 criar lá.
-  await db.cupom.create({
-    data: { lojaId, creatorId, codigo, codigoNormalizado: normalizarCodigoCupom(codigo), status: loja.nuvemshopConectada ? 'ativo' : 'erro_sync' },
+  const criado = await db.cupom.create({
+    data: { lojaId, creatorId, codigo, codigoNormalizado: normalizarCodigoCupom(codigo), status: 'erro_sync', erro: loja.nuvemshopConectada ? null : 'A loja não está conectada à Nuvemshop.' },
   });
-  return codigo;
+  // Com a loja conectada, cria o cupom lá agora (M3). Se o código já existir na Nuvemshop, o M3 troca por um livre.
+  // Em falha o cupom fica em erro_sync, com o motivo, para o botão "Tentar de novo" em Produtos e cupons.
+  if (loja.nuvemshopConectada) await criarCupomNaLoja(criado.id);
+  return (await db.cupom.findUniqueOrThrow({ where: { id: criado.id } })).codigo;
 }
 
 /** Aprova a afiliação, garante o cupom e avisa o creator por e-mail. Devolve o código do cupom. */

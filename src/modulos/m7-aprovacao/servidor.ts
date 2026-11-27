@@ -5,6 +5,7 @@ import type { CriteriosAprovacao } from '@/contratos/tipos';
 import { comoAcao, ErroDeRegra, type Resultado } from '@/lib/acao';
 import { exigirLoja } from '@/lib/acesso';
 import { db } from '@/lib/db';
+import { alterarCupomDoCreator } from '@/modulos/m3-nuvemshop/cupons-db';
 import { aprovarAfiliacaoNoBanco, avisarRecusa, reavaliarFila } from './aprovacao-db';
 
 const atualizar = () => { revalidatePath('/loja/creators'); revalidatePath('/loja/configuracoes'); };
@@ -15,9 +16,11 @@ async function afiliacaoDaLoja(lojaId: string, creatorId: string) {
   return a;
 }
 
+/** Muda o cupom na Nuvemshop (M3) e no banco. Se a Nuvemshop recusar, lança o erro e a afiliação NÃO muda (quem chama faz isto antes). */
 async function mudarCupom(lojaId: string, creatorId: string, status: 'ativo' | 'pausado' | 'desativado') {
-  // Cupom em erro_sync ainda não existe na Nuvemshop: não mexe (o M3 trata quando sincronizar).
-  await db.cupom.updateMany({ where: { lojaId, creatorId, status: { not: 'erro_sync' } }, data: { status } });
+  await alterarCupomDoCreator(lojaId, creatorId, status).catch((e) => { throw new ErroDeRegra(e instanceof Error ? e.message : 'Não foi possível atualizar o cupom.'); });
+  // Cupom sem id na Nuvemshop (loja sem conexão, por exemplo) só existe no nosso banco: muda só aqui.
+  await db.cupom.updateMany({ where: { lojaId, creatorId, nuvemshopId: null, status: { not: 'erro_sync' } }, data: { status } });
 }
 
 export async function aprovarCreatorServidor(creatorId: string): Promise<Resultado<{ cupom: string }>> {
@@ -47,8 +50,8 @@ export async function pausarCreatorServidor(creatorId: string): Promise<Resultad
     const { lojaId } = await exigirLoja();
     const a = await afiliacaoDaLoja(lojaId, creatorId);
     if (a.status !== 'aprovado') throw new ErroDeRegra('Só dá para pausar quem está aprovado.');
-    await db.afiliacao.update({ where: { id: a.id }, data: { status: 'pausado' } });
     await mudarCupom(lojaId, creatorId, 'pausado');
+    await db.afiliacao.update({ where: { id: a.id }, data: { status: 'pausado' } });
     atualizar();
   });
 }
@@ -58,8 +61,8 @@ export async function reativarCreatorServidor(creatorId: string): Promise<Result
     const { lojaId } = await exigirLoja();
     const a = await afiliacaoDaLoja(lojaId, creatorId);
     if (a.status !== 'pausado') throw new ErroDeRegra('Este creator não está pausado.');
-    await db.afiliacao.update({ where: { id: a.id }, data: { status: 'aprovado' } });
     await mudarCupom(lojaId, creatorId, 'ativo');
+    await db.afiliacao.update({ where: { id: a.id }, data: { status: 'aprovado' } });
     atualizar();
   });
 }
@@ -70,8 +73,8 @@ export async function removerCreatorServidor(creatorId: string, motivo: string):
     if (!motivo.trim()) throw new ErroDeRegra('Informe o motivo.');
     const a = await afiliacaoDaLoja(lojaId, creatorId);
     if (a.status !== 'aprovado' && a.status !== 'pausado') throw new ErroDeRegra('Só dá para remover quem está ativo.');
-    await db.afiliacao.update({ where: { id: a.id }, data: { status: 'removido', motivoInterno: motivo.trim() } });
     await mudarCupom(lojaId, creatorId, 'desativado');
+    await db.afiliacao.update({ where: { id: a.id }, data: { status: 'removido', motivoInterno: motivo.trim() } });
     atualizar();
   });
 }
