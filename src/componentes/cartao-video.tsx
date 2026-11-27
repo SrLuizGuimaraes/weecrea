@@ -9,7 +9,7 @@ export function CartaoVideo({ miniaturaUrl, perfil, formato, rede, status, titul
   href?: string; selecao?: { name: string; value: string; defaultChecked?: boolean; form?: string }; rodape?: ReactNode;
 }) {
   return (
-    <article className="group relative overflow-hidden rounded-xl border border-borda bg-superficie">
+    <article className="group relative overflow-hidden rounded-cartao border border-borda bg-superficie">
       <div className="relative aspect-[9/16] bg-superficie-2">
         {miniaturaUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -17,7 +17,7 @@ export function CartaoVideo({ miniaturaUrl, perfil, formato, rede, status, titul
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-suave"><Play size={32} /></div>
         )}
-        <div className="absolute inset-x-0 top-0 flex items-start justify-between p-2">
+        <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between p-2">
           {selecao ? (
             <label className="rounded-md bg-black/50 p-1">
               <input type="checkbox" name={selecao.name} value={selecao.value} defaultChecked={selecao.defaultChecked} form={selecao.form}

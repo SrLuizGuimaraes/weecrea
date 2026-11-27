@@ -10,7 +10,7 @@ type Tamanho = 'p' | 'm' | 'g';
 const variantes: Record<VarianteBotao, string> = {
   primario: 'bg-texto text-fundo hover:opacity-90',
   destaque: 'bg-destaque text-destaque-texto hover:opacity-90',
-  secundario: 'border border-borda bg-superficie text-texto hover:bg-superficie-2',
+  secundario: 'border border-borda bg-superficie text-texto hover:border-texto',
   fantasma: 'text-texto hover:bg-superficie-2',
   perigo: 'bg-perigo text-white hover:opacity-90',
 };
@@ -18,7 +18,7 @@ const tamanhos: Record<Tamanho, string> = { p: 'h-8 px-3 text-xs', m: 'h-10 px-4
 
 export function classesBotao(variante: VarianteBotao = 'primario', tamanho: Tamanho = 'm', largo = false) {
   return cx(
-    'inline-flex items-center justify-center gap-2 rounded-lg font-medium whitespace-nowrap transition disabled:pointer-events-none disabled:opacity-50',
+    'inline-flex items-center justify-center gap-2 rounded-controle font-semibold whitespace-nowrap transition disabled:pointer-events-none disabled:opacity-50',
     variantes[variante], tamanhos[tamanho], largo && 'w-full',
   );
 }

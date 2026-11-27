@@ -11,13 +11,16 @@ import { CartaoVideo } from '@/componentes/cartao-video';
 import { CabecalhoPagina } from '@/componentes/cabecalho-pagina';
 import { BotaoTema } from '@/componentes/tema';
 import { formatarReais } from '@/dominio/dinheiro';
+import { BarraProgresso } from '@/componentes/progresso';
+import { BarrasHorizontais, GraficoColunas, MapaBrasil } from '@/componentes/graficos';
+import { BotaoCopiar, BotaoEmBreve } from '@/componentes/em-breve';
 import { DemoChips, DemoModal, DemoToast } from './demos';
 
 export const metadata: Metadata = { title: 'Catálogo · WEECREA' };
 
 function Secao({ titulo, codigo, children }: { titulo: string; codigo: string; children: ReactNode }) {
   return (
-    <section className="space-y-3 rounded-xl border border-borda bg-superficie p-4 md:p-5">
+    <section className="space-y-3 rounded-cartao border border-borda bg-superficie p-4 md:p-5">
       <h2 className="font-semibold">{titulo}</h2>
       <div className="space-y-3">{children}</div>
       <pre className="overflow-x-auto rounded-lg bg-superficie-2 p-3 text-xs"><code>{codigo}</code></pre>
@@ -110,6 +113,30 @@ export default function Catalogo() {
           <CartaoVideo perfil="@rafalima" rede="TikTok" formato="TikTok" status="em_analise" selecao={{ name: 'v', value: '2' }} />
           <CartaoVideo perfil="@juliaandrade" rede="Instagram" formato="Story" status="reprovado" />
           <CartaoVideo perfil="@sofiabezerra" rede="Instagram" formato="Feed" rodape="Verão 27 no linho" />
+        </div>
+      </Secao>
+
+      <Secao titulo="Barra de progresso (meta)" codigo={`<BarraProgresso valor={realizado} total={meta} legenda="R$ 1.200 de R$ 3.000" />`}>
+        <BarraProgresso valor={120000} total={300000} legenda={`${formatarReais(120000)} de ${formatarReais(300000)}`} />
+        <BarraProgresso valor={310000} total={300000} legenda="Meta batida" />
+      </Secao>
+
+      <Secao titulo="Gráficos e mapa" codigo={`<GraficoColunas pontos={[{ rotulo: '01/11', valor: 1200, texto: 'R$ 12,00' }]} />
+<BarrasHorizontais itens={[{ rotulo: 'Marina', valor: 5000, texto: 'R$ 50,00' }]} />
+<MapaBrasil valores={{ SP: 4, MG: 2 }} />`}>
+        <GraficoColunas pontos={[3, 5, 2, 8, 6, 9, 4, 7, 10, 6, 3, 8, 5, 9].map((v, i) => ({ rotulo: `${String(i + 10).padStart(2, '0')}/11`, valor: v * 1000, texto: formatarReais(v * 10000) }))} />
+        <div className="grid gap-6 md:grid-cols-2">
+          <BarrasHorizontais itens={[{ rotulo: 'Sofia Bezerra', valor: 174294, texto: formatarReais(174294) }, { rotulo: 'Mariana Alves', valor: 130293, texto: formatarReais(130293) }, { rotulo: 'Rafa Lima', valor: 81792, texto: formatarReais(81792) }]} />
+          <div className="max-w-xs"><MapaBrasil valores={{ SP: 5, MG: 3, RJ: 2, BA: 1, CE: 1, RS: 1 }} /></div>
+        </div>
+      </Secao>
+
+      <Secao titulo="Ações das telas de mockup" codigo={`<BotaoEmBreve mensagem="Em breve">Conectar</BotaoEmBreve>
+<FormSimulado mensagem="Salvo (simulação)">...</FormSimulado>
+<BotaoCopiar texto="MARINA10" rotulo="Copiar cupom" />`}>
+        <div className="flex flex-wrap gap-2">
+          <BotaoEmBreve variante="secundario">Ação em construção</BotaoEmBreve>
+          <BotaoCopiar texto="MARINA10" rotulo="Copiar cupom" />
         </div>
       </Secao>
 

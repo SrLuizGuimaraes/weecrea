@@ -26,6 +26,8 @@ export interface DadosExemplo {
   pagamentos: Pagamento[];
   videos: Video[];
   colecoes: Colecao[];
+  /** Só na demonstração: dados de pagamento do creator, já mascarados (no banco, cifrados). */
+  pagamentoCreator?: Record<string, { cpfMascarado: string; tipoPix: string; pixMascarado: string }>;
 }
 
 const HOJE = '2026-11-25';
