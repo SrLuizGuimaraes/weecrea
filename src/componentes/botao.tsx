@@ -8,8 +8,8 @@ export type VarianteBotao = 'primario' | 'secundario' | 'fantasma' | 'perigo' | 
 type Tamanho = 'p' | 'm' | 'g';
 
 const variantes: Record<VarianteBotao, string> = {
-  primario: 'bg-texto text-fundo hover:opacity-90',
-  destaque: 'bg-destaque text-destaque-texto hover:opacity-90',
+  primario: 'bg-destaque text-destaque-texto hover:brightness-95',
+  destaque: 'bg-texto text-fundo hover:opacity-90',
   secundario: 'border border-borda bg-superficie text-texto hover:border-texto',
   fantasma: 'text-texto hover:bg-superficie-2',
   perigo: 'bg-perigo text-white hover:opacity-90',

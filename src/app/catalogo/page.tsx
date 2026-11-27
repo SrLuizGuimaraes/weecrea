@@ -10,6 +10,7 @@ import { Aviso, Cartao, CartaoIndicador, Vazio } from '@/componentes/cartoes';
 import { CartaoVideo } from '@/componentes/cartao-video';
 import { CabecalhoPagina } from '@/componentes/cabecalho-pagina';
 import { BotaoTema } from '@/componentes/tema';
+import { Logo, Simbolo } from '@/componentes/marca';
 import { formatarReais } from '@/dominio/dinheiro';
 import { BarraProgresso } from '@/componentes/progresso';
 import { BarrasHorizontais, GraficoColunas, MapaBrasil } from '@/componentes/graficos';
@@ -38,6 +39,20 @@ export default function Catalogo() {
         </div>
         <BotaoTema />
       </div>
+
+      <Secao titulo="Marca e cores" codigo={`<Logo alturaClasse="h-8" />   <Simbolo className="h-8" />   // bg-destaque, text-destaque-tinta, bg-lilas`}>
+        <div className="flex flex-wrap items-center gap-6">
+          <Logo alturaClasse="h-10" />
+          <Simbolo className="h-10 text-texto" titulo="Símbolo WEECREA" />
+          <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-destaque text-destaque-texto"><Simbolo className="h-6" /></span>
+        </div>
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {[['Amarelo', 'bg-destaque text-destaque-texto', '#F0C617'], ['Preto', 'bg-[#090909] text-[#EDE7DF]', '#090909'], ['Lilás', 'bg-lilas text-[#090909]', '#AC8BDD'], ['Off-white', 'bg-[#EDE7DF] text-[#090909] border border-borda', '#EDE7DF']].map(([nome, classe, hex]) => (
+            <div key={nome} className={`rounded-controle p-3 text-sm font-semibold ${classe}`}>{nome}<p className="text-xs font-normal opacity-80">{hex}</p></div>
+          ))}
+        </div>
+        <p className="text-xs text-suave">Amarelo é cor de fundo (botões, barras) com texto preto. Para texto destacado use <code>text-destaque-tinta</code>. Fonte: Plus Jakarta Sans.</p>
+      </Secao>
 
       <Secao titulo="Cabeçalho de página" codigo={`<CabecalhoPagina titulo="Campanhas" descricao="..." acoes={<BotaoLink href="/loja/campanhas/nova">Nova campanha</BotaoLink>} />`}>
         <CabecalhoPagina titulo="Campanhas" descricao="Crie campanhas e acompanhe a meta de cada uma." acoes={<BotaoLink href="#">Nova campanha</BotaoLink>} />

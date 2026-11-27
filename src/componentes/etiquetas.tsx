@@ -12,7 +12,7 @@ const tons: Record<Tom, string> = {
   aviso: 'bg-aviso-fraco text-aviso',
   perigo: 'bg-perigo-fraco text-perigo',
   info: 'bg-info-fraco text-info',
-  destaque: 'bg-destaque-fraco text-destaque',
+  destaque: 'bg-destaque-fraco text-destaque-tinta',
 };
 
 export function Etiqueta({ tom = 'neutro', children, className }: { tom?: Tom; children: ReactNode; className?: string }) {

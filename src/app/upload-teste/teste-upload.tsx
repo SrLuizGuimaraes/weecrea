@@ -30,7 +30,7 @@ export function TesteUpload() {
           <div className="h-full bg-[var(--destaque)] transition-all" style={{ width: `${progresso}%` }} />
         </div>
       )}
-      {erro && <p role="alert" className="text-sm text-red-700">{erro}</p>}
+      {erro && <p role="alert" className="text-sm text-perigo">{erro}</p>}
       {resultado && (
         <p className="break-all text-sm">
           Enviado: {(resultado.tamanhoBytes / 1024 ** 2).toFixed(1)} MB em {resultado.segundos}s

@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import { useState, type ComponentType } from 'react';
 import type { Perfil } from '@/contratos/tipos';
 import { cx } from './cx';
+import { Logo } from './marca';
 import { BotaoTema } from './tema';
 import { AvisoDemonstracao } from '@/lib/demo/estado';
 
@@ -48,7 +49,7 @@ export function MenuLateral({ perfil, titulo, nome, sair }: { perfil: Perfil; ti
     <aside className="sticky top-0 z-30 border-b border-borda bg-fundo md:h-screen md:w-64 md:shrink-0 md:border-r md:border-b-0">
       <div className="flex items-center justify-between gap-2 p-4">
         <div className="min-w-0">
-          <p className="flex items-center gap-2 text-lg font-bold tracking-tight"><i className="block h-[22px] w-[14px] -rotate-[8deg] rounded bg-texto" aria-hidden="true" />WEECREA</p>
+          <Logo alturaClasse="h-7" />
           <p className="truncate text-xs text-suave">{titulo}</p>
         </div>
         <button type="button" className="rounded-lg p-2 hover:bg-superficie-2 md:hidden" onClick={() => setAberto(!aberto)} aria-label={aberto ? 'Fechar menu' : 'Abrir menu'} aria-expanded={aberto}>

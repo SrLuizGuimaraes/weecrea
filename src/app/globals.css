@@ -1,57 +1,62 @@
 /* Tema da WEECREA. Dono: M2.
-   Fundo neutro, bordas finas, preto e branco com uma cor de destaque.
+   Identidade visual: amarelo #F0C617, preto #090909, lilás #AC8BDD e off-white #EDE7DF; fonte Plus Jakarta Sans.
+   O amarelo é cor de FUNDO (botões, destaques, barras): com texto preto passa de 12:1. Texto em amarelo só no tema escuro;
+   no claro use text-destaque-tinta (dourado escuro). O lilás é de apoio (info e ilustrações).
    Use as classes do Tailwind com estes nomes: bg-fundo, bg-superficie, border-borda, text-texto, text-suave, bg-destaque... */
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
+@import "@fontsource-variable/plus-jakarta-sans";
 
 /* Tema escuro: escolhido no botão (data-tema="escuro") ou pelo sistema quando não há escolha. */
 @custom-variant dark (&:where([data-tema="escuro"], [data-tema="escuro"] *));
 
 :root {
-  /* Cores do protótipo "Weethub Creators" */
-  --cor-fundo: #fafafa;
-  --cor-superficie: #ffffff;
-  --cor-superficie-2: #efeff1;
-  --cor-borda: #e4e4e7;
-  --cor-texto: #0a0a0a;
-  --cor-suave: #6b6b76;
-  --cor-destaque: #5b3df5;
-  --cor-destaque-texto: #ffffff;
-  --cor-destaque-fraco: #efecff;
-  --cor-sucesso: #0b7f53;
+  --cor-fundo: #ede7df;
+  --cor-superficie: #fbf9f6;
+  --cor-superficie-2: #e3dcd1;
+  --cor-borda: #d8d0c4;
+  --cor-texto: #090909;
+  --cor-suave: #6b645b;
+  --cor-destaque: #f0c617;
+  --cor-destaque-texto: #090909;
+  --cor-destaque-tinta: #6b5300;
+  --cor-destaque-fraco: #f8ebb5;
+  --cor-lilas: #ac8bdd;
+  --cor-sucesso: #0a7048;
   --cor-sucesso-fraco: #ddf3ea;
-  --cor-aviso: #96580a;
+  --cor-aviso: #8a5208;
   --cor-aviso-fraco: #fbebd0;
-  --cor-perigo: #d42a62;
+  --cor-perigo: #c0245a;
   --cor-perigo-fraco: #fbe3eb;
-  --cor-info: #5b3df5;
-  --cor-info-fraco: #efecff;
+  --cor-info: #5b3fa8;
+  --cor-info-fraco: #e9dff7;
   color-scheme: light;
 }
 
 [data-tema="escuro"] {
-  --cor-fundo: #050505;
-  --cor-superficie: #0e0e10;
-  --cor-superficie-2: #1c1c20;
-  --cor-borda: #27272a;
-  --cor-texto: #fafafa;
-  --cor-suave: #a1a1aa;
-  --cor-destaque: #9c88ff;
-  --cor-destaque-texto: #0a0a0a;
-  --cor-destaque-fraco: #221e3d;
+  --cor-fundo: #101010;
+  --cor-superficie: #181818;
+  --cor-superficie-2: #222222;
+  --cor-borda: #2e2e2e;
+  --cor-texto: #ede7df;
+  --cor-suave: #a39c92;
+  --cor-destaque: #f0c617;
+  --cor-destaque-texto: #090909;
+  --cor-destaque-tinta: #f0c617;
+  --cor-destaque-fraco: #2b2509;
+  --cor-lilas: #ac8bdd;
   --cor-sucesso: #4fd3a0;
   --cor-sucesso-fraco: #153a2d;
   --cor-aviso: #f0b050;
   --cor-aviso-fraco: #3d2e12;
   --cor-perigo: #ff6a97;
   --cor-perigo-fraco: #3a1424;
-  --cor-info: #9c88ff;
-  --cor-info-fraco: #221e3d;
+  --cor-info: #c4a9f0;
+  --cor-info-fraco: #2a2142;
   color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
   --color-fundo: var(--cor-fundo);
   --color-superficie: var(--cor-superficie);
   --color-superficie-2: var(--cor-superficie-2);
@@ -60,7 +65,9 @@
   --color-suave: var(--cor-suave);
   --color-destaque: var(--cor-destaque);
   --color-destaque-texto: var(--cor-destaque-texto);
+  --color-destaque-tinta: var(--cor-destaque-tinta);
   --color-destaque-fraco: var(--cor-destaque-fraco);
+  --color-lilas: var(--cor-lilas);
   --color-sucesso: var(--cor-sucesso);
   --color-sucesso-fraco: var(--cor-sucesso-fraco);
   --color-aviso: var(--cor-aviso);
@@ -69,8 +76,8 @@
   --color-perigo-fraco: var(--cor-perigo-fraco);
   --color-info: var(--cor-info);
   --color-info-fraco: var(--cor-info-fraco);
-  --radius-cartao: 14px;
-  --radius-controle: 10px;
+  --radius-cartao: 16px;
+  --radius-controle: 12px;
 }
 
 /* Compatibilidade com as telas provisórias do M1. */
@@ -78,4 +85,6 @@
 
 html { background: var(--cor-fundo); }
 body { background: var(--cor-fundo); color: var(--cor-texto); font-family: var(--font-sans); font-size: 15px; line-height: 1.5; }
-:focus-visible { outline: 2px solid var(--cor-destaque); outline-offset: 2px; }
+/* Foco na cor do texto: o amarelo some no fundo claro. */
+:focus-visible { outline: 2px solid var(--cor-texto); outline-offset: 2px; }
+::selection { background: var(--cor-destaque); color: var(--cor-destaque-texto); }
