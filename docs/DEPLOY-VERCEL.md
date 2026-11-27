@@ -31,7 +31,7 @@ Antes de mesclar, a ordem dos PRs é: **#12 (M1) → #16 (telas) → #17 (M5, M6
 | `RESEND_API_KEY` | para e-mails | Chave do Resend. Sem ela, os e-mails (link de senha, aprovação) **não chegam**: só aparecem no log |
 | `EMAIL_REMETENTE` | para e-mails | Ex.: `WEECREA <nao-responda@seu-dominio.com.br>` (domínio verificado no Resend) |
 | `BLOB_READ_WRITE_TOKEN` | para vídeos | **Storage → Create → Blob** na Vercel |
-| `NUVEMSHOP_APP_ID`, `NUVEMSHOP_CLIENT_SECRET`, `NUVEMSHOP_USER_AGENT` | M3 e M4 | Portal de Parceiros da Nuvemshop |
+| `NUVEMSHOP_APP_ID`, `NUVEMSHOP_CLIENT_SECRET`, `NUVEMSHOP_USER_AGENT` | M3 e M4 | Portal de Parceiros da Nuvemshop. Passo a passo e o que confirmar: `docs/NUVEMSHOP.md` |
 | `SENHA_EXEMPLO` | só para o seed | Senha das pessoas de exemplo (veja o passo 5) |
 
 Gerar os segredos (PowerShell ou qualquer terminal com Node):
@@ -57,9 +57,9 @@ O banco novo nasce vazio, então ninguém consegue entrar. Escolha um caminho:
 - [ ] O creator entra e aceita a campanha
 
 ## O que ainda NÃO funciona em produção
-- **Nuvemshop (M3, M4):** não conecta nem recebe pedidos; cupons nascem só no nosso banco (`erro_sync`).
+- **Nuvemshop (M3, M4):** o código está pronto e testado com a API simulada, mas **ainda não falou com a Nuvemshop de verdade**. Precisa das chaves do app e de uma loja de teste: veja `docs/NUVEMSHOP.md`.
 - **Vídeos (M8), painel (M9), financeiro (M10), Weethub (M11):** telas ainda com dados de exemplo.
-- **Tarefas agendadas:** `/api/cron/saude` existe, mas o `vercel.json` ainda não tem `crons`. A reconciliação de pedidos e a liberação de comissões entram com M4 e M10.
+- **Tarefas agendadas:** a conferência de pedidos roda 1 vez por dia (`vercel.json`, `/api/cron/reconciliar`); o plano gratuito da Vercel não aceita mais que isso. A liberação de comissões entra com o M10.
 - **Limite de envios do cadastro público:** fica na memória do servidor; na Vercel cada instância tem a sua. Protege de uso descuidado, não de ataque.
 
 ## Se algo der errado
