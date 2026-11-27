@@ -6,7 +6,7 @@ import { CabecalhoPagina, Cartao, CartaoIndicador, Etiqueta, EtiquetaStatus } fr
 import { BotaoCopiar } from '@/componentes/em-breve';
 import { Aviso } from '@/componentes';
 import { BotoesDecisao } from '@/modulos/m7-aprovacao/botoes';
-import { useDemo } from '@/lib/demo/estado';
+import { useDados } from '@/lib/dados-reais-cliente';
 import { formatarReais } from '@/dominio/dinheiro';
 import { formatarNumero } from '@/lib/demo/util';
 import { perfilNaLoja } from '@/modulos/m7-aprovacao/dados';
@@ -14,7 +14,7 @@ import { perfilNaLoja } from '@/modulos/m7-aprovacao/dados';
 const ORIGEM = { link: 'Link de convite', qr_code: 'QR code', email: 'Convite por e-mail', pagina: 'Página de cadastro' };
 
 export function TelaPerfilCreator({ lojaId, id }: { lojaId: string; id: string }) {
-  const { D } = useDemo();
+  const { D } = useDados();
   const p = perfilNaLoja(D, lojaId, id);
   if (!p) return <Aviso tom="perigo">Creator não encontrado nesta loja.</Aviso>;
   const c = p.creator;
