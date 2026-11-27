@@ -4,14 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WEECREA · Painel da equipe</title>
+<link rel="icon" href="marca/icone.svg" type="image/svg+xml">
 <style>
-:root{--bg:#F1F0F6;--surface:#fff;--ink:#1A1830;--muted:#6A6880;--line:#DDDBE8;--brand:#5B3DF5;--brand-soft:#E9E4FF;--hot:#D42A62;--ok:#0B7F53;--ok-soft:#DDF3EA;--warn:#96580A;--warn-soft:#FBEBD0;--bad-soft:#FBE1EA}
-@media (prefers-color-scheme:dark){:root{--bg:#121120;--surface:#1C1A2E;--ink:#EEEDF7;--muted:#A09DB8;--line:#302D48;--brand:#9C88FF;--brand-soft:#2B2552;--hot:#FF6A97;--ok:#4FD3A0;--ok-soft:#153A2D;--warn:#F0B050;--warn-soft:#3D2E12;--bad-soft:#3F1A28}}
+@font-face{font-family:"Plus Jakarta Sans";src:url(fonte/plus-jakarta-sans-latin-wght-normal.woff2) format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+:root{--bg:#EDE7DF;--surface:#FBF9F6;--ink:#090909;--muted:#6B645B;--line:#D8D0C4;--brand:#F0C617;--brand-ink:#6B5300;--brand-soft:#F8EBB5;--hot:#C0245A;--ok:#0A7048;--ok-soft:#DDF3EA;--warn:#8A5208;--warn-soft:#FBEBD0;--bad-soft:#FBE3EB}
+@media (prefers-color-scheme:dark){:root{--bg:#101010;--surface:#181818;--ink:#EDE7DF;--muted:#A39C92;--line:#2E2E2E;--brand:#F0C617;--brand-ink:#F0C617;--brand-soft:#2B2509;--hot:#FF6A97;--ok:#4FD3A0;--ok-soft:#153A2D;--warn:#F0B050;--warn-soft:#3D2E12;--bad-soft:#3A1424}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
 header{padding:20px 24px;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
 .logo{font-weight:800;font-size:20px;letter-spacing:-.02em;display:flex;gap:8px;align-items:center}
-.logo i{width:14px;height:22px;border-radius:4px;background:var(--brand);transform:rotate(-8deg);display:block}
+.logo img{display:block;height:28px;width:auto}
 header .r{margin-left:auto;color:var(--muted);font-size:13px;text-align:right}
 main{max-width:1180px;margin:0 auto;padding:24px}
 h1{font-size:26px;margin:0 0 4px}
@@ -24,7 +26,7 @@ h1{font-size:26px;margin:0 0 4px}
 .bar i{display:block;height:100%;background:var(--brand);border-radius:99px;transition:width .5s}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .mod h3{margin:0;font-size:15px}
-.mod .id{font-weight:800;color:var(--brand);margin-right:6px}
+.mod .id{font-weight:800;color:var(--brand-ink);margin-right:6px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .pill{font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;white-space:nowrap}
 .p-a{background:var(--bg);color:var(--muted)}.p-f{background:var(--warn-soft);color:var(--warn)}.p-d{background:var(--ok-soft);color:var(--ok)}.p-t{background:var(--bad-soft);color:var(--hot)}
@@ -34,7 +36,9 @@ h1{font-size:26px;margin:0 0 4px}
 .ok .bar i{background:var(--ok)}
 .sec{margin:28px 0 12px;font-size:17px;font-weight:700}
 .dep{font-size:12px;color:var(--muted);margin-top:6px}
-a{color:var(--brand)}
+a{color:var(--brand-ink);text-decoration:underline}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+::selection{background:var(--brand);color:#090909}
 .msg{padding:14px;border-radius:12px;background:var(--warn-soft);color:var(--warn);margin:16px 0}
 .tools{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
 .tools button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:6px 14px;cursor:pointer;font:inherit;font-size:13px}
@@ -43,7 +47,7 @@ a{color:var(--brand)}
 </head>
 <body>
 <header>
-  <div class="logo"><i></i>WEECREA <span class="sub" style="font-weight:500">painel da equipe</span></div>
+  <div class="logo"><picture><source media="(prefers-color-scheme:dark)" srcset="marca/logo-escuro.png"><img src="marca/logo-claro.png" alt="WEECREA" width="84" height="28"></picture> <span class="sub" style="font-weight:500">painel da equipe</span></div>
   <div class="r" id="upd">carregando…</div>
 </header>
 <main>
