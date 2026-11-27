@@ -59,11 +59,12 @@ a{color:var(--brand)}
 </main>
 <script>
 // ===== CONFIGURAÇÃO =====
-// Dono/repositório: detectado pelo endereço (dono.github.io/repo) ou por ?repo=dono/repo
+// Dono/repositório: ?repo=dono/repo, ou pelo endereço (dono.github.io/repo), ou o repositório do time (ex.: na Vercel)
+const REPO_PADRAO = 'SrLuizGuimaraes/weecrea';
 const REPO = (()=>{
   const q=new URLSearchParams(location.search).get('repo'); if(q) return q;
   const m=location.hostname.match(/^(.+)\.github\.io$/); const p=location.pathname.split('/')[1];
-  return m&&p ? `${m[1]}/${p}` : null;
+  return m&&p ? `${m[1]}/${p}` : REPO_PADRAO;
 })();
 const PRAZO = '2026-12-02';
 const API = 'https://api.github.com/repos/'+REPO;
