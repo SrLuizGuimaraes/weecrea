@@ -1,23 +1,7573 @@
 {
-  "loja": {"id":"l1","nome":"Ateliê Jabuticaba","slug":"atelie-jabuticaba"},
-  "creators": [
-    {"id":"c1","nome":"Marina Couto","arroba":"marinacouto","rede":"Instagram","seguidores":48200,"engajamento":4.8,"segmentos":["Moda"],"uf":"MG","status":"ativo"},
-    {"id":"c2","nome":"Rafa Lima","arroba":"rafalima","rede":"TikTok","seguidores":12900,"engajamento":6.1,"segmentos":["Lifestyle"],"uf":"SP","status":"ativo"},
-    {"id":"c3","nome":"Bia Torres","arroba":"biatorres","rede":"Instagram","seguidores":2100,"engajamento":2.0,"segmentos":["Moda"],"uf":"BA","status":"pendente"}
-  ],
-  "campanhas": [
-    {"id":"k1","lojaId":"l1","nome":"Verão 27 no linho","produtoId":"p1","metaVendas":20000,"comissaoPct":10,"inicio":"2026-11-01","fim":"2026-11-30","briefing":"Mostre o look no dia a dia.","tags":["linho","verão"],"beneficios":["Peça grátis"],"status":"ativa"}
-  ],
-  "cupons": [
-    {"codigo":"MARINA10","creatorId":"c1","lojaId":"l1"},
-    {"codigo":"RAFA10","creatorId":"c2","lojaId":"l1"}
-  ],
-  "pedidos": [
-    {"id":"o1","lojaId":"l1","cupom":"MARINA10","valor":389.9,"uf":"MG","produtoId":"p1","data":"2026-11-10","estado":"pago"},
-    {"id":"o2","lojaId":"l1","cupom":"MARINA10","valor":259.0,"uf":"SP","produtoId":"p1","data":"2026-11-12","estado":"cancelado"},
-    {"id":"o3","lojaId":"l1","cupom":"RAFA10","valor":512.5,"uf":"RJ","produtoId":"p1","data":"2026-11-14","estado":"pago"}
-  ],
-  "videos": [
-    {"id":"v1","creatorId":"c1","campanhaId":"k1","rede":"Instagram","link":"https://instagram.com/reel/exemplo","views":15400,"curtidas":980,"data":"2026-11-09"}
-  ]
+ "geradoEm": "2026-11-25",
+ "hoje": "2026-11-25",
+ "usuarios": [
+  {
+   "id": "u-weethub",
+   "email": "weethub@exemplo.com",
+   "nome": "Equipe Weethub",
+   "perfil": "WEETHUB"
+  },
+  {
+   "id": "u-l1",
+   "email": "loja@exemplo.com",
+   "nome": "Dona do Ateliê",
+   "perfil": "LOJA",
+   "lojaId": "l1"
+  },
+  {
+   "id": "u-l2",
+   "email": "casaipe@exemplo.com",
+   "nome": "Dono da Casa Ipê",
+   "perfil": "LOJA",
+   "lojaId": "l2"
+  },
+  {
+   "id": "u-l3",
+   "email": "belaraiz@exemplo.com",
+   "nome": "Dona da Bela Raiz",
+   "perfil": "LOJA",
+   "lojaId": "l3"
+  },
+  {
+   "id": "u-c1",
+   "email": "creator@exemplo.com",
+   "nome": "Marina Couto",
+   "perfil": "CREATOR",
+   "creatorId": "c1"
+  },
+  {
+   "id": "u-c2",
+   "email": "rafalima@exemplo.com",
+   "nome": "Rafa Lima",
+   "perfil": "CREATOR",
+   "creatorId": "c2"
+  },
+  {
+   "id": "u-c3",
+   "email": "biatorres@exemplo.com",
+   "nome": "Bia Torres",
+   "perfil": "CREATOR",
+   "creatorId": "c3"
+  },
+  {
+   "id": "u-c4",
+   "email": "juliaandrade@exemplo.com",
+   "nome": "Júlia Andrade",
+   "perfil": "CREATOR",
+   "creatorId": "c4"
+  },
+  {
+   "id": "u-c5",
+   "email": "pedrosampaio@exemplo.com",
+   "nome": "Pedro Sampaio",
+   "perfil": "CREATOR",
+   "creatorId": "c5"
+  },
+  {
+   "id": "u-c6",
+   "email": "anaclarareis@exemplo.com",
+   "nome": "Ana Clara Reis",
+   "perfil": "CREATOR",
+   "creatorId": "c6"
+  },
+  {
+   "id": "u-c7",
+   "email": "lucasferraz@exemplo.com",
+   "nome": "Lucas Ferraz",
+   "perfil": "CREATOR",
+   "creatorId": "c7"
+  },
+  {
+   "id": "u-c8",
+   "email": "camilanobrega@exemplo.com",
+   "nome": "Camila Nóbrega",
+   "perfil": "CREATOR",
+   "creatorId": "c8"
+  },
+  {
+   "id": "u-c9",
+   "email": "thaismonteiro@exemplo.com",
+   "nome": "Thaís Monteiro",
+   "perfil": "CREATOR",
+   "creatorId": "c9"
+  },
+  {
+   "id": "u-c10",
+   "email": "gabrielrocha@exemplo.com",
+   "nome": "Gabriel Rocha",
+   "perfil": "CREATOR",
+   "creatorId": "c10"
+  },
+  {
+   "id": "u-c11",
+   "email": "larissaprado@exemplo.com",
+   "nome": "Larissa Prado",
+   "perfil": "CREATOR",
+   "creatorId": "c11"
+  },
+  {
+   "id": "u-c12",
+   "email": "marianaalves@exemplo.com",
+   "nome": "Mariana Alves",
+   "perfil": "CREATOR",
+   "creatorId": "c12"
+  },
+  {
+   "id": "u-c13",
+   "email": "renataduarte@exemplo.com",
+   "nome": "Renata Duarte",
+   "perfil": "CREATOR",
+   "creatorId": "c13"
+  },
+  {
+   "id": "u-c14",
+   "email": "felipematos@exemplo.com",
+   "nome": "Felipe Matos",
+   "perfil": "CREATOR",
+   "creatorId": "c14"
+  },
+  {
+   "id": "u-c15",
+   "email": "sofiabezerra@exemplo.com",
+   "nome": "Sofia Bezerra",
+   "perfil": "CREATOR",
+   "creatorId": "c15"
+  }
+ ],
+ "lojas": [
+  {
+   "id": "l1",
+   "nome": "Ateliê Jabuticaba",
+   "slug": "atelie-jabuticaba",
+   "status": "ativa",
+   "nuvemshopStoreId": 5100001,
+   "nuvemshopConectada": true,
+   "comissaoPadraoBps": 1000,
+   "cupomDescontoPct": 10,
+   "retencaoDias": 7,
+   "criterios": {
+    "aprovacaoAutomatica": true,
+    "seguidoresMin": 5000,
+    "engajamentoMinBps": 200,
+    "redesAceitas": [
+     "instagram",
+     "tiktok"
+    ],
+    "segmentosAceitos": [
+     "Moda",
+     "Lifestyle"
+    ],
+    "exigeTerProduto": false
+   },
+   "paginaCadastro": {
+    "titulo": "Crie com o Ateliê Jabuticaba",
+    "texto": "Roupas de linho feitas à mão em Minas. Ganhe comissão em cada venda com o seu cupom.",
+    "aberta": true
+   }
+  },
+  {
+   "id": "l2",
+   "nome": "Casa Ipê",
+   "slug": "casa-ipe",
+   "status": "ativa",
+   "nuvemshopStoreId": 5100002,
+   "nuvemshopConectada": true,
+   "comissaoPadraoBps": 800,
+   "cupomDescontoPct": 15,
+   "retencaoDias": 7,
+   "criterios": {
+    "aprovacaoAutomatica": false,
+    "seguidoresMin": 3000,
+    "engajamentoMinBps": 0,
+    "redesAceitas": [
+     "instagram",
+     "tiktok"
+    ],
+    "segmentosAceitos": [
+     "Casa",
+     "Decoração",
+     "Lifestyle"
+    ],
+    "exigeTerProduto": false
+   },
+   "paginaCadastro": {
+    "titulo": "Creators da Casa Ipê",
+    "texto": "Decoração brasileira para a casa toda.",
+    "aberta": true
+   }
+  },
+  {
+   "id": "l3",
+   "nome": "Bela Raiz Cosméticos",
+   "slug": "bela-raiz",
+   "status": "implantacao",
+   "nuvemshopStoreId": 5100003,
+   "nuvemshopConectada": true,
+   "comissaoPadraoBps": 1200,
+   "cupomDescontoPct": 10,
+   "retencaoDias": 14,
+   "criterios": {
+    "aprovacaoAutomatica": true,
+    "seguidoresMin": 10000,
+    "engajamentoMinBps": 0,
+    "redesAceitas": [
+     "tiktok"
+    ],
+    "segmentosAceitos": [],
+    "exigeTerProduto": false
+   },
+   "paginaCadastro": {
+    "titulo": "Bela Raiz Creators",
+    "texto": "Cosméticos naturais e veganos.",
+    "aberta": false
+   }
+  }
+ ],
+ "creators": [
+  {
+   "id": "c1",
+   "usuarioId": "u-c1",
+   "nome": "Marina Couto",
+   "email": "creator@exemplo.com",
+   "whatsapp": "+55 88 98837-3770",
+   "uf": "MG",
+   "cidade": "Belo Horizonte",
+   "bio": "Sou Marina, crio conteúdo sobre moda em Belo Horizonte.",
+   "segmentos": [
+    "Moda"
+   ],
+   "instagram": {
+    "perfil": "marinacouto",
+    "seguidores": 48200
+   },
+   "engajamentoBps": 480,
+   "bloqueado": false
+  },
+  {
+   "id": "c2",
+   "usuarioId": "u-c2",
+   "nome": "Rafa Lima",
+   "email": "rafalima@exemplo.com",
+   "whatsapp": "+55 89 91329-2176",
+   "uf": "SP",
+   "cidade": "São Paulo",
+   "bio": "Sou Rafa, crio conteúdo sobre lifestyle em São Paulo.",
+   "segmentos": [
+    "Lifestyle"
+   ],
+   "tiktok": {
+    "perfil": "rafalima",
+    "seguidores": 12900
+   },
+   "engajamentoBps": 610,
+   "bloqueado": false
+  },
+  {
+   "id": "c3",
+   "usuarioId": "u-c3",
+   "nome": "Bia Torres",
+   "email": "biatorres@exemplo.com",
+   "whatsapp": "+55 98 96060-9047",
+   "uf": "BA",
+   "cidade": "Salvador",
+   "bio": "Sou Bia, crio conteúdo sobre moda em Salvador.",
+   "segmentos": [
+    "Moda"
+   ],
+   "instagram": {
+    "perfil": "biatorres",
+    "seguidores": 2100
+   },
+   "engajamentoBps": 200,
+   "bloqueado": false
+  },
+  {
+   "id": "c4",
+   "usuarioId": "u-c4",
+   "nome": "Júlia Andrade",
+   "email": "juliaandrade@exemplo.com",
+   "whatsapp": "+55 70 97120-2943",
+   "uf": "RJ",
+   "cidade": "Rio de Janeiro",
+   "bio": "Sou Júlia, crio conteúdo sobre moda e beleza em Rio de Janeiro.",
+   "segmentos": [
+    "Moda",
+    "Beleza"
+   ],
+   "instagram": {
+    "perfil": "juliaandrade",
+    "seguidores": 25300
+   },
+   "tiktok": {
+    "perfil": "juliaandrade",
+    "seguidores": 8800
+   },
+   "engajamentoBps": 350,
+   "bloqueado": false
+  },
+  {
+   "id": "c5",
+   "usuarioId": "u-c5",
+   "nome": "Pedro Sampaio",
+   "email": "pedrosampaio@exemplo.com",
+   "whatsapp": "+55 53 92259-7970",
+   "uf": "PR",
+   "cidade": "Curitiba",
+   "bio": "Sou Pedro, crio conteúdo sobre casa e decoração em Curitiba.",
+   "segmentos": [
+    "Casa",
+    "Decoração"
+   ],
+   "instagram": {
+    "perfil": "pedrosampaio",
+    "seguidores": 9100
+   },
+   "engajamentoBps": 420,
+   "bloqueado": false
+  },
+  {
+   "id": "c6",
+   "usuarioId": "u-c6",
+   "nome": "Ana Clara Reis",
+   "email": "anaclarareis@exemplo.com",
+   "whatsapp": "+55 98 99580-9638",
+   "uf": "PE",
+   "cidade": "Recife",
+   "bio": "Sou Ana, crio conteúdo sobre beleza em Recife.",
+   "segmentos": [
+    "Beleza"
+   ],
+   "tiktok": {
+    "perfil": "anaclarareis",
+    "seguidores": 31000
+   },
+   "engajamentoBps": 720,
+   "bloqueado": false
+  },
+  {
+   "id": "c7",
+   "usuarioId": "u-c7",
+   "nome": "Lucas Ferraz",
+   "email": "lucasferraz@exemplo.com",
+   "whatsapp": "+55 70 98140-7108",
+   "uf": "RS",
+   "cidade": "Porto Alegre",
+   "bio": "Sou Lucas, crio conteúdo sobre lifestyle e casa em Porto Alegre.",
+   "segmentos": [
+    "Lifestyle",
+    "Casa"
+   ],
+   "instagram": {
+    "perfil": "lucasferraz",
+    "seguidores": 6400
+   },
+   "tiktok": {
+    "perfil": "lucasferraz",
+    "seguidores": 4100
+   },
+   "engajamentoBps": 290,
+   "bloqueado": false
+  },
+  {
+   "id": "c8",
+   "usuarioId": "u-c8",
+   "nome": "Camila Nóbrega",
+   "email": "camilanobrega@exemplo.com",
+   "whatsapp": "+55 70 96905-4239",
+   "uf": "CE",
+   "cidade": "Fortaleza",
+   "bio": "Sou Camila, crio conteúdo sobre moda e lifestyle em Fortaleza.",
+   "segmentos": [
+    "Moda",
+    "Lifestyle"
+   ],
+   "instagram": {
+    "perfil": "camilanobrega",
+    "seguidores": 15700
+   },
+   "engajamentoBps": 510,
+   "bloqueado": false
+  },
+  {
+   "id": "c9",
+   "usuarioId": "u-c9",
+   "nome": "Thaís Monteiro",
+   "email": "thaismonteiro@exemplo.com",
+   "whatsapp": "+55 50 92653-9904",
+   "uf": "SC",
+   "cidade": "Florianópolis",
+   "bio": "Sou Thaís, crio conteúdo sobre decoração em Florianópolis.",
+   "segmentos": [
+    "Decoração"
+   ],
+   "instagram": {
+    "perfil": "thaismonteiro",
+    "seguidores": 4300
+   },
+   "engajamentoBps": 380,
+   "bloqueado": false
+  },
+  {
+   "id": "c10",
+   "usuarioId": "u-c10",
+   "nome": "Gabriel Rocha",
+   "email": "gabrielrocha@exemplo.com",
+   "whatsapp": "+55 92 97530-5680",
+   "uf": "GO",
+   "cidade": "Goiânia",
+   "bio": "Sou Gabriel, crio conteúdo sobre lifestyle em Goiânia.",
+   "segmentos": [
+    "Lifestyle"
+   ],
+   "tiktok": {
+    "perfil": "gabrielrocha",
+    "seguidores": 52000
+   },
+   "engajamentoBps": 890,
+   "bloqueado": false
+  },
+  {
+   "id": "c11",
+   "usuarioId": "u-c11",
+   "nome": "Larissa Prado",
+   "email": "larissaprado@exemplo.com",
+   "whatsapp": "+55 93 92794-6881",
+   "uf": "DF",
+   "cidade": "Brasília",
+   "bio": "Sou Larissa, crio conteúdo sobre beleza e moda em Brasília.",
+   "segmentos": [
+    "Beleza",
+    "Moda"
+   ],
+   "instagram": {
+    "perfil": "larissaprado",
+    "seguidores": 11200
+   },
+   "tiktok": {
+    "perfil": "larissaprado",
+    "seguidores": 2300
+   },
+   "engajamentoBps": 260,
+   "bloqueado": false
+  },
+  {
+   "id": "c12",
+   "usuarioId": "u-c12",
+   "nome": "Mariana Alves",
+   "email": "marianaalves@exemplo.com",
+   "whatsapp": "+55 74 91289-2422",
+   "uf": "MG",
+   "cidade": "Juiz de Fora",
+   "bio": "Sou Mariana, crio conteúdo sobre moda em Juiz de Fora.",
+   "segmentos": [
+    "Moda"
+   ],
+   "instagram": {
+    "perfil": "marianaalves",
+    "seguidores": 7300
+   },
+   "engajamentoBps": 330,
+   "bloqueado": false
+  },
+  {
+   "id": "c13",
+   "usuarioId": "u-c13",
+   "nome": "Renata Duarte",
+   "email": "renataduarte@exemplo.com",
+   "whatsapp": "+55 95 98622-9123",
+   "uf": "AM",
+   "cidade": "Manaus",
+   "bio": "Sou Renata, crio conteúdo sobre beleza em Manaus.",
+   "segmentos": [
+    "Beleza"
+   ],
+   "tiktok": {
+    "perfil": "renataduarte",
+    "seguidores": 18400
+   },
+   "engajamentoBps": 560,
+   "bloqueado": false
+  },
+  {
+   "id": "c14",
+   "usuarioId": "u-c14",
+   "nome": "Felipe Matos",
+   "email": "felipematos@exemplo.com",
+   "whatsapp": "+55 94 97327-4817",
+   "uf": "ES",
+   "cidade": "Vitória",
+   "bio": "Sou Felipe, crio conteúdo sobre casa em Vitória.",
+   "segmentos": [
+    "Casa"
+   ],
+   "instagram": {
+    "perfil": "felipematos",
+    "seguidores": 3800
+   },
+   "engajamentoBps": 240,
+   "bloqueado": false
+  },
+  {
+   "id": "c15",
+   "usuarioId": "u-c15",
+   "nome": "Sofia Bezerra",
+   "email": "sofiabezerra@exemplo.com",
+   "whatsapp": "+55 72 98819-4760",
+   "uf": "PA",
+   "cidade": "Belém",
+   "bio": "Sou Sofia, crio conteúdo sobre moda e casa em Belém.",
+   "segmentos": [
+    "Moda",
+    "Casa"
+   ],
+   "instagram": {
+    "perfil": "sofiabezerra",
+    "seguidores": 21900
+   },
+   "tiktok": {
+    "perfil": "sofiabezerra",
+    "seguidores": 15200
+   },
+   "engajamentoBps": 470,
+   "bloqueado": false
+  }
+ ],
+ "afiliacoes": [
+  {
+   "id": "a1",
+   "lojaId": "l1",
+   "creatorId": "c1",
+   "status": "aprovado",
+   "origem": "email",
+   "temProduto": true,
+   "falhasCriterios": [],
+   "decisao": "automatica",
+   "decididaEm": "2026-09-06T15:00:00Z",
+   "comissaoPropriaBps": 1200
+  },
+  {
+   "id": "a2",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "status": "aprovado",
+   "origem": "pagina",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "automatica",
+   "decididaEm": "2026-09-22T15:00:00Z"
+  },
+  {
+   "id": "a3",
+   "lojaId": "l1",
+   "creatorId": "c3",
+   "status": "pendente",
+   "origem": "link",
+   "temProduto": true,
+   "falhasCriterios": [
+    "Seguidores abaixo do mínimo"
+   ]
+  },
+  {
+   "id": "a4",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "status": "aprovado",
+   "origem": "qr_code",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "manual",
+   "decididaEm": "2026-09-18T15:00:00Z"
+  },
+  {
+   "id": "a5",
+   "lojaId": "l1",
+   "creatorId": "c8",
+   "status": "aprovado",
+   "origem": "pagina",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "manual",
+   "decididaEm": "2026-09-04T15:00:00Z"
+  },
+  {
+   "id": "a6",
+   "lojaId": "l1",
+   "creatorId": "c12",
+   "status": "aprovado",
+   "origem": "qr_code",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "automatica",
+   "decididaEm": "2026-09-02T15:00:00Z"
+  },
+  {
+   "id": "a7",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "status": "pausado",
+   "origem": "link",
+   "temProduto": true,
+   "falhasCriterios": [],
+   "decisao": "manual",
+   "decididaEm": "2026-09-12T15:00:00Z"
+  },
+  {
+   "id": "a8",
+   "lojaId": "l1",
+   "creatorId": "c11",
+   "status": "recusado",
+   "origem": "email",
+   "temProduto": true,
+   "falhasCriterios": [],
+   "decisao": "manual",
+   "decididaEm": "2026-09-10T15:00:00Z"
+  },
+  {
+   "id": "a9",
+   "lojaId": "l2",
+   "creatorId": "c5",
+   "status": "aprovado",
+   "origem": "qr_code",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "automatica",
+   "decididaEm": "2026-09-18T15:00:00Z"
+  },
+  {
+   "id": "a10",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "status": "aprovado",
+   "origem": "qr_code",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "manual",
+   "decididaEm": "2026-09-12T15:00:00Z"
+  },
+  {
+   "id": "a11",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "status": "aprovado",
+   "origem": "link",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "manual",
+   "decididaEm": "2026-09-19T15:00:00Z"
+  },
+  {
+   "id": "a12",
+   "lojaId": "l2",
+   "creatorId": "c14",
+   "status": "pendente",
+   "origem": "email",
+   "temProduto": true,
+   "falhasCriterios": [
+    "Seguidores abaixo do mínimo"
+   ]
+  },
+  {
+   "id": "a13",
+   "lojaId": "l2",
+   "creatorId": "c15",
+   "status": "aprovado",
+   "origem": "pagina",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "manual",
+   "decididaEm": "2026-09-04T15:00:00Z"
+  },
+  {
+   "id": "a14",
+   "lojaId": "l2",
+   "creatorId": "c2",
+   "status": "aprovado",
+   "origem": "pagina",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "manual",
+   "decididaEm": "2026-09-19T15:00:00Z"
+  },
+  {
+   "id": "a15",
+   "lojaId": "l3",
+   "creatorId": "c6",
+   "status": "aprovado",
+   "origem": "qr_code",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "manual",
+   "decididaEm": "2026-09-03T15:00:00Z"
+  },
+  {
+   "id": "a16",
+   "lojaId": "l3",
+   "creatorId": "c13",
+   "status": "aprovado",
+   "origem": "pagina",
+   "temProduto": false,
+   "falhasCriterios": [],
+   "decisao": "automatica",
+   "decididaEm": "2026-09-02T15:00:00Z"
+  },
+  {
+   "id": "a17",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "status": "aprovado",
+   "origem": "pagina",
+   "temProduto": true,
+   "falhasCriterios": [],
+   "decisao": "automatica",
+   "decididaEm": "2026-09-06T15:00:00Z"
+  },
+  {
+   "id": "a18",
+   "lojaId": "l3",
+   "creatorId": "c11",
+   "status": "pendente",
+   "origem": "pagina",
+   "temProduto": false,
+   "falhasCriterios": [
+    "Seguidores abaixo do mínimo"
+   ]
+  }
+ ],
+ "cupons": [
+  {
+   "id": "cp1",
+   "lojaId": "l1",
+   "creatorId": "c1",
+   "codigo": "MARINA10",
+   "nuvemshopId": 700001,
+   "status": "ativo"
+  },
+  {
+   "id": "cp2",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "codigo": "RAFA10",
+   "nuvemshopId": 700002,
+   "status": "ativo"
+  },
+  {
+   "id": "cp3",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "codigo": "JULIA10",
+   "nuvemshopId": 700003,
+   "status": "ativo"
+  },
+  {
+   "id": "cp4",
+   "lojaId": "l1",
+   "creatorId": "c8",
+   "codigo": "CAMILA10",
+   "nuvemshopId": 700004,
+   "status": "ativo"
+  },
+  {
+   "id": "cp5",
+   "lojaId": "l1",
+   "creatorId": "c12",
+   "codigo": "MARIANA10",
+   "nuvemshopId": 700005,
+   "status": "ativo"
+  },
+  {
+   "id": "cp6",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "codigo": "SOFIA10",
+   "nuvemshopId": 700006,
+   "status": "pausado"
+  },
+  {
+   "id": "cp7",
+   "lojaId": "l2",
+   "creatorId": "c5",
+   "codigo": "PEDRO15",
+   "nuvemshopId": 700007,
+   "status": "ativo"
+  },
+  {
+   "id": "cp8",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "codigo": "LUCAS15",
+   "nuvemshopId": 700008,
+   "status": "ativo"
+  },
+  {
+   "id": "cp9",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "codigo": "THAIS15",
+   "nuvemshopId": 700009,
+   "status": "ativo"
+  },
+  {
+   "id": "cp10",
+   "lojaId": "l2",
+   "creatorId": "c15",
+   "codigo": "SOFIA15",
+   "nuvemshopId": 700010,
+   "status": "ativo"
+  },
+  {
+   "id": "cp11",
+   "lojaId": "l2",
+   "creatorId": "c2",
+   "codigo": "RAFA15",
+   "nuvemshopId": 700011,
+   "status": "ativo"
+  },
+  {
+   "id": "cp12",
+   "lojaId": "l3",
+   "creatorId": "c6",
+   "codigo": "ANA10",
+   "nuvemshopId": 700012,
+   "status": "ativo"
+  },
+  {
+   "id": "cp13",
+   "lojaId": "l3",
+   "creatorId": "c13",
+   "codigo": "RENATA10",
+   "nuvemshopId": 700013,
+   "status": "ativo"
+  },
+  {
+   "id": "cp14",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "codigo": "GABRIEL10",
+   "nuvemshopId": 700014,
+   "status": "ativo"
+  }
+ ],
+ "produtos": [
+  {
+   "id": "l1-p1",
+   "lojaId": "l1",
+   "nuvemshopId": 900001,
+   "nome": "Vestido Linho Cru",
+   "categoria": "Vestidos",
+   "precoCentavos": 38990
+  },
+  {
+   "id": "l1-p2",
+   "lojaId": "l1",
+   "nuvemshopId": 900002,
+   "nome": "Calça Pantalona Areia",
+   "categoria": "Calças",
+   "precoCentavos": 29900
+  },
+  {
+   "id": "l1-p3",
+   "lojaId": "l1",
+   "nuvemshopId": 900003,
+   "nome": "Camisa Linho Off-white",
+   "categoria": "Camisas",
+   "precoCentavos": 24990
+  },
+  {
+   "id": "l1-p4",
+   "lojaId": "l1",
+   "nuvemshopId": 900004,
+   "nome": "Conjunto Jabuticaba",
+   "categoria": "Conjuntos",
+   "precoCentavos": 45900
+  },
+  {
+   "id": "l1-p5",
+   "lojaId": "l1",
+   "nuvemshopId": 900005,
+   "nome": "Saia Midi Terracota",
+   "categoria": "Saias",
+   "precoCentavos": 21990
+  },
+  {
+   "id": "l1-p6",
+   "lojaId": "l1",
+   "nuvemshopId": 900006,
+   "nome": "Bolsa de Palha",
+   "categoria": "Acessórios",
+   "precoCentavos": 15990
+  },
+  {
+   "id": "l2-p1",
+   "lojaId": "l2",
+   "nuvemshopId": 900007,
+   "nome": "Vaso de Cerâmica Ipê",
+   "categoria": "Vasos",
+   "precoCentavos": 12990
+  },
+  {
+   "id": "l2-p2",
+   "lojaId": "l2",
+   "nuvemshopId": 900008,
+   "nome": "Manta de Algodão",
+   "categoria": "Têxteis",
+   "precoCentavos": 18990
+  },
+  {
+   "id": "l2-p3",
+   "lojaId": "l2",
+   "nuvemshopId": 900009,
+   "nome": "Luminária de Palha",
+   "categoria": "Iluminação",
+   "precoCentavos": 34990
+  },
+  {
+   "id": "l2-p4",
+   "lojaId": "l2",
+   "nuvemshopId": 900010,
+   "nome": "Jogo Americano Bordado",
+   "categoria": "Mesa",
+   "precoCentavos": 8990
+  },
+  {
+   "id": "l2-p5",
+   "lojaId": "l2",
+   "nuvemshopId": 900011,
+   "nome": "Quadro Folhagens",
+   "categoria": "Quadros",
+   "precoCentavos": 22900
+  },
+  {
+   "id": "l3-p1",
+   "lojaId": "l3",
+   "nuvemshopId": 900012,
+   "nome": "Sérum Vitamina C",
+   "categoria": "Rosto",
+   "precoCentavos": 8990
+  },
+  {
+   "id": "l3-p2",
+   "lojaId": "l3",
+   "nuvemshopId": 900013,
+   "nome": "Óleo Corporal Pequi",
+   "categoria": "Corpo",
+   "precoCentavos": 6490
+  },
+  {
+   "id": "l3-p3",
+   "lojaId": "l3",
+   "nuvemshopId": 900014,
+   "nome": "Máscara de Argila",
+   "categoria": "Rosto",
+   "precoCentavos": 5990
+  },
+  {
+   "id": "l3-p4",
+   "lojaId": "l3",
+   "nuvemshopId": 900015,
+   "nome": "Kit Rotina Natural",
+   "categoria": "Kits",
+   "precoCentavos": 19990
+  }
+ ],
+ "beneficios": [
+  {
+   "id": "b1",
+   "lojaId": "l1",
+   "nome": "Comissão em dobro ao bater a meta",
+   "tipo": "meta",
+   "recompensa": "multiplicador",
+   "multiplicadorX100": 200
+  },
+  {
+   "id": "b2",
+   "lojaId": "l1",
+   "nome": "Top 3 ganham um look completo",
+   "tipo": "ranking",
+   "recompensa": "premio",
+   "topN": 3,
+   "premioDescricao": "Look completo à escolha"
+  },
+  {
+   "id": "b3",
+   "lojaId": "l2",
+   "nome": "+2% na Black Friday",
+   "tipo": "periodo",
+   "recompensa": "bonus_bps",
+   "bonusBps": 200,
+   "periodoInicio": "2026-11-23",
+   "periodoFim": "2026-11-30"
+  },
+  {
+   "id": "b4",
+   "lojaId": "l3",
+   "nome": "Kit grátis ao bater a meta",
+   "tipo": "meta",
+   "recompensa": "premio",
+   "premioDescricao": "Kit Rotina Natural"
+  }
+ ],
+ "campanhas": [
+  {
+   "visibilidade": "aberta",
+   "entrega": "publicar_e_entregar",
+   "tags": [
+    "linho",
+    "verão"
+   ],
+   "beneficioIds": [
+    "b1",
+    "b2"
+   ],
+   "status": "ativa",
+   "id": "k1",
+   "lojaId": "l1",
+   "nome": "Verão 27 no linho",
+   "produtoIds": [
+    "l1-p1",
+    "l1-p2",
+    "l1-p3"
+   ],
+   "inicio": "2026-11-01",
+   "fim": "2026-11-30",
+   "metaCentavos": 2000000,
+   "metaIndividualCentavos": 300000,
+   "comissaoBps": 1500,
+   "briefing": "Mostre o look de linho no dia a dia, com luz natural. Marque @ateliejabuticaba e use o cupom na legenda."
+  },
+  {
+   "visibilidade": "aberta",
+   "entrega": "publicar",
+   "tags": [
+    "saia",
+    "primavera"
+   ],
+   "beneficioIds": [],
+   "status": "encerrada",
+   "id": "k2",
+   "lojaId": "l1",
+   "nome": "Primavera de saias",
+   "produtoIds": [
+    "l1-p5"
+   ],
+   "inicio": "2026-09-15",
+   "fim": "2026-10-15",
+   "metaCentavos": 800000,
+   "comissaoBps": 1200,
+   "briefing": "Três formas de usar a saia midi."
+  },
+  {
+   "visibilidade": "so_convidados",
+   "entrega": "publicar",
+   "tags": [
+    "natal"
+   ],
+   "beneficioIds": [],
+   "status": "agendada",
+   "id": "k3",
+   "lojaId": "l1",
+   "nome": "Natal Jabuticaba",
+   "produtoIds": [],
+   "inicio": "2026-12-01",
+   "fim": "2026-12-24",
+   "metaCentavos": 3000000,
+   "comissaoBps": 1300,
+   "briefing": "Presentes de Natal do Ateliê."
+  },
+  {
+   "visibilidade": "aberta",
+   "entrega": "entregar_arquivo",
+   "tags": [
+    "black friday"
+   ],
+   "beneficioIds": [
+    "b3"
+   ],
+   "status": "ativa",
+   "id": "k4",
+   "lojaId": "l2",
+   "nome": "Black Friday Casa Ipê",
+   "produtoIds": [],
+   "inicio": "2026-11-20",
+   "fim": "2026-11-30",
+   "metaCentavos": 1500000,
+   "comissaoBps": 1000,
+   "briefing": "Mostre um canto da sua casa com peças da Casa Ipê."
+  },
+  {
+   "visibilidade": "aberta",
+   "entrega": "publicar",
+   "tags": [
+    "iluminação"
+   ],
+   "beneficioIds": [],
+   "status": "encerrada",
+   "id": "k5",
+   "lojaId": "l2",
+   "nome": "Luz de outono",
+   "produtoIds": [
+    "l2-p3"
+   ],
+   "inicio": "2026-09-01",
+   "fim": "2026-10-31",
+   "metaCentavos": 600000,
+   "comissaoBps": 900,
+   "briefing": "A luminária de palha em ambientes reais."
+  },
+  {
+   "visibilidade": "aberta",
+   "entrega": "publicar",
+   "tags": [
+    "skincare"
+   ],
+   "beneficioIds": [
+    "b4"
+   ],
+   "status": "rascunho",
+   "id": "k6",
+   "lojaId": "l3",
+   "nome": "Lançamento Sérum",
+   "produtoIds": [
+    "l3-p1"
+   ],
+   "inicio": "2026-12-05",
+   "fim": "2026-12-31",
+   "metaCentavos": 1000000,
+   "comissaoBps": 1500,
+   "briefing": "Rotina de skincare com o sérum."
+  }
+ ],
+ "participacoes": [
+  {
+   "campanhaId": "k1",
+   "creatorId": "c1",
+   "status": "aceito",
+   "aceitaEm": "2026-11-02T13:00:00Z",
+   "comissaoBpsNoAceite": 1500
+  },
+  {
+   "campanhaId": "k1",
+   "creatorId": "c2",
+   "status": "aceito",
+   "aceitaEm": "2026-10-29T13:00:00Z",
+   "comissaoBpsNoAceite": 1500
+  },
+  {
+   "campanhaId": "k1",
+   "creatorId": "c4",
+   "status": "aceito",
+   "aceitaEm": "2026-11-04T13:00:00Z",
+   "comissaoBpsNoAceite": 1500
+  },
+  {
+   "campanhaId": "k1",
+   "creatorId": "c8",
+   "status": "aceito",
+   "aceitaEm": "2026-10-31T13:00:00Z",
+   "comissaoBpsNoAceite": 1500
+  },
+  {
+   "campanhaId": "k1",
+   "creatorId": "c12",
+   "status": "aceito",
+   "aceitaEm": "2026-10-27T13:00:00Z",
+   "comissaoBpsNoAceite": 1500
+  },
+  {
+   "campanhaId": "k1",
+   "creatorId": "c15",
+   "status": "aceito",
+   "aceitaEm": "2026-10-30T13:00:00Z",
+   "comissaoBpsNoAceite": 1500
+  },
+  {
+   "campanhaId": "k2",
+   "creatorId": "c1",
+   "status": "aceito",
+   "aceitaEm": "2026-09-15T13:00:00Z",
+   "comissaoBpsNoAceite": 1200
+  },
+  {
+   "campanhaId": "k2",
+   "creatorId": "c2",
+   "status": "aceito",
+   "aceitaEm": "2026-09-16T13:00:00Z",
+   "comissaoBpsNoAceite": 1200
+  },
+  {
+   "campanhaId": "k2",
+   "creatorId": "c4",
+   "status": "aceito",
+   "aceitaEm": "2026-09-18T13:00:00Z",
+   "comissaoBpsNoAceite": 1200
+  },
+  {
+   "campanhaId": "k2",
+   "creatorId": "c8",
+   "status": "aceito",
+   "aceitaEm": "2026-09-10T13:00:00Z",
+   "comissaoBpsNoAceite": 1200
+  },
+  {
+   "campanhaId": "k2",
+   "creatorId": "c12",
+   "status": "aceito",
+   "aceitaEm": "2026-09-18T13:00:00Z",
+   "comissaoBpsNoAceite": 1200
+  },
+  {
+   "campanhaId": "k2",
+   "creatorId": "c15",
+   "status": "aceito",
+   "aceitaEm": "2026-09-10T13:00:00Z",
+   "comissaoBpsNoAceite": 1200
+  },
+  {
+   "campanhaId": "k3",
+   "creatorId": "c1",
+   "status": "aceito",
+   "aceitaEm": "2026-12-04T13:00:00Z",
+   "comissaoBpsNoAceite": 1300
+  },
+  {
+   "campanhaId": "k3",
+   "creatorId": "c2",
+   "status": "aceito",
+   "aceitaEm": "2026-12-02T13:00:00Z",
+   "comissaoBpsNoAceite": 1300
+  },
+  {
+   "campanhaId": "k3",
+   "creatorId": "c4",
+   "status": "convidado"
+  },
+  {
+   "campanhaId": "k3",
+   "creatorId": "c8",
+   "status": "aceito",
+   "aceitaEm": "2026-11-28T13:00:00Z",
+   "comissaoBpsNoAceite": 1300
+  },
+  {
+   "campanhaId": "k3",
+   "creatorId": "c12",
+   "status": "convidado"
+  },
+  {
+   "campanhaId": "k3",
+   "creatorId": "c15",
+   "status": "convidado"
+  },
+  {
+   "campanhaId": "k4",
+   "creatorId": "c5",
+   "status": "aceito",
+   "aceitaEm": "2026-11-22T13:00:00Z",
+   "comissaoBpsNoAceite": 1000
+  },
+  {
+   "campanhaId": "k4",
+   "creatorId": "c7",
+   "status": "aceito",
+   "aceitaEm": "2026-11-15T13:00:00Z",
+   "comissaoBpsNoAceite": 1000
+  },
+  {
+   "campanhaId": "k4",
+   "creatorId": "c9",
+   "status": "aceito",
+   "aceitaEm": "2026-11-20T13:00:00Z",
+   "comissaoBpsNoAceite": 1000
+  },
+  {
+   "campanhaId": "k4",
+   "creatorId": "c15",
+   "status": "aceito",
+   "aceitaEm": "2026-11-20T13:00:00Z",
+   "comissaoBpsNoAceite": 1000
+  },
+  {
+   "campanhaId": "k4",
+   "creatorId": "c2",
+   "status": "aceito",
+   "aceitaEm": "2026-11-23T13:00:00Z",
+   "comissaoBpsNoAceite": 1000
+  },
+  {
+   "campanhaId": "k5",
+   "creatorId": "c5",
+   "status": "aceito",
+   "aceitaEm": "2026-08-27T13:00:00Z",
+   "comissaoBpsNoAceite": 900
+  },
+  {
+   "campanhaId": "k5",
+   "creatorId": "c7",
+   "status": "aceito",
+   "aceitaEm": "2026-09-03T13:00:00Z",
+   "comissaoBpsNoAceite": 900
+  },
+  {
+   "campanhaId": "k5",
+   "creatorId": "c9",
+   "status": "aceito",
+   "aceitaEm": "2026-09-03T13:00:00Z",
+   "comissaoBpsNoAceite": 900
+  },
+  {
+   "campanhaId": "k5",
+   "creatorId": "c15",
+   "status": "aceito",
+   "aceitaEm": "2026-09-01T13:00:00Z",
+   "comissaoBpsNoAceite": 900
+  },
+  {
+   "campanhaId": "k5",
+   "creatorId": "c2",
+   "status": "aceito",
+   "aceitaEm": "2026-09-02T13:00:00Z",
+   "comissaoBpsNoAceite": 900
+  }
+ ],
+ "pedidos": [
+  {
+   "id": "o1",
+   "lojaId": "l1",
+   "nuvemshopId": 300001,
+   "numero": "1001",
+   "cupom": "MARINA10",
+   "creatorId": "c1",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 45900,
+   "descontoCentavos": 4590,
+   "freteCentavos": 1890,
+   "totalCentavos": 43200,
+   "baseComissaoCentavos": 41310,
+   "devolvidoCentavos": 41310,
+   "ufComprador": "PA",
+   "estado": "devolvido",
+   "criadoEm": "2026-10-17T11:06:00Z",
+   "pagoEm": "2026-10-17T12:06:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente1@exemplo.com"
+  },
+  {
+   "id": "o2",
+   "lojaId": "l3",
+   "nuvemshopId": 300002,
+   "numero": "1002",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900012,
+     "produtoId": "l3-p1",
+     "nome": "Sérum Vitamina C",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 8990,
+   "descontoCentavos": 899,
+   "freteCentavos": 2890,
+   "totalCentavos": 10981,
+   "baseComissaoCentavos": 8091,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PR",
+   "estado": "pago",
+   "criadoEm": "2026-09-13T18:27:00Z",
+   "pagoEm": "2026-09-14T00:29:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente2@exemplo.com"
+  },
+  {
+   "id": "o3",
+   "lojaId": "l3",
+   "nuvemshopId": 300003,
+   "numero": "1003",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900012,
+     "produtoId": "l3-p1",
+     "nome": "Sérum Vitamina C",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 5990
+    },
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    }
+   ],
+   "subtotalCentavos": 34970,
+   "descontoCentavos": 3497,
+   "freteCentavos": 3090,
+   "totalCentavos": 34563,
+   "baseComissaoCentavos": 31473,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PA",
+   "estado": "pago",
+   "criadoEm": "2026-11-21T20:18:00Z",
+   "pagoEm": "2026-11-21T22:38:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente3@exemplo.com"
+  },
+  {
+   "id": "o4",
+   "lojaId": "l2",
+   "nuvemshopId": 300004,
+   "numero": "1004",
+   "cupom": "RAFA15",
+   "creatorId": "c2",
+   "campanhaId": "k5",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 34990
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 43980,
+   "descontoCentavos": 6597,
+   "freteCentavos": 1890,
+   "totalCentavos": 39273,
+   "baseComissaoCentavos": 37383,
+   "devolvidoCentavos": 0,
+   "ufComprador": "ES",
+   "estado": "pago",
+   "criadoEm": "2026-09-22T14:39:00Z",
+   "pagoEm": "2026-09-22T21:37:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente4@exemplo.com"
+  },
+  {
+   "id": "o5",
+   "lojaId": "l2",
+   "nuvemshopId": 300005,
+   "numero": "1005",
+   "cupom": "THAIS15",
+   "creatorId": "c9",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 8990,
+   "descontoCentavos": 1349,
+   "freteCentavos": 2790,
+   "totalCentavos": 10431,
+   "baseComissaoCentavos": 7641,
+   "devolvidoCentavos": 7641,
+   "ufComprador": "SP",
+   "estado": "devolvido",
+   "criadoEm": "2026-10-24T11:12:00Z",
+   "pagoEm": "2026-10-24T17:35:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente5@exemplo.com"
+  },
+  {
+   "id": "o6",
+   "lojaId": "l1",
+   "nuvemshopId": 300006,
+   "numero": "1006",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 54890,
+   "descontoCentavos": 5489,
+   "freteCentavos": 1590,
+   "totalCentavos": 50991,
+   "baseComissaoCentavos": 49401,
+   "devolvidoCentavos": 49401,
+   "ufComprador": "BA",
+   "estado": "devolvido",
+   "criadoEm": "2026-10-15T12:15:00Z",
+   "pagoEm": "2026-10-15T16:37:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente6@exemplo.com"
+  },
+  {
+   "id": "o7",
+   "lojaId": "l3",
+   "nuvemshopId": 300007,
+   "numero": "1007",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900012,
+     "produtoId": "l3-p1",
+     "nome": "Sérum Vitamina C",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 8990,
+   "descontoCentavos": 899,
+   "freteCentavos": 3090,
+   "totalCentavos": 11181,
+   "baseComissaoCentavos": 8091,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-11-06T22:12:00Z",
+   "pagoEm": "2026-11-07T04:42:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente7@exemplo.com"
+  },
+  {
+   "id": "o8",
+   "lojaId": "l3",
+   "nuvemshopId": 300008,
+   "numero": "1008",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 5990
+    },
+    {
+     "produtoNuvemshopId": 900013,
+     "produtoId": "l3-p2",
+     "nome": "Óleo Corporal Pequi",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 6490
+    }
+   ],
+   "subtotalCentavos": 18470,
+   "descontoCentavos": 0,
+   "freteCentavos": 0,
+   "totalCentavos": 18470,
+   "baseComissaoCentavos": 18470,
+   "devolvidoCentavos": 0,
+   "ufComprador": "CE",
+   "estado": "pago",
+   "criadoEm": "2026-10-11T21:59:00Z",
+   "pagoEm": "2026-10-12T03:39:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente8@exemplo.com"
+  },
+  {
+   "id": "o9",
+   "lojaId": "l2",
+   "nuvemshopId": 300009,
+   "numero": "1009",
+   "cupom": "LUCAS15",
+   "creatorId": "c7",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    },
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    }
+   ],
+   "subtotalCentavos": 40970,
+   "descontoCentavos": 6146,
+   "freteCentavos": 3590,
+   "totalCentavos": 38414,
+   "baseComissaoCentavos": 34824,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "pago",
+   "criadoEm": "2026-09-01T12:20:00Z",
+   "pagoEm": "2026-09-01T21:52:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente9@exemplo.com"
+  },
+  {
+   "id": "o10",
+   "lojaId": "l3",
+   "nuvemshopId": 300010,
+   "numero": "1010",
+   "cupom": "RENATA10",
+   "creatorId": "c13",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900012,
+     "produtoId": "l3-p1",
+     "nome": "Sérum Vitamina C",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    },
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 5990
+    }
+   ],
+   "subtotalCentavos": 34970,
+   "descontoCentavos": 3497,
+   "freteCentavos": 1890,
+   "totalCentavos": 33363,
+   "baseComissaoCentavos": 31473,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "pago",
+   "criadoEm": "2026-11-02T11:30:00Z",
+   "pagoEm": "2026-11-02T20:22:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente10@exemplo.com"
+  },
+  {
+   "id": "o11",
+   "lojaId": "l2",
+   "nuvemshopId": 300011,
+   "numero": "1011",
+   "cupom": "RAFA15",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 22900
+    },
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    }
+   ],
+   "subtotalCentavos": 44880,
+   "descontoCentavos": 6732,
+   "freteCentavos": 0,
+   "totalCentavos": 38148,
+   "baseComissaoCentavos": 38148,
+   "devolvidoCentavos": 7642,
+   "ufComprador": "SP",
+   "estado": "devolvido_parcial",
+   "criadoEm": "2026-11-14T20:23:00Z",
+   "pagoEm": "2026-11-15T05:25:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente11@exemplo.com"
+  },
+  {
+   "id": "o12",
+   "lojaId": "l1",
+   "nuvemshopId": 300012,
+   "numero": "1012",
+   "cupom": "MARINA10",
+   "creatorId": "c1",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 84890,
+   "descontoCentavos": 8489,
+   "freteCentavos": 3390,
+   "totalCentavos": 79791,
+   "baseComissaoCentavos": 76401,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PA",
+   "estado": "cancelado",
+   "criadoEm": "2026-10-04T15:55:00Z",
+   "pagoEm": "2026-10-04T23:44:00Z",
+   "canceladoEm": "2026-10-09T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente12@exemplo.com"
+  },
+  {
+   "id": "o13",
+   "lojaId": "l1",
+   "nuvemshopId": 300013,
+   "numero": "1013",
+   "cupom": "MARIANA10",
+   "creatorId": "c12",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 89880,
+   "descontoCentavos": 8988,
+   "freteCentavos": 0,
+   "totalCentavos": 80892,
+   "baseComissaoCentavos": 80892,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PA",
+   "estado": "aberto",
+   "criadoEm": "2026-09-11T22:08:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente13@exemplo.com"
+  },
+  {
+   "id": "o14",
+   "lojaId": "l2",
+   "nuvemshopId": 300014,
+   "numero": "1014",
+   "cupom": "LUCAS15",
+   "creatorId": "c7",
+   "campanhaId": "k4",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 34990
+    },
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    }
+   ],
+   "subtotalCentavos": 82970,
+   "descontoCentavos": 12446,
+   "freteCentavos": 3490,
+   "totalCentavos": 74014,
+   "baseComissaoCentavos": 70524,
+   "devolvidoCentavos": 29741,
+   "ufComprador": "DF",
+   "estado": "devolvido_parcial",
+   "criadoEm": "2026-11-21T17:06:00Z",
+   "pagoEm": "2026-11-21T20:57:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente14@exemplo.com"
+  },
+  {
+   "id": "o15",
+   "lojaId": "l1",
+   "nuvemshopId": 300015,
+   "numero": "1015",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 61890,
+   "descontoCentavos": 0,
+   "freteCentavos": 4590,
+   "totalCentavos": 66480,
+   "baseComissaoCentavos": 61890,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "pago",
+   "criadoEm": "2026-10-04T18:46:00Z",
+   "pagoEm": "2026-10-04T19:26:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente15@exemplo.com"
+  },
+  {
+   "id": "o16",
+   "lojaId": "l2",
+   "nuvemshopId": 300016,
+   "numero": "1016",
+   "cupom": "SOFIA15",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    }
+   ],
+   "subtotalCentavos": 12990,
+   "descontoCentavos": 1949,
+   "freteCentavos": 2590,
+   "totalCentavos": 13631,
+   "baseComissaoCentavos": 11041,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "cancelado",
+   "criadoEm": "2026-09-23T17:02:00Z",
+   "pagoEm": "2026-09-24T01:20:00Z",
+   "canceladoEm": "2026-09-25T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente16@exemplo.com"
+  },
+  {
+   "id": "o17",
+   "lojaId": "l1",
+   "nuvemshopId": 300017,
+   "numero": "1017",
+   "cupom": "JULIA10",
+   "creatorId": "c4",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    }
+   ],
+   "subtotalCentavos": 67880,
+   "descontoCentavos": 6788,
+   "freteCentavos": 1590,
+   "totalCentavos": 62682,
+   "baseComissaoCentavos": 61092,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-09-08T23:08:00Z",
+   "pagoEm": "2026-09-09T04:36:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente17@exemplo.com"
+  },
+  {
+   "id": "o18",
+   "lojaId": "l2",
+   "nuvemshopId": 300018,
+   "numero": "1018",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 12990
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 34970,
+   "descontoCentavos": 0,
+   "freteCentavos": 3890,
+   "totalCentavos": 38860,
+   "baseComissaoCentavos": 34970,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-11-24T22:39:00Z",
+   "pagoEm": "2026-11-25T02:42:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente18@exemplo.com"
+  },
+  {
+   "id": "o19",
+   "lojaId": "l1",
+   "nuvemshopId": 300019,
+   "numero": "1019",
+   "cupom": "MARIANA10",
+   "creatorId": "c12",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 97790,
+   "descontoCentavos": 9779,
+   "freteCentavos": 0,
+   "totalCentavos": 88011,
+   "baseComissaoCentavos": 88011,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-10-29T16:27:00Z",
+   "pagoEm": "2026-10-30T02:05:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente19@exemplo.com"
+  },
+  {
+   "id": "o20",
+   "lojaId": "l3",
+   "nuvemshopId": 300020,
+   "numero": "1020",
+   "cupom": "ANA10",
+   "creatorId": "c6",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900013,
+     "produtoId": "l3-p2",
+     "nome": "Óleo Corporal Pequi",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 6490
+    }
+   ],
+   "subtotalCentavos": 6490,
+   "descontoCentavos": 649,
+   "freteCentavos": 0,
+   "totalCentavos": 5841,
+   "baseComissaoCentavos": 5841,
+   "devolvidoCentavos": 0,
+   "ufComprador": "BA",
+   "estado": "pago",
+   "criadoEm": "2026-09-21T19:55:00Z",
+   "pagoEm": "2026-09-22T00:48:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente20@exemplo.com"
+  },
+  {
+   "id": "o21",
+   "lojaId": "l3",
+   "nuvemshopId": 300021,
+   "numero": "1021",
+   "cupom": "ANA10",
+   "creatorId": "c6",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900012,
+     "produtoId": "l3-p1",
+     "nome": "Sérum Vitamina C",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 8990,
+   "descontoCentavos": 899,
+   "freteCentavos": 2190,
+   "totalCentavos": 10281,
+   "baseComissaoCentavos": 8091,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "aberto",
+   "criadoEm": "2026-10-12T21:54:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente21@exemplo.com"
+  },
+  {
+   "id": "o22",
+   "lojaId": "l2",
+   "nuvemshopId": 300022,
+   "numero": "1022",
+   "cupom": "SOFIA15",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 22900
+    }
+   ],
+   "subtotalCentavos": 31890,
+   "descontoCentavos": 4784,
+   "freteCentavos": 0,
+   "totalCentavos": 27106,
+   "baseComissaoCentavos": 27106,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RS",
+   "estado": "aberto",
+   "criadoEm": "2026-10-24T11:20:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente22@exemplo.com"
+  },
+  {
+   "id": "o23",
+   "lojaId": "l1",
+   "nuvemshopId": 300023,
+   "numero": "1023",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    },
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    }
+   ],
+   "subtotalCentavos": 54890,
+   "descontoCentavos": 0,
+   "freteCentavos": 1890,
+   "totalCentavos": 56780,
+   "baseComissaoCentavos": 54890,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-11-24T18:42:00Z",
+   "pagoEm": "2026-11-24T21:04:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente23@exemplo.com"
+  },
+  {
+   "id": "o24",
+   "lojaId": "l1",
+   "nuvemshopId": 300024,
+   "numero": "1024",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 84790,
+   "descontoCentavos": 0,
+   "freteCentavos": 4590,
+   "totalCentavos": 89380,
+   "baseComissaoCentavos": 84790,
+   "devolvidoCentavos": 29900,
+   "ufComprador": "MG",
+   "estado": "devolvido_parcial",
+   "criadoEm": "2026-10-08T21:46:00Z",
+   "pagoEm": "2026-10-09T07:11:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente24@exemplo.com"
+  },
+  {
+   "id": "o25",
+   "lojaId": "l3",
+   "nuvemshopId": 300025,
+   "numero": "1025",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900013,
+     "produtoId": "l3-p2",
+     "nome": "Óleo Corporal Pequi",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 6490
+    }
+   ],
+   "subtotalCentavos": 6490,
+   "descontoCentavos": 649,
+   "freteCentavos": 4190,
+   "totalCentavos": 10031,
+   "baseComissaoCentavos": 5841,
+   "devolvidoCentavos": 0,
+   "ufComprador": "CE",
+   "estado": "aberto",
+   "criadoEm": "2026-09-04T19:02:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente25@exemplo.com"
+  },
+  {
+   "id": "o26",
+   "lojaId": "l1",
+   "nuvemshopId": 300026,
+   "numero": "1026",
+   "cupom": "JULIA10",
+   "creatorId": "c4",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 51890,
+   "descontoCentavos": 5189,
+   "freteCentavos": 2690,
+   "totalCentavos": 49391,
+   "baseComissaoCentavos": 46701,
+   "devolvidoCentavos": 0,
+   "ufComprador": "DF",
+   "estado": "pago",
+   "criadoEm": "2026-10-05T11:35:00Z",
+   "pagoEm": "2026-10-05T21:32:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente26@exemplo.com"
+  },
+  {
+   "id": "o27",
+   "lojaId": "l2",
+   "nuvemshopId": 300027,
+   "numero": "1027",
+   "cupom": "THAIS15",
+   "creatorId": "c9",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 8990,
+   "descontoCentavos": 1349,
+   "freteCentavos": 0,
+   "totalCentavos": 7641,
+   "baseComissaoCentavos": 7641,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "cancelado",
+   "criadoEm": "2026-11-03T15:59:00Z",
+   "pagoEm": "2026-11-04T00:11:00Z",
+   "canceladoEm": "2026-11-06T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente27@exemplo.com"
+  },
+  {
+   "id": "o28",
+   "lojaId": "l1",
+   "nuvemshopId": 300028,
+   "numero": "1028",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    },
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    }
+   ],
+   "subtotalCentavos": 45890,
+   "descontoCentavos": 4589,
+   "freteCentavos": 2690,
+   "totalCentavos": 43991,
+   "baseComissaoCentavos": 41301,
+   "devolvidoCentavos": 14391,
+   "ufComprador": "SP",
+   "estado": "devolvido_parcial",
+   "criadoEm": "2026-10-28T15:24:00Z",
+   "pagoEm": "2026-10-28T17:36:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente28@exemplo.com"
+  },
+  {
+   "id": "o29",
+   "lojaId": "l1",
+   "nuvemshopId": 300029,
+   "numero": "1029",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    },
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 46980,
+   "descontoCentavos": 0,
+   "freteCentavos": 4590,
+   "totalCentavos": 51570,
+   "baseComissaoCentavos": 46980,
+   "devolvidoCentavos": 0,
+   "ufComprador": "AM",
+   "estado": "pago",
+   "criadoEm": "2026-09-13T16:12:00Z",
+   "pagoEm": "2026-09-13T21:05:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente29@exemplo.com"
+  },
+  {
+   "id": "o30",
+   "lojaId": "l1",
+   "nuvemshopId": 300030,
+   "numero": "1030",
+   "cupom": "JULIA10",
+   "creatorId": "c4",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 61890,
+   "descontoCentavos": 6189,
+   "freteCentavos": 0,
+   "totalCentavos": 55701,
+   "baseComissaoCentavos": 55701,
+   "devolvidoCentavos": 0,
+   "ufComprador": "ES",
+   "estado": "pago",
+   "criadoEm": "2026-09-13T11:54:00Z",
+   "pagoEm": "2026-09-13T15:56:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente30@exemplo.com"
+  },
+  {
+   "id": "o31",
+   "lojaId": "l1",
+   "nuvemshopId": 300031,
+   "numero": "1031",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 89880,
+   "descontoCentavos": 8988,
+   "freteCentavos": 4490,
+   "totalCentavos": 85382,
+   "baseComissaoCentavos": 80892,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "cancelado",
+   "criadoEm": "2026-09-26T13:22:00Z",
+   "pagoEm": "2026-09-26T15:55:00Z",
+   "canceladoEm": "2026-10-01T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente31@exemplo.com"
+  },
+  {
+   "id": "o32",
+   "lojaId": "l2",
+   "nuvemshopId": 300032,
+   "numero": "1032",
+   "cupom": "SOFIA15",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 22900
+    }
+   ],
+   "subtotalCentavos": 22900,
+   "descontoCentavos": 3435,
+   "freteCentavos": 3090,
+   "totalCentavos": 22555,
+   "baseComissaoCentavos": 19465,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-11-11T21:31:00Z",
+   "pagoEm": "2026-11-12T01:25:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente32@exemplo.com"
+  },
+  {
+   "id": "o33",
+   "lojaId": "l1",
+   "nuvemshopId": 300033,
+   "numero": "1033",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 21990,
+   "descontoCentavos": 2199,
+   "freteCentavos": 2890,
+   "totalCentavos": 22681,
+   "baseComissaoCentavos": 19791,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-10-12T20:30:00Z",
+   "pagoEm": "2026-10-12T22:17:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente33@exemplo.com"
+  },
+  {
+   "id": "o34",
+   "lojaId": "l1",
+   "nuvemshopId": 300034,
+   "numero": "1034",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    }
+   ],
+   "subtotalCentavos": 29900,
+   "descontoCentavos": 0,
+   "freteCentavos": 4290,
+   "totalCentavos": 34190,
+   "baseComissaoCentavos": 29900,
+   "devolvidoCentavos": 0,
+   "ufComprador": "ES",
+   "estado": "pago",
+   "criadoEm": "2026-10-26T17:51:00Z",
+   "pagoEm": "2026-10-26T23:10:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente34@exemplo.com"
+  },
+  {
+   "id": "o35",
+   "lojaId": "l2",
+   "nuvemshopId": 300035,
+   "numero": "1035",
+   "cupom": "SOFIA15",
+   "creatorId": "c15",
+   "campanhaId": "k5",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 34990
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 43980,
+   "descontoCentavos": 6597,
+   "freteCentavos": 0,
+   "totalCentavos": 37383,
+   "baseComissaoCentavos": 37383,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PR",
+   "estado": "pago",
+   "criadoEm": "2026-10-15T22:12:00Z",
+   "pagoEm": "2026-10-16T02:55:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente35@exemplo.com"
+  },
+  {
+   "id": "o36",
+   "lojaId": "l3",
+   "nuvemshopId": 300036,
+   "numero": "1036",
+   "cupom": "RENATA10",
+   "creatorId": "c13",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900012,
+     "produtoId": "l3-p1",
+     "nome": "Sérum Vitamina C",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    }
+   ],
+   "subtotalCentavos": 37970,
+   "descontoCentavos": 3797,
+   "freteCentavos": 0,
+   "totalCentavos": 34173,
+   "baseComissaoCentavos": 34173,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RS",
+   "estado": "pago",
+   "criadoEm": "2026-09-11T13:46:00Z",
+   "pagoEm": "2026-09-11T14:41:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente36@exemplo.com"
+  },
+  {
+   "id": "o37",
+   "lojaId": "l3",
+   "nuvemshopId": 300037,
+   "numero": "1037",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900013,
+     "produtoId": "l3-p2",
+     "nome": "Óleo Corporal Pequi",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 6490
+    },
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 5990
+    }
+   ],
+   "subtotalCentavos": 18970,
+   "descontoCentavos": 1897,
+   "freteCentavos": 2190,
+   "totalCentavos": 19263,
+   "baseComissaoCentavos": 17073,
+   "devolvidoCentavos": 0,
+   "ufComprador": "AM",
+   "estado": "pago",
+   "criadoEm": "2026-09-27T20:48:00Z",
+   "pagoEm": "2026-09-28T02:14:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente37@exemplo.com"
+  },
+  {
+   "id": "o38",
+   "lojaId": "l1",
+   "nuvemshopId": 300038,
+   "numero": "1038",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 21990,
+   "descontoCentavos": 2199,
+   "freteCentavos": 3090,
+   "totalCentavos": 22881,
+   "baseComissaoCentavos": 19791,
+   "devolvidoCentavos": 0,
+   "ufComprador": "BA",
+   "estado": "pago",
+   "criadoEm": "2026-11-09T12:43:00Z",
+   "pagoEm": "2026-11-09T17:56:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente38@exemplo.com"
+  },
+  {
+   "id": "o39",
+   "lojaId": "l1",
+   "nuvemshopId": 300039,
+   "numero": "1039",
+   "cupom": "MARIANA10",
+   "creatorId": "c12",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 76880,
+   "descontoCentavos": 7688,
+   "freteCentavos": 3090,
+   "totalCentavos": 72282,
+   "baseComissaoCentavos": 69192,
+   "devolvidoCentavos": 0,
+   "ufComprador": "ES",
+   "estado": "pago",
+   "criadoEm": "2026-10-08T20:21:00Z",
+   "pagoEm": "2026-10-09T04:04:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente39@exemplo.com"
+  },
+  {
+   "id": "o40",
+   "lojaId": "l1",
+   "nuvemshopId": 300040,
+   "numero": "1040",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 38990
+    }
+   ],
+   "subtotalCentavos": 99970,
+   "descontoCentavos": 9997,
+   "freteCentavos": 3290,
+   "totalCentavos": 93263,
+   "baseComissaoCentavos": 89973,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PA",
+   "estado": "pago",
+   "criadoEm": "2026-10-10T20:04:00Z",
+   "pagoEm": "2026-10-11T05:53:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente40@exemplo.com"
+  },
+  {
+   "id": "o41",
+   "lojaId": "l2",
+   "nuvemshopId": 300041,
+   "numero": "1041",
+   "cupom": "SOFIA15",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    }
+   ],
+   "subtotalCentavos": 12990,
+   "descontoCentavos": 1949,
+   "freteCentavos": 1590,
+   "totalCentavos": 12631,
+   "baseComissaoCentavos": 11041,
+   "devolvidoCentavos": 0,
+   "ufComprador": "DF",
+   "estado": "aberto",
+   "criadoEm": "2026-11-21T20:13:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente41@exemplo.com"
+  },
+  {
+   "id": "o42",
+   "lojaId": "l1",
+   "nuvemshopId": 300042,
+   "numero": "1042",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    }
+   ],
+   "subtotalCentavos": 29900,
+   "descontoCentavos": 2990,
+   "freteCentavos": 4290,
+   "totalCentavos": 31200,
+   "baseComissaoCentavos": 26910,
+   "devolvidoCentavos": 26910,
+   "ufComprador": "CE",
+   "estado": "devolvido",
+   "criadoEm": "2026-09-20T14:06:00Z",
+   "pagoEm": "2026-09-20T16:27:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente42@exemplo.com"
+  },
+  {
+   "id": "o43",
+   "lojaId": "l1",
+   "nuvemshopId": 300043,
+   "numero": "1043",
+   "cupom": "JULIA10",
+   "creatorId": "c4",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 84890,
+   "descontoCentavos": 8489,
+   "freteCentavos": 3190,
+   "totalCentavos": 79591,
+   "baseComissaoCentavos": 76401,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SC",
+   "estado": "pago",
+   "criadoEm": "2026-10-09T20:36:00Z",
+   "pagoEm": "2026-10-09T21:10:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente43@exemplo.com"
+  },
+  {
+   "id": "o44",
+   "lojaId": "l1",
+   "nuvemshopId": 300044,
+   "numero": "1044",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    },
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    }
+   ],
+   "subtotalCentavos": 54980,
+   "descontoCentavos": 0,
+   "freteCentavos": 2990,
+   "totalCentavos": 57970,
+   "baseComissaoCentavos": 54980,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PE",
+   "estado": "pago",
+   "criadoEm": "2026-10-31T13:11:00Z",
+   "pagoEm": "2026-10-31T21:30:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente44@exemplo.com"
+  },
+  {
+   "id": "o45",
+   "lojaId": "l3",
+   "nuvemshopId": 300045,
+   "numero": "1045",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    }
+   ],
+   "subtotalCentavos": 19990,
+   "descontoCentavos": 1999,
+   "freteCentavos": 0,
+   "totalCentavos": 17991,
+   "baseComissaoCentavos": 17991,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "aberto",
+   "criadoEm": "2026-10-15T11:03:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente45@exemplo.com"
+  },
+  {
+   "id": "o46",
+   "lojaId": "l1",
+   "nuvemshopId": 300046,
+   "numero": "1046",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 95880,
+   "descontoCentavos": 9588,
+   "freteCentavos": 2990,
+   "totalCentavos": 89282,
+   "baseComissaoCentavos": 86292,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PR",
+   "estado": "pago",
+   "criadoEm": "2026-10-25T12:18:00Z",
+   "pagoEm": "2026-10-25T13:58:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente46@exemplo.com"
+  },
+  {
+   "id": "o47",
+   "lojaId": "l1",
+   "nuvemshopId": 300047,
+   "numero": "1047",
+   "cupom": "MARINA10",
+   "creatorId": "c1",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 38990
+    }
+   ],
+   "subtotalCentavos": 77980,
+   "descontoCentavos": 7798,
+   "freteCentavos": 3390,
+   "totalCentavos": 73572,
+   "baseComissaoCentavos": 70182,
+   "devolvidoCentavos": 0,
+   "ufComprador": "AM",
+   "estado": "pago",
+   "criadoEm": "2026-10-15T19:24:00Z",
+   "pagoEm": "2026-10-16T01:23:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente47@exemplo.com"
+  },
+  {
+   "id": "o48",
+   "lojaId": "l3",
+   "nuvemshopId": 300048,
+   "numero": "1048",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 5990
+    },
+    {
+     "produtoNuvemshopId": 900012,
+     "produtoId": "l3-p1",
+     "nome": "Sérum Vitamina C",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 20970,
+   "descontoCentavos": 0,
+   "freteCentavos": 3890,
+   "totalCentavos": 24860,
+   "baseComissaoCentavos": 20970,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-10-25T13:07:00Z",
+   "pagoEm": "2026-10-25T19:26:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente48@exemplo.com"
+  },
+  {
+   "id": "o49",
+   "lojaId": "l2",
+   "nuvemshopId": 300049,
+   "numero": "1049",
+   "cupom": "PEDRO15",
+   "creatorId": "c5",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    }
+   ],
+   "subtotalCentavos": 12990,
+   "descontoCentavos": 1949,
+   "freteCentavos": 2090,
+   "totalCentavos": 13131,
+   "baseComissaoCentavos": 11041,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-09-16T15:41:00Z",
+   "pagoEm": "2026-09-17T00:50:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente49@exemplo.com"
+  },
+  {
+   "id": "o50",
+   "lojaId": "l1",
+   "nuvemshopId": 300050,
+   "numero": "1050",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    }
+   ],
+   "subtotalCentavos": 45890,
+   "descontoCentavos": 0,
+   "freteCentavos": 0,
+   "totalCentavos": 45890,
+   "baseComissaoCentavos": 45890,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "aberto",
+   "criadoEm": "2026-10-29T17:57:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente50@exemplo.com"
+  },
+  {
+   "id": "o51",
+   "lojaId": "l1",
+   "nuvemshopId": 300051,
+   "numero": "1051",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    },
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 100790,
+   "descontoCentavos": 0,
+   "freteCentavos": 4390,
+   "totalCentavos": 105180,
+   "baseComissaoCentavos": 100790,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-10-08T22:54:00Z",
+   "pagoEm": "2026-10-09T01:37:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente51@exemplo.com"
+  },
+  {
+   "id": "o52",
+   "lojaId": "l1",
+   "nuvemshopId": 300052,
+   "numero": "1052",
+   "cupom": "CAMILA10",
+   "creatorId": "c8",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    }
+   ],
+   "subtotalCentavos": 107790,
+   "descontoCentavos": 10779,
+   "freteCentavos": 0,
+   "totalCentavos": 97011,
+   "baseComissaoCentavos": 97011,
+   "devolvidoCentavos": 0,
+   "ufComprador": "BA",
+   "estado": "pago",
+   "criadoEm": "2026-10-05T17:56:00Z",
+   "pagoEm": "2026-10-06T01:15:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente52@exemplo.com"
+  },
+  {
+   "id": "o53",
+   "lojaId": "l1",
+   "nuvemshopId": 300053,
+   "numero": "1053",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 97790,
+   "descontoCentavos": 9779,
+   "freteCentavos": 0,
+   "totalCentavos": 88011,
+   "baseComissaoCentavos": 88011,
+   "devolvidoCentavos": 0,
+   "ufComprador": "CE",
+   "estado": "pago",
+   "criadoEm": "2026-09-10T11:03:00Z",
+   "pagoEm": "2026-09-10T14:20:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente53@exemplo.com"
+  },
+  {
+   "id": "o54",
+   "lojaId": "l2",
+   "nuvemshopId": 300054,
+   "numero": "1054",
+   "cupom": "THAIS15",
+   "creatorId": "c9",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    }
+   ],
+   "subtotalCentavos": 21980,
+   "descontoCentavos": 3297,
+   "freteCentavos": 4290,
+   "totalCentavos": 22973,
+   "baseComissaoCentavos": 18683,
+   "devolvidoCentavos": 0,
+   "ufComprador": "CE",
+   "estado": "pago",
+   "criadoEm": "2026-11-02T16:46:00Z",
+   "pagoEm": "2026-11-02T22:50:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente54@exemplo.com"
+  },
+  {
+   "id": "o55",
+   "lojaId": "l1",
+   "nuvemshopId": 300055,
+   "numero": "1055",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    }
+   ],
+   "subtotalCentavos": 106880,
+   "descontoCentavos": 10688,
+   "freteCentavos": 3390,
+   "totalCentavos": 99582,
+   "baseComissaoCentavos": 96192,
+   "devolvidoCentavos": 0,
+   "ufComprador": "DF",
+   "estado": "pago",
+   "criadoEm": "2026-10-08T13:52:00Z",
+   "pagoEm": "2026-10-08T19:59:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente55@exemplo.com"
+  },
+  {
+   "id": "o56",
+   "lojaId": "l1",
+   "nuvemshopId": 300056,
+   "numero": "1056",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 91800,
+   "descontoCentavos": 0,
+   "freteCentavos": 2590,
+   "totalCentavos": 94390,
+   "baseComissaoCentavos": 91800,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-10-11T20:45:00Z",
+   "pagoEm": "2026-10-11T22:01:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente56@exemplo.com"
+  },
+  {
+   "id": "o57",
+   "lojaId": "l1",
+   "nuvemshopId": 300057,
+   "numero": "1057",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "campanhaId": "k1",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    },
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    }
+   ],
+   "subtotalCentavos": 54890,
+   "descontoCentavos": 5489,
+   "freteCentavos": 2090,
+   "totalCentavos": 51491,
+   "baseComissaoCentavos": 49401,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "pago",
+   "criadoEm": "2026-11-11T23:00:00Z",
+   "pagoEm": "2026-11-12T02:13:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente57@exemplo.com"
+  },
+  {
+   "id": "o58",
+   "lojaId": "l2",
+   "nuvemshopId": 300058,
+   "numero": "1058",
+   "cupom": "LUCAS15",
+   "creatorId": "c7",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    },
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    }
+   ],
+   "subtotalCentavos": 31980,
+   "descontoCentavos": 4797,
+   "freteCentavos": 2890,
+   "totalCentavos": 30073,
+   "baseComissaoCentavos": 27183,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RS",
+   "estado": "pago",
+   "criadoEm": "2026-11-14T13:44:00Z",
+   "pagoEm": "2026-11-14T18:48:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente58@exemplo.com"
+  },
+  {
+   "id": "o59",
+   "lojaId": "l1",
+   "nuvemshopId": 300059,
+   "numero": "1059",
+   "cupom": "MARIANA10",
+   "creatorId": "c12",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    },
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 85970,
+   "descontoCentavos": 8597,
+   "freteCentavos": 0,
+   "totalCentavos": 77373,
+   "baseComissaoCentavos": 77373,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-10-17T11:15:00Z",
+   "pagoEm": "2026-10-17T11:44:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente59@exemplo.com"
+  },
+  {
+   "id": "o60",
+   "lojaId": "l2",
+   "nuvemshopId": 300060,
+   "numero": "1060",
+   "cupom": "THAIS15",
+   "creatorId": "c9",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 8990,
+   "descontoCentavos": 1349,
+   "freteCentavos": 3790,
+   "totalCentavos": 11431,
+   "baseComissaoCentavos": 7641,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "pago",
+   "criadoEm": "2026-10-06T14:40:00Z",
+   "pagoEm": "2026-10-06T21:53:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente60@exemplo.com"
+  },
+  {
+   "id": "o61",
+   "lojaId": "l3",
+   "nuvemshopId": 300061,
+   "numero": "1061",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900013,
+     "produtoId": "l3-p2",
+     "nome": "Óleo Corporal Pequi",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 6490
+    }
+   ],
+   "subtotalCentavos": 6490,
+   "descontoCentavos": 649,
+   "freteCentavos": 1990,
+   "totalCentavos": 7831,
+   "baseComissaoCentavos": 5841,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-09-13T17:08:00Z",
+   "pagoEm": "2026-09-13T23:56:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente61@exemplo.com"
+  },
+  {
+   "id": "o62",
+   "lojaId": "l3",
+   "nuvemshopId": 300062,
+   "numero": "1062",
+   "cupom": "ANA10",
+   "creatorId": "c6",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 5990
+    }
+   ],
+   "subtotalCentavos": 5990,
+   "descontoCentavos": 599,
+   "freteCentavos": 3690,
+   "totalCentavos": 9081,
+   "baseComissaoCentavos": 5391,
+   "devolvidoCentavos": 5391,
+   "ufComprador": "GO",
+   "estado": "devolvido_parcial",
+   "criadoEm": "2026-11-10T14:35:00Z",
+   "pagoEm": "2026-11-10T15:35:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente62@exemplo.com"
+  },
+  {
+   "id": "o63",
+   "lojaId": "l1",
+   "nuvemshopId": 300063,
+   "numero": "1063",
+   "cupom": "MARINA10",
+   "creatorId": "c1",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    }
+   ],
+   "subtotalCentavos": 100790,
+   "descontoCentavos": 10079,
+   "freteCentavos": 2390,
+   "totalCentavos": 93101,
+   "baseComissaoCentavos": 90711,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "cancelado",
+   "criadoEm": "2026-09-29T16:00:00Z",
+   "pagoEm": "2026-09-29T17:43:00Z",
+   "canceladoEm": "2026-10-01T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente63@exemplo.com"
+  },
+  {
+   "id": "o64",
+   "lojaId": "l3",
+   "nuvemshopId": 300064,
+   "numero": "1064",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900013,
+     "produtoId": "l3-p2",
+     "nome": "Óleo Corporal Pequi",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 6490
+    },
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 5990
+    }
+   ],
+   "subtotalCentavos": 18970,
+   "descontoCentavos": 1897,
+   "freteCentavos": 2390,
+   "totalCentavos": 19463,
+   "baseComissaoCentavos": 17073,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-10-17T16:00:00Z",
+   "pagoEm": "2026-10-17T23:40:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente64@exemplo.com"
+  },
+  {
+   "id": "o65",
+   "lojaId": "l2",
+   "nuvemshopId": 300065,
+   "numero": "1065",
+   "cupom": "RAFA15",
+   "creatorId": "c2",
+   "campanhaId": "k5",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    },
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 34990
+    }
+   ],
+   "subtotalCentavos": 88970,
+   "descontoCentavos": 13346,
+   "freteCentavos": 0,
+   "totalCentavos": 75624,
+   "baseComissaoCentavos": 75624,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-09-10T20:59:00Z",
+   "pagoEm": "2026-09-11T01:54:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente65@exemplo.com"
+  },
+  {
+   "id": "o66",
+   "lojaId": "l1",
+   "nuvemshopId": 300066,
+   "numero": "1066",
+   "cupom": "MARIANA10",
+   "creatorId": "c12",
+   "campanhaId": "k1",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 46980,
+   "descontoCentavos": 4698,
+   "freteCentavos": 2190,
+   "totalCentavos": 44472,
+   "baseComissaoCentavos": 42282,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "pago",
+   "criadoEm": "2026-11-05T21:53:00Z",
+   "pagoEm": "2026-11-06T04:54:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente66@exemplo.com"
+  },
+  {
+   "id": "o67",
+   "lojaId": "l1",
+   "nuvemshopId": 300067,
+   "numero": "1067",
+   "cupom": "CAMILA10",
+   "creatorId": "c8",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    }
+   ],
+   "subtotalCentavos": 29900,
+   "descontoCentavos": 2990,
+   "freteCentavos": 0,
+   "totalCentavos": 26910,
+   "baseComissaoCentavos": 26910,
+   "devolvidoCentavos": 0,
+   "ufComprador": "GO",
+   "estado": "cancelado",
+   "criadoEm": "2026-10-02T13:03:00Z",
+   "pagoEm": "2026-10-02T20:19:00Z",
+   "canceladoEm": "2026-10-06T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente67@exemplo.com"
+  },
+  {
+   "id": "o68",
+   "lojaId": "l2",
+   "nuvemshopId": 300068,
+   "numero": "1068",
+   "cupom": "LUCAS15",
+   "creatorId": "c7",
+   "campanhaId": "k5",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 34990
+    },
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 22900
+    }
+   ],
+   "subtotalCentavos": 57890,
+   "descontoCentavos": 8684,
+   "freteCentavos": 3990,
+   "totalCentavos": 53196,
+   "baseComissaoCentavos": 49206,
+   "devolvidoCentavos": 0,
+   "ufComprador": "AM",
+   "estado": "pago",
+   "criadoEm": "2026-10-23T21:49:00Z",
+   "pagoEm": "2026-10-24T05:08:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente68@exemplo.com"
+  },
+  {
+   "id": "o69",
+   "lojaId": "l2",
+   "nuvemshopId": 300069,
+   "numero": "1069",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 8990,
+   "descontoCentavos": 0,
+   "freteCentavos": 1790,
+   "totalCentavos": 10780,
+   "baseComissaoCentavos": 8990,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-11-08T14:31:00Z",
+   "pagoEm": "2026-11-08T17:48:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente69@exemplo.com"
+  },
+  {
+   "id": "o70",
+   "lojaId": "l2",
+   "nuvemshopId": 300070,
+   "numero": "1070",
+   "cupom": "SOFIA15",
+   "creatorId": "c15",
+   "campanhaId": "k5",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 34990
+    }
+   ],
+   "subtotalCentavos": 34990,
+   "descontoCentavos": 5249,
+   "freteCentavos": 0,
+   "totalCentavos": 29741,
+   "baseComissaoCentavos": 29741,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-10-29T17:04:00Z",
+   "pagoEm": "2026-10-29T19:03:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente70@exemplo.com"
+  },
+  {
+   "id": "o71",
+   "lojaId": "l1",
+   "nuvemshopId": 300071,
+   "numero": "1071",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    }
+   ],
+   "subtotalCentavos": 83880,
+   "descontoCentavos": 8388,
+   "freteCentavos": 1890,
+   "totalCentavos": 77382,
+   "baseComissaoCentavos": 75492,
+   "devolvidoCentavos": 0,
+   "ufComprador": "BA",
+   "estado": "cancelado",
+   "criadoEm": "2026-10-28T13:56:00Z",
+   "canceladoEm": "2026-11-02T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente71@exemplo.com"
+  },
+  {
+   "id": "o72",
+   "lojaId": "l1",
+   "nuvemshopId": 300072,
+   "numero": "1072",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "campanhaId": "k1",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 86880,
+   "descontoCentavos": 8688,
+   "freteCentavos": 3190,
+   "totalCentavos": 81382,
+   "baseComissaoCentavos": 78192,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RS",
+   "estado": "pago",
+   "criadoEm": "2026-11-18T14:53:00Z",
+   "pagoEm": "2026-11-18T17:30:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente72@exemplo.com"
+  },
+  {
+   "id": "o73",
+   "lojaId": "l1",
+   "nuvemshopId": 300073,
+   "numero": "1073",
+   "cupom": "CAMILA10",
+   "creatorId": "c8",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 113790,
+   "descontoCentavos": 11379,
+   "freteCentavos": 3190,
+   "totalCentavos": 105601,
+   "baseComissaoCentavos": 102411,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-09-25T13:09:00Z",
+   "pagoEm": "2026-09-25T20:56:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente73@exemplo.com"
+  },
+  {
+   "id": "o74",
+   "lojaId": "l1",
+   "nuvemshopId": 300074,
+   "numero": "1074",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    }
+   ],
+   "subtotalCentavos": 114790,
+   "descontoCentavos": 11479,
+   "freteCentavos": 3890,
+   "totalCentavos": 107201,
+   "baseComissaoCentavos": 103311,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-10-26T14:33:00Z",
+   "pagoEm": "2026-10-26T22:24:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente74@exemplo.com"
+  },
+  {
+   "id": "o75",
+   "lojaId": "l1",
+   "nuvemshopId": 300075,
+   "numero": "1075",
+   "cupom": "JULIA10",
+   "creatorId": "c4",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 24990
+    },
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    }
+   ],
+   "subtotalCentavos": 79880,
+   "descontoCentavos": 7988,
+   "freteCentavos": 4390,
+   "totalCentavos": 76282,
+   "baseComissaoCentavos": 71892,
+   "devolvidoCentavos": 0,
+   "ufComprador": "BA",
+   "estado": "pago",
+   "criadoEm": "2026-09-04T23:13:00Z",
+   "pagoEm": "2026-09-05T06:09:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente75@exemplo.com"
+  },
+  {
+   "id": "o76",
+   "lojaId": "l3",
+   "nuvemshopId": 300076,
+   "numero": "1076",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 5990
+    },
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    }
+   ],
+   "subtotalCentavos": 25980,
+   "descontoCentavos": 0,
+   "freteCentavos": 4290,
+   "totalCentavos": 30270,
+   "baseComissaoCentavos": 25980,
+   "devolvidoCentavos": 0,
+   "ufComprador": "CE",
+   "estado": "pago",
+   "criadoEm": "2026-10-28T18:00:00Z",
+   "pagoEm": "2026-10-29T00:50:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente76@exemplo.com"
+  },
+  {
+   "id": "o77",
+   "lojaId": "l2",
+   "nuvemshopId": 300077,
+   "numero": "1077",
+   "cupom": "LUCAS15",
+   "creatorId": "c7",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 34990
+    }
+   ],
+   "subtotalCentavos": 34990,
+   "descontoCentavos": 5249,
+   "freteCentavos": 1790,
+   "totalCentavos": 31531,
+   "baseComissaoCentavos": 29741,
+   "devolvidoCentavos": 0,
+   "ufComprador": "GO",
+   "estado": "pago",
+   "criadoEm": "2026-09-02T11:06:00Z",
+   "pagoEm": "2026-09-02T19:50:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente77@exemplo.com"
+  },
+  {
+   "id": "o78",
+   "lojaId": "l2",
+   "nuvemshopId": 300078,
+   "numero": "1078",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    }
+   ],
+   "subtotalCentavos": 18990,
+   "descontoCentavos": 0,
+   "freteCentavos": 3090,
+   "totalCentavos": 22080,
+   "baseComissaoCentavos": 18990,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-11-19T21:10:00Z",
+   "pagoEm": "2026-11-20T01:45:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente78@exemplo.com"
+  },
+  {
+   "id": "o79",
+   "lojaId": "l2",
+   "nuvemshopId": 300079,
+   "numero": "1079",
+   "cupom": "THAIS15",
+   "creatorId": "c9",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 34990
+    },
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    }
+   ],
+   "subtotalCentavos": 53980,
+   "descontoCentavos": 8097,
+   "freteCentavos": 0,
+   "totalCentavos": 45883,
+   "baseComissaoCentavos": 45883,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PR",
+   "estado": "pago",
+   "criadoEm": "2026-11-15T22:27:00Z",
+   "pagoEm": "2026-11-16T04:02:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente79@exemplo.com"
+  },
+  {
+   "id": "o80",
+   "lojaId": "l1",
+   "nuvemshopId": 300080,
+   "numero": "1080",
+   "cupom": "JULIA10",
+   "creatorId": "c4",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    }
+   ],
+   "subtotalCentavos": 60980,
+   "descontoCentavos": 6098,
+   "freteCentavos": 2490,
+   "totalCentavos": 57372,
+   "baseComissaoCentavos": 54882,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RS",
+   "estado": "pago",
+   "criadoEm": "2026-09-18T14:16:00Z",
+   "pagoEm": "2026-09-18T15:11:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente80@exemplo.com"
+  },
+  {
+   "id": "o81",
+   "lojaId": "l1",
+   "nuvemshopId": 300081,
+   "numero": "1081",
+   "cupom": "MARINA10",
+   "creatorId": "c1",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 46980,
+   "descontoCentavos": 4698,
+   "freteCentavos": 0,
+   "totalCentavos": 42282,
+   "baseComissaoCentavos": 42282,
+   "devolvidoCentavos": 19791,
+   "ufComprador": "RJ",
+   "estado": "devolvido_parcial",
+   "criadoEm": "2026-09-17T21:10:00Z",
+   "pagoEm": "2026-09-18T00:02:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente81@exemplo.com"
+  },
+  {
+   "id": "o82",
+   "lojaId": "l1",
+   "nuvemshopId": 300082,
+   "numero": "1082",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    },
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    },
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 76970,
+   "descontoCentavos": 0,
+   "freteCentavos": 0,
+   "totalCentavos": 76970,
+   "baseComissaoCentavos": 76970,
+   "devolvidoCentavos": 0,
+   "ufComprador": "BA",
+   "estado": "pago",
+   "criadoEm": "2026-10-05T19:04:00Z",
+   "pagoEm": "2026-10-06T03:59:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente82@exemplo.com"
+  },
+  {
+   "id": "o83",
+   "lojaId": "l1",
+   "nuvemshopId": 300083,
+   "numero": "1083",
+   "cupom": "CAMILA10",
+   "creatorId": "c8",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 21990,
+   "descontoCentavos": 2199,
+   "freteCentavos": 3690,
+   "totalCentavos": 23481,
+   "baseComissaoCentavos": 19791,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-09-12T17:54:00Z",
+   "pagoEm": "2026-09-12T20:15:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente83@exemplo.com"
+  },
+  {
+   "id": "o84",
+   "lojaId": "l1",
+   "nuvemshopId": 300084,
+   "numero": "1084",
+   "cupom": "CAMILA10",
+   "creatorId": "c8",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    }
+   ],
+   "subtotalCentavos": 84890,
+   "descontoCentavos": 8489,
+   "freteCentavos": 0,
+   "totalCentavos": 76401,
+   "baseComissaoCentavos": 76401,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SC",
+   "estado": "cancelado",
+   "criadoEm": "2026-10-24T19:31:00Z",
+   "pagoEm": "2026-10-24T21:17:00Z",
+   "canceladoEm": "2026-10-25T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente84@exemplo.com"
+  },
+  {
+   "id": "o85",
+   "lojaId": "l1",
+   "nuvemshopId": 300085,
+   "numero": "1085",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 54890,
+   "descontoCentavos": 0,
+   "freteCentavos": 0,
+   "totalCentavos": 54890,
+   "baseComissaoCentavos": 54890,
+   "devolvidoCentavos": 0,
+   "ufComprador": "ES",
+   "estado": "pago",
+   "criadoEm": "2026-10-16T15:32:00Z",
+   "pagoEm": "2026-10-16T20:05:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente85@exemplo.com"
+  },
+  {
+   "id": "o86",
+   "lojaId": "l1",
+   "nuvemshopId": 300086,
+   "numero": "1086",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    },
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 37980,
+   "descontoCentavos": 0,
+   "freteCentavos": 0,
+   "totalCentavos": 37980,
+   "baseComissaoCentavos": 37980,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-10-12T22:53:00Z",
+   "pagoEm": "2026-10-13T07:53:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente86@exemplo.com"
+  },
+  {
+   "id": "o87",
+   "lojaId": "l2",
+   "nuvemshopId": 300087,
+   "numero": "1087",
+   "cupom": "THAIS15",
+   "creatorId": "c9",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    }
+   ],
+   "subtotalCentavos": 18990,
+   "descontoCentavos": 2849,
+   "freteCentavos": 2590,
+   "totalCentavos": 18731,
+   "baseComissaoCentavos": 16141,
+   "devolvidoCentavos": 0,
+   "ufComprador": "AM",
+   "estado": "pago",
+   "criadoEm": "2026-10-21T18:40:00Z",
+   "pagoEm": "2026-10-22T01:35:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente87@exemplo.com"
+  },
+  {
+   "id": "o88",
+   "lojaId": "l2",
+   "nuvemshopId": 300088,
+   "numero": "1088",
+   "cupom": "THAIS15",
+   "creatorId": "c9",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 21980,
+   "descontoCentavos": 3297,
+   "freteCentavos": 0,
+   "totalCentavos": 18683,
+   "baseComissaoCentavos": 18683,
+   "devolvidoCentavos": 0,
+   "ufComprador": "AM",
+   "estado": "pago",
+   "criadoEm": "2026-11-05T21:39:00Z",
+   "pagoEm": "2026-11-05T22:09:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente88@exemplo.com"
+  },
+  {
+   "id": "o89",
+   "lojaId": "l2",
+   "nuvemshopId": 300089,
+   "numero": "1089",
+   "cupom": "LUCAS15",
+   "creatorId": "c7",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    }
+   ],
+   "subtotalCentavos": 40970,
+   "descontoCentavos": 6146,
+   "freteCentavos": 3490,
+   "totalCentavos": 38314,
+   "baseComissaoCentavos": 34824,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-10-19T23:19:00Z",
+   "pagoEm": "2026-10-20T08:15:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente89@exemplo.com"
+  },
+  {
+   "id": "o90",
+   "lojaId": "l3",
+   "nuvemshopId": 300090,
+   "numero": "1090",
+   "cupom": "ANA10",
+   "creatorId": "c6",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900013,
+     "produtoId": "l3-p2",
+     "nome": "Óleo Corporal Pequi",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 6490
+    },
+    {
+     "produtoNuvemshopId": 900012,
+     "produtoId": "l3-p1",
+     "nome": "Sérum Vitamina C",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 15480,
+   "descontoCentavos": 1548,
+   "freteCentavos": 0,
+   "totalCentavos": 13932,
+   "baseComissaoCentavos": 13932,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SC",
+   "estado": "pago",
+   "criadoEm": "2026-09-24T20:50:00Z",
+   "pagoEm": "2026-09-24T23:43:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente90@exemplo.com"
+  },
+  {
+   "id": "o91",
+   "lojaId": "l3",
+   "nuvemshopId": 300091,
+   "numero": "1091",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 5990
+    },
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    }
+   ],
+   "subtotalCentavos": 31970,
+   "descontoCentavos": 3197,
+   "freteCentavos": 3790,
+   "totalCentavos": 32563,
+   "baseComissaoCentavos": 28773,
+   "devolvidoCentavos": 0,
+   "ufComprador": "GO",
+   "estado": "pago",
+   "criadoEm": "2026-09-13T21:45:00Z",
+   "pagoEm": "2026-09-14T05:13:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente91@exemplo.com"
+  },
+  {
+   "id": "o92",
+   "lojaId": "l2",
+   "nuvemshopId": 300092,
+   "numero": "1092",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 34990
+    },
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    }
+   ],
+   "subtotalCentavos": 62970,
+   "descontoCentavos": 0,
+   "freteCentavos": 1790,
+   "totalCentavos": 64760,
+   "baseComissaoCentavos": 62970,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-10-24T20:26:00Z",
+   "pagoEm": "2026-10-25T00:15:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente92@exemplo.com"
+  },
+  {
+   "id": "o93",
+   "lojaId": "l2",
+   "nuvemshopId": 300093,
+   "numero": "1093",
+   "cupom": "SOFIA15",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 22900
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 31890,
+   "descontoCentavos": 4784,
+   "freteCentavos": 0,
+   "totalCentavos": 27106,
+   "baseComissaoCentavos": 27106,
+   "devolvidoCentavos": 0,
+   "ufComprador": "GO",
+   "estado": "pago",
+   "criadoEm": "2026-10-28T18:14:00Z",
+   "pagoEm": "2026-10-28T23:44:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente93@exemplo.com"
+  },
+  {
+   "id": "o94",
+   "lojaId": "l2",
+   "nuvemshopId": 300094,
+   "numero": "1094",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 8990,
+   "descontoCentavos": 0,
+   "freteCentavos": 3190,
+   "totalCentavos": 12180,
+   "baseComissaoCentavos": 8990,
+   "devolvidoCentavos": 0,
+   "ufComprador": "CE",
+   "estado": "pago",
+   "criadoEm": "2026-10-04T22:44:00Z",
+   "pagoEm": "2026-10-05T00:53:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente94@exemplo.com"
+  },
+  {
+   "id": "o95",
+   "lojaId": "l3",
+   "nuvemshopId": 300095,
+   "numero": "1095",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    }
+   ],
+   "subtotalCentavos": 19990,
+   "descontoCentavos": 0,
+   "freteCentavos": 1590,
+   "totalCentavos": 21580,
+   "baseComissaoCentavos": 19990,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RS",
+   "estado": "pago",
+   "criadoEm": "2026-10-03T21:58:00Z",
+   "pagoEm": "2026-10-04T07:40:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente95@exemplo.com"
+  },
+  {
+   "id": "o96",
+   "lojaId": "l2",
+   "nuvemshopId": 300096,
+   "numero": "1096",
+   "cupom": "SOFIA15",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    }
+   ],
+   "subtotalCentavos": 27980,
+   "descontoCentavos": 4197,
+   "freteCentavos": 4190,
+   "totalCentavos": 27973,
+   "baseComissaoCentavos": 23783,
+   "devolvidoCentavos": 23783,
+   "ufComprador": "SP",
+   "estado": "devolvido",
+   "criadoEm": "2026-09-22T22:19:00Z",
+   "pagoEm": "2026-09-22T23:22:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente96@exemplo.com"
+  },
+  {
+   "id": "o97",
+   "lojaId": "l3",
+   "nuvemshopId": 300097,
+   "numero": "1097",
+   "cupom": "ANA10",
+   "creatorId": "c6",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    }
+   ],
+   "subtotalCentavos": 19990,
+   "descontoCentavos": 1999,
+   "freteCentavos": 2690,
+   "totalCentavos": 20681,
+   "baseComissaoCentavos": 17991,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RS",
+   "estado": "pago",
+   "criadoEm": "2026-09-23T16:11:00Z",
+   "pagoEm": "2026-09-23T21:55:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente97@exemplo.com"
+  },
+  {
+   "id": "o98",
+   "lojaId": "l2",
+   "nuvemshopId": 300098,
+   "numero": "1098",
+   "cupom": "LUCAS15",
+   "creatorId": "c7",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    },
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 40970,
+   "descontoCentavos": 6146,
+   "freteCentavos": 4190,
+   "totalCentavos": 39014,
+   "baseComissaoCentavos": 34824,
+   "devolvidoCentavos": 0,
+   "ufComprador": "BA",
+   "estado": "cancelado",
+   "criadoEm": "2026-09-15T21:38:00Z",
+   "pagoEm": "2026-09-15T21:56:00Z",
+   "canceladoEm": "2026-09-16T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente98@exemplo.com"
+  },
+  {
+   "id": "o99",
+   "lojaId": "l1",
+   "nuvemshopId": 300099,
+   "numero": "1099",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 15990
+    },
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    }
+   ],
+   "subtotalCentavos": 70970,
+   "descontoCentavos": 0,
+   "freteCentavos": 0,
+   "totalCentavos": 70970,
+   "baseComissaoCentavos": 70970,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-09-16T20:24:00Z",
+   "pagoEm": "2026-09-17T02:13:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente99@exemplo.com"
+  },
+  {
+   "id": "o100",
+   "lojaId": "l1",
+   "nuvemshopId": 300100,
+   "numero": "1100",
+   "cupom": "JULIA10",
+   "creatorId": "c4",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 24990,
+   "descontoCentavos": 2499,
+   "freteCentavos": 2690,
+   "totalCentavos": 25181,
+   "baseComissaoCentavos": 22491,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PA",
+   "estado": "pago",
+   "criadoEm": "2026-10-20T19:36:00Z",
+   "pagoEm": "2026-10-21T00:34:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente100@exemplo.com"
+  },
+  {
+   "id": "o101",
+   "lojaId": "l3",
+   "nuvemshopId": 300101,
+   "numero": "1101",
+   "cupom": "GABRIEL10",
+   "creatorId": "c10",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    }
+   ],
+   "subtotalCentavos": 19990,
+   "descontoCentavos": 1999,
+   "freteCentavos": 4590,
+   "totalCentavos": 22581,
+   "baseComissaoCentavos": 17991,
+   "devolvidoCentavos": 0,
+   "ufComprador": "AM",
+   "estado": "pago",
+   "criadoEm": "2026-09-16T11:10:00Z",
+   "pagoEm": "2026-09-16T12:49:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente101@exemplo.com"
+  },
+  {
+   "id": "o102",
+   "lojaId": "l2",
+   "nuvemshopId": 300102,
+   "numero": "1102",
+   "cupom": "PEDRO15",
+   "creatorId": "c5",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    }
+   ],
+   "subtotalCentavos": 40970,
+   "descontoCentavos": 6146,
+   "freteCentavos": 3390,
+   "totalCentavos": 38214,
+   "baseComissaoCentavos": 34824,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PR",
+   "estado": "cancelado",
+   "criadoEm": "2026-09-13T19:16:00Z",
+   "canceladoEm": "2026-09-16T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente102@exemplo.com"
+  },
+  {
+   "id": "o103",
+   "lojaId": "l2",
+   "nuvemshopId": 300103,
+   "numero": "1103",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    }
+   ],
+   "subtotalCentavos": 18990,
+   "descontoCentavos": 0,
+   "freteCentavos": 0,
+   "totalCentavos": 18990,
+   "baseComissaoCentavos": 18990,
+   "devolvidoCentavos": 0,
+   "ufComprador": "CE",
+   "estado": "pago",
+   "criadoEm": "2026-11-08T17:16:00Z",
+   "pagoEm": "2026-11-08T17:43:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente103@exemplo.com"
+  },
+  {
+   "id": "o104",
+   "lojaId": "l2",
+   "nuvemshopId": 300104,
+   "numero": "1104",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    },
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 22900
+    }
+   ],
+   "subtotalCentavos": 41890,
+   "descontoCentavos": 0,
+   "freteCentavos": 0,
+   "totalCentavos": 41890,
+   "baseComissaoCentavos": 41890,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PE",
+   "estado": "pago",
+   "criadoEm": "2026-10-01T22:38:00Z",
+   "pagoEm": "2026-10-02T08:10:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente104@exemplo.com"
+  },
+  {
+   "id": "o105",
+   "lojaId": "l2",
+   "nuvemshopId": 300105,
+   "numero": "1105",
+   "cupom": "THAIS15",
+   "creatorId": "c9",
+   "campanhaId": "k4",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 22900
+    },
+    {
+     "produtoNuvemshopId": 900007,
+     "produtoId": "l2-p1",
+     "nome": "Vaso de Cerâmica Ipê",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 12990
+    },
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 34990
+    }
+   ],
+   "subtotalCentavos": 70880,
+   "descontoCentavos": 10632,
+   "freteCentavos": 3790,
+   "totalCentavos": 64038,
+   "baseComissaoCentavos": 60248,
+   "devolvidoCentavos": 19465,
+   "ufComprador": "MG",
+   "estado": "devolvido_parcial",
+   "criadoEm": "2026-11-21T21:11:00Z",
+   "pagoEm": "2026-11-22T04:11:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente105@exemplo.com"
+  },
+  {
+   "id": "o106",
+   "lojaId": "l2",
+   "nuvemshopId": 300106,
+   "numero": "1106",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    },
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 22900
+    }
+   ],
+   "subtotalCentavos": 31890,
+   "descontoCentavos": 0,
+   "freteCentavos": 0,
+   "totalCentavos": 31890,
+   "baseComissaoCentavos": 31890,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "aberto",
+   "criadoEm": "2026-10-10T23:44:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente106@exemplo.com"
+  },
+  {
+   "id": "o107",
+   "lojaId": "l1",
+   "nuvemshopId": 300107,
+   "numero": "1107",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    },
+    {
+     "produtoNuvemshopId": 900004,
+     "produtoId": "l1-p4",
+     "nome": "Conjunto Jabuticaba",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 45900
+    },
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 106880,
+   "descontoCentavos": 10688,
+   "freteCentavos": 0,
+   "totalCentavos": 96192,
+   "baseComissaoCentavos": 96192,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "cancelado",
+   "criadoEm": "2026-09-10T21:56:00Z",
+   "pagoEm": "2026-09-11T06:54:00Z",
+   "canceladoEm": "2026-09-13T10:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente107@exemplo.com"
+  },
+  {
+   "id": "o108",
+   "lojaId": "l1",
+   "nuvemshopId": 300108,
+   "numero": "1108",
+   "cupom": "SOFIA10",
+   "creatorId": "c15",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 29900
+    },
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    }
+   ],
+   "subtotalCentavos": 98790,
+   "descontoCentavos": 9879,
+   "freteCentavos": 1890,
+   "totalCentavos": 90801,
+   "baseComissaoCentavos": 88911,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PR",
+   "estado": "pago",
+   "criadoEm": "2026-10-04T18:34:00Z",
+   "pagoEm": "2026-10-04T19:04:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente108@exemplo.com"
+  },
+  {
+   "id": "o109",
+   "lojaId": "l3",
+   "nuvemshopId": 300109,
+   "numero": "1109",
+   "cupom": "RENATA10",
+   "creatorId": "c13",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900013,
+     "produtoId": "l3-p2",
+     "nome": "Óleo Corporal Pequi",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 6490
+    }
+   ],
+   "subtotalCentavos": 12980,
+   "descontoCentavos": 1298,
+   "freteCentavos": 0,
+   "totalCentavos": 11682,
+   "baseComissaoCentavos": 11682,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-09-25T14:46:00Z",
+   "pagoEm": "2026-09-25T17:22:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente109@exemplo.com"
+  },
+  {
+   "id": "o110",
+   "lojaId": "l1",
+   "nuvemshopId": 300110,
+   "numero": "1110",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 24990,
+   "descontoCentavos": 2499,
+   "freteCentavos": 0,
+   "totalCentavos": 22491,
+   "baseComissaoCentavos": 22491,
+   "devolvidoCentavos": 0,
+   "ufComprador": "MG",
+   "estado": "pago",
+   "criadoEm": "2026-10-20T22:29:00Z",
+   "pagoEm": "2026-10-21T06:30:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente110@exemplo.com"
+  },
+  {
+   "id": "o111",
+   "lojaId": "l1",
+   "nuvemshopId": 300111,
+   "numero": "1111",
+   "cupom": "MARIANA10",
+   "creatorId": "c12",
+   "campanhaId": "k2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    },
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    }
+   ],
+   "subtotalCentavos": 51890,
+   "descontoCentavos": 5189,
+   "freteCentavos": 4490,
+   "totalCentavos": 51191,
+   "baseComissaoCentavos": 46701,
+   "devolvidoCentavos": 0,
+   "ufComprador": "DF",
+   "estado": "pago",
+   "criadoEm": "2026-10-15T19:49:00Z",
+   "pagoEm": "2026-10-15T21:52:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente111@exemplo.com"
+  },
+  {
+   "id": "o112",
+   "lojaId": "l1",
+   "nuvemshopId": 300112,
+   "numero": "1112",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "campanhaId": "k1",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900001,
+     "produtoId": "l1-p1",
+     "nome": "Vestido Linho Cru",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 38990
+    },
+    {
+     "produtoNuvemshopId": 900002,
+     "produtoId": "l1-p2",
+     "nome": "Calça Pantalona Areia",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 29900
+    }
+   ],
+   "subtotalCentavos": 68890,
+   "descontoCentavos": 6889,
+   "freteCentavos": 0,
+   "totalCentavos": 62001,
+   "baseComissaoCentavos": 62001,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RS",
+   "estado": "pago",
+   "criadoEm": "2026-11-17T14:53:00Z",
+   "pagoEm": "2026-11-17T15:47:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente112@exemplo.com"
+  },
+  {
+   "id": "o113",
+   "lojaId": "l1",
+   "nuvemshopId": 300113,
+   "numero": "1113",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900003,
+     "produtoId": "l1-p3",
+     "nome": "Camisa Linho Off-white",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 24990
+    }
+   ],
+   "subtotalCentavos": 49980,
+   "descontoCentavos": 4998,
+   "freteCentavos": 4190,
+   "totalCentavos": 49172,
+   "baseComissaoCentavos": 44982,
+   "devolvidoCentavos": 0,
+   "ufComprador": "SP",
+   "estado": "pago",
+   "criadoEm": "2026-09-19T14:12:00Z",
+   "pagoEm": "2026-09-19T21:46:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente113@exemplo.com"
+  },
+  {
+   "id": "o114",
+   "lojaId": "l2",
+   "nuvemshopId": 300114,
+   "numero": "1114",
+   "cupom": "THAIS15",
+   "creatorId": "c9",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900008,
+     "produtoId": "l2-p2",
+     "nome": "Manta de Algodão",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 18990
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 36970,
+   "descontoCentavos": 5546,
+   "freteCentavos": 4490,
+   "totalCentavos": 35914,
+   "baseComissaoCentavos": 31424,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "pago",
+   "criadoEm": "2026-09-15T20:30:00Z",
+   "pagoEm": "2026-09-15T21:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente114@exemplo.com"
+  },
+  {
+   "id": "o115",
+   "lojaId": "l1",
+   "nuvemshopId": 300115,
+   "numero": "1115",
+   "cupom": "RAFA10",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900005,
+     "produtoId": "l1-p5",
+     "nome": "Saia Midi Terracota",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 21990
+    }
+   ],
+   "subtotalCentavos": 21990,
+   "descontoCentavos": 2199,
+   "freteCentavos": 4590,
+   "totalCentavos": 24381,
+   "baseComissaoCentavos": 19791,
+   "devolvidoCentavos": 0,
+   "ufComprador": "RJ",
+   "estado": "pago",
+   "criadoEm": "2026-11-01T20:18:00Z",
+   "pagoEm": "2026-11-01T22:23:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente115@exemplo.com"
+  },
+  {
+   "id": "o116",
+   "lojaId": "l1",
+   "nuvemshopId": 300116,
+   "numero": "1116",
+   "cupom": "CAMILA10",
+   "creatorId": "c8",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900006,
+     "produtoId": "l1-p6",
+     "nome": "Bolsa de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 15990
+    }
+   ],
+   "subtotalCentavos": 15990,
+   "descontoCentavos": 1599,
+   "freteCentavos": 2390,
+   "totalCentavos": 16781,
+   "baseComissaoCentavos": 14391,
+   "devolvidoCentavos": 0,
+   "ufComprador": "AM",
+   "estado": "pago",
+   "criadoEm": "2026-10-13T21:13:00Z",
+   "pagoEm": "2026-10-14T05:14:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente116@exemplo.com"
+  },
+  {
+   "id": "o117",
+   "lojaId": "l3",
+   "nuvemshopId": 300117,
+   "numero": "1117",
+   "cupom": "ANA10",
+   "creatorId": "c6",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900015,
+     "produtoId": "l3-p4",
+     "nome": "Kit Rotina Natural",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 19990
+    },
+    {
+     "produtoNuvemshopId": 900014,
+     "produtoId": "l3-p3",
+     "nome": "Máscara de Argila",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 5990
+    },
+    {
+     "produtoNuvemshopId": 900013,
+     "produtoId": "l3-p2",
+     "nome": "Óleo Corporal Pequi",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 6490
+    }
+   ],
+   "subtotalCentavos": 32470,
+   "descontoCentavos": 3247,
+   "freteCentavos": 2890,
+   "totalCentavos": 32113,
+   "baseComissaoCentavos": 29223,
+   "devolvidoCentavos": 0,
+   "ufComprador": "ES",
+   "estado": "pago",
+   "criadoEm": "2026-10-15T23:31:00Z",
+   "pagoEm": "2026-10-16T03:08:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente117@exemplo.com"
+  },
+  {
+   "id": "o118",
+   "lojaId": "l2",
+   "nuvemshopId": 300118,
+   "numero": "1118",
+   "cupom": "PEDRO15",
+   "creatorId": "c5",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 2,
+     "precoUnitarioCentavos": 22900
+    },
+    {
+     "produtoNuvemshopId": 900010,
+     "produtoId": "l2-p4",
+     "nome": "Jogo Americano Bordado",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 8990
+    }
+   ],
+   "subtotalCentavos": 54790,
+   "descontoCentavos": 8219,
+   "freteCentavos": 1990,
+   "totalCentavos": 48561,
+   "baseComissaoCentavos": 46571,
+   "devolvidoCentavos": 0,
+   "ufComprador": "PE",
+   "estado": "pago",
+   "criadoEm": "2026-10-19T12:35:00Z",
+   "pagoEm": "2026-10-19T14:37:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente118@exemplo.com"
+  },
+  {
+   "id": "o119",
+   "lojaId": "l2",
+   "nuvemshopId": 300119,
+   "numero": "1119",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900009,
+     "produtoId": "l2-p3",
+     "nome": "Luminária de Palha",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 34990
+    }
+   ],
+   "subtotalCentavos": 34990,
+   "descontoCentavos": 0,
+   "freteCentavos": 3490,
+   "totalCentavos": 38480,
+   "baseComissaoCentavos": 34990,
+   "devolvidoCentavos": 34990,
+   "ufComprador": "RS",
+   "estado": "devolvido_parcial",
+   "criadoEm": "2026-09-07T15:11:00Z",
+   "pagoEm": "2026-09-07T18:00:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente119@exemplo.com"
+  },
+  {
+   "id": "o120",
+   "lojaId": "l2",
+   "nuvemshopId": 300120,
+   "numero": "1120",
+   "cupom": "RAFA15",
+   "creatorId": "c2",
+   "itens": [
+    {
+     "produtoNuvemshopId": 900011,
+     "produtoId": "l2-p5",
+     "nome": "Quadro Folhagens",
+     "quantidade": 1,
+     "precoUnitarioCentavos": 22900
+    }
+   ],
+   "subtotalCentavos": 22900,
+   "descontoCentavos": 3435,
+   "freteCentavos": 1790,
+   "totalCentavos": 21255,
+   "baseComissaoCentavos": 19465,
+   "devolvidoCentavos": 0,
+   "ufComprador": "AM",
+   "estado": "pago",
+   "criadoEm": "2026-11-08T18:27:00Z",
+   "pagoEm": "2026-11-08T20:16:00Z",
+   "autocompra": false,
+   "envioCreator": false,
+   "emailComprador": "cliente120@exemplo.com"
+  }
+ ],
+ "comissoes": [
+  {
+   "id": "cm1",
+   "lojaId": "l1",
+   "creatorId": "c1",
+   "pedidoId": "o1",
+   "baseCentavos": 41310,
+   "taxaBps": 1200,
+   "valorCentavos": 4957,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-24T12:06:00Z",
+   "retida": false,
+   "pagamentoId": "pg1"
+  },
+  {
+   "id": "cm2",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "pedidoId": "o2",
+   "baseCentavos": 8091,
+   "taxaBps": 1200,
+   "valorCentavos": 971,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-28T00:29:00Z",
+   "retida": false,
+   "pagamentoId": "pg2"
+  },
+  {
+   "id": "cm3",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "pedidoId": "o3",
+   "baseCentavos": 31473,
+   "taxaBps": 1200,
+   "valorCentavos": 3777,
+   "tipo": "venda",
+   "status": "prevista",
+   "liberaEm": "2026-12-05T22:38:00Z",
+   "retida": true
+  },
+  {
+   "id": "cm4",
+   "lojaId": "l2",
+   "creatorId": "c2",
+   "pedidoId": "o4",
+   "campanhaId": "k5",
+   "baseCentavos": 37383,
+   "taxaBps": 900,
+   "valorCentavos": 3364,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-29T21:37:00Z",
+   "retida": false,
+   "pagamentoId": "pg3"
+  },
+  {
+   "id": "cm5",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "pedidoId": "o5",
+   "baseCentavos": 7641,
+   "taxaBps": 800,
+   "valorCentavos": 611,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-10-31T17:35:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm6",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o6",
+   "baseCentavos": 49401,
+   "taxaBps": 1000,
+   "valorCentavos": 4940,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-10-22T16:37:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm7",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "pedidoId": "o7",
+   "baseCentavos": 8091,
+   "taxaBps": 1200,
+   "valorCentavos": 971,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-21T04:42:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm8",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "pedidoId": "o9",
+   "baseCentavos": 34824,
+   "taxaBps": 800,
+   "valorCentavos": 2786,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-08T21:52:00Z",
+   "retida": false,
+   "pagamentoId": "pg4"
+  },
+  {
+   "id": "cm9",
+   "lojaId": "l3",
+   "creatorId": "c13",
+   "pedidoId": "o10",
+   "baseCentavos": 31473,
+   "taxaBps": 1200,
+   "valorCentavos": 3777,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-16T20:22:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm10",
+   "lojaId": "l2",
+   "creatorId": "c2",
+   "pedidoId": "o11",
+   "baseCentavos": 30506,
+   "taxaBps": 800,
+   "valorCentavos": 2440,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-22T05:25:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm11",
+   "lojaId": "l1",
+   "creatorId": "c1",
+   "pedidoId": "o12",
+   "baseCentavos": 76401,
+   "taxaBps": 1200,
+   "valorCentavos": 9168,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-10-11T23:44:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm12",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "pedidoId": "o14",
+   "campanhaId": "k4",
+   "baseCentavos": 40783,
+   "taxaBps": 1000,
+   "valorCentavos": 4078,
+   "tipo": "venda",
+   "status": "prevista",
+   "liberaEm": "2026-11-28T20:57:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm13",
+   "lojaId": "l2",
+   "creatorId": "c15",
+   "pedidoId": "o16",
+   "baseCentavos": 11041,
+   "taxaBps": 800,
+   "valorCentavos": 883,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-10-01T01:20:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm14",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "pedidoId": "o17",
+   "baseCentavos": 61092,
+   "taxaBps": 1000,
+   "valorCentavos": 6109,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-16T04:36:00Z",
+   "retida": false,
+   "pagamentoId": "pg5"
+  },
+  {
+   "id": "cm15",
+   "lojaId": "l1",
+   "creatorId": "c12",
+   "pedidoId": "o19",
+   "baseCentavos": 88011,
+   "taxaBps": 1000,
+   "valorCentavos": 8801,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-06T02:05:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm16",
+   "lojaId": "l3",
+   "creatorId": "c6",
+   "pedidoId": "o20",
+   "baseCentavos": 5841,
+   "taxaBps": 1200,
+   "valorCentavos": 701,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-06T00:48:00Z",
+   "retida": false,
+   "pagamentoId": "pg6"
+  },
+  {
+   "id": "cm17",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "pedidoId": "o26",
+   "campanhaId": "k2",
+   "baseCentavos": 46701,
+   "taxaBps": 1200,
+   "valorCentavos": 5604,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-12T21:32:00Z",
+   "retida": false,
+   "pagamentoId": "pg5"
+  },
+  {
+   "id": "cm18",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "pedidoId": "o27",
+   "baseCentavos": 7641,
+   "taxaBps": 800,
+   "valorCentavos": 611,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-11-11T00:11:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm19",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "pedidoId": "o28",
+   "baseCentavos": 26910,
+   "taxaBps": 1000,
+   "valorCentavos": 2691,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-04T17:36:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm20",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "pedidoId": "o30",
+   "baseCentavos": 55701,
+   "taxaBps": 1000,
+   "valorCentavos": 5570,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-20T15:56:00Z",
+   "retida": false,
+   "pagamentoId": "pg5"
+  },
+  {
+   "id": "cm21",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "pedidoId": "o31",
+   "campanhaId": "k2",
+   "baseCentavos": 80892,
+   "taxaBps": 1200,
+   "valorCentavos": 9707,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-10-03T15:55:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm22",
+   "lojaId": "l2",
+   "creatorId": "c15",
+   "pedidoId": "o32",
+   "baseCentavos": 19465,
+   "taxaBps": 800,
+   "valorCentavos": 1557,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-19T01:25:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm23",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "pedidoId": "o33",
+   "campanhaId": "k2",
+   "baseCentavos": 19791,
+   "taxaBps": 1200,
+   "valorCentavos": 2375,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-19T22:17:00Z",
+   "retida": false,
+   "pagamentoId": "pg7"
+  },
+  {
+   "id": "cm24",
+   "lojaId": "l2",
+   "creatorId": "c15",
+   "pedidoId": "o35",
+   "campanhaId": "k5",
+   "baseCentavos": 37383,
+   "taxaBps": 900,
+   "valorCentavos": 3364,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-23T02:55:00Z",
+   "retida": false,
+   "pagamentoId": "pg8"
+  },
+  {
+   "id": "cm25",
+   "lojaId": "l3",
+   "creatorId": "c13",
+   "pedidoId": "o36",
+   "baseCentavos": 34173,
+   "taxaBps": 1200,
+   "valorCentavos": 4101,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-25T14:41:00Z",
+   "retida": false,
+   "pagamentoId": "pg9"
+  },
+  {
+   "id": "cm26",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "pedidoId": "o37",
+   "baseCentavos": 17073,
+   "taxaBps": 1200,
+   "valorCentavos": 2049,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-12T02:14:00Z",
+   "retida": false,
+   "pagamentoId": "pg2"
+  },
+  {
+   "id": "cm27",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "pedidoId": "o38",
+   "baseCentavos": 19791,
+   "taxaBps": 1000,
+   "valorCentavos": 1979,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-16T17:56:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm28",
+   "lojaId": "l1",
+   "creatorId": "c12",
+   "pedidoId": "o39",
+   "campanhaId": "k2",
+   "baseCentavos": 69192,
+   "taxaBps": 1200,
+   "valorCentavos": 8303,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-16T04:04:00Z",
+   "retida": false,
+   "pagamentoId": "pg10"
+  },
+  {
+   "id": "cm29",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "pedidoId": "o40",
+   "campanhaId": "k2",
+   "baseCentavos": 89973,
+   "taxaBps": 1200,
+   "valorCentavos": 10797,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-18T05:53:00Z",
+   "retida": false,
+   "pagamentoId": "pg7"
+  },
+  {
+   "id": "cm30",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o42",
+   "baseCentavos": 26910,
+   "taxaBps": 1000,
+   "valorCentavos": 2691,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-09-27T16:27:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm31",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "pedidoId": "o43",
+   "baseCentavos": 76401,
+   "taxaBps": 1000,
+   "valorCentavos": 7640,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-16T21:10:00Z",
+   "retida": false,
+   "pagamentoId": "pg5"
+  },
+  {
+   "id": "cm32",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o46",
+   "baseCentavos": 86292,
+   "taxaBps": 1000,
+   "valorCentavos": 8629,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-01T13:58:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm33",
+   "lojaId": "l1",
+   "creatorId": "c1",
+   "pedidoId": "o47",
+   "baseCentavos": 70182,
+   "taxaBps": 1200,
+   "valorCentavos": 8422,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-23T01:23:00Z",
+   "retida": false,
+   "pagamentoId": "pg1"
+  },
+  {
+   "id": "cm34",
+   "lojaId": "l2",
+   "creatorId": "c5",
+   "pedidoId": "o49",
+   "baseCentavos": 11041,
+   "taxaBps": 800,
+   "valorCentavos": 883,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-24T00:50:00Z",
+   "retida": false,
+   "pagamentoId": "pg11"
+  },
+  {
+   "id": "cm35",
+   "lojaId": "l1",
+   "creatorId": "c8",
+   "pedidoId": "o52",
+   "baseCentavos": 97011,
+   "taxaBps": 1000,
+   "valorCentavos": 9701,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-13T01:15:00Z",
+   "retida": false,
+   "pagamentoId": "pg12"
+  },
+  {
+   "id": "cm36",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "pedidoId": "o53",
+   "baseCentavos": 88011,
+   "taxaBps": 1000,
+   "valorCentavos": 8801,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-17T14:20:00Z",
+   "retida": false,
+   "pagamentoId": "pg7"
+  },
+  {
+   "id": "cm37",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "pedidoId": "o54",
+   "baseCentavos": 18683,
+   "taxaBps": 800,
+   "valorCentavos": 1495,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-09T22:50:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm38",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o55",
+   "campanhaId": "k2",
+   "baseCentavos": 96192,
+   "taxaBps": 1200,
+   "valorCentavos": 11543,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-15T19:59:00Z",
+   "retida": false,
+   "pagamentoId": "pg13"
+  },
+  {
+   "id": "cm39",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "pedidoId": "o57",
+   "campanhaId": "k1",
+   "baseCentavos": 49401,
+   "taxaBps": 1500,
+   "valorCentavos": 7410,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-19T02:13:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm40",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "pedidoId": "o58",
+   "baseCentavos": 27183,
+   "taxaBps": 800,
+   "valorCentavos": 2175,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-21T18:48:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm41",
+   "lojaId": "l1",
+   "creatorId": "c12",
+   "pedidoId": "o59",
+   "baseCentavos": 77373,
+   "taxaBps": 1000,
+   "valorCentavos": 7737,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-24T11:44:00Z",
+   "retida": false,
+   "pagamentoId": "pg10"
+  },
+  {
+   "id": "cm42",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "pedidoId": "o60",
+   "baseCentavos": 7641,
+   "taxaBps": 800,
+   "valorCentavos": 611,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-13T21:53:00Z",
+   "retida": false,
+   "pagamentoId": "pg14"
+  },
+  {
+   "id": "cm43",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "pedidoId": "o61",
+   "baseCentavos": 5841,
+   "taxaBps": 1200,
+   "valorCentavos": 701,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-27T23:56:00Z",
+   "retida": false,
+   "pagamentoId": "pg2"
+  },
+  {
+   "id": "cm44",
+   "lojaId": "l3",
+   "creatorId": "c6",
+   "pedidoId": "o62",
+   "baseCentavos": 0,
+   "taxaBps": 1200,
+   "valorCentavos": 0,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-24T15:35:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm45",
+   "lojaId": "l1",
+   "creatorId": "c1",
+   "pedidoId": "o63",
+   "baseCentavos": 90711,
+   "taxaBps": 1200,
+   "valorCentavos": 10885,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-10-06T17:43:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm46",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "pedidoId": "o64",
+   "baseCentavos": 17073,
+   "taxaBps": 1200,
+   "valorCentavos": 2049,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-31T23:40:00Z",
+   "retida": false,
+   "pagamentoId": "pg2"
+  },
+  {
+   "id": "cm47",
+   "lojaId": "l2",
+   "creatorId": "c2",
+   "pedidoId": "o65",
+   "campanhaId": "k5",
+   "baseCentavos": 75624,
+   "taxaBps": 900,
+   "valorCentavos": 6806,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-18T01:54:00Z",
+   "retida": false,
+   "pagamentoId": "pg3"
+  },
+  {
+   "id": "cm48",
+   "lojaId": "l1",
+   "creatorId": "c12",
+   "pedidoId": "o66",
+   "campanhaId": "k1",
+   "baseCentavos": 42282,
+   "taxaBps": 1500,
+   "valorCentavos": 6342,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-13T04:54:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm49",
+   "lojaId": "l1",
+   "creatorId": "c8",
+   "pedidoId": "o67",
+   "baseCentavos": 26910,
+   "taxaBps": 1000,
+   "valorCentavos": 2691,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-10-09T20:19:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm50",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "pedidoId": "o68",
+   "campanhaId": "k5",
+   "baseCentavos": 49206,
+   "taxaBps": 900,
+   "valorCentavos": 4429,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-10-31T05:08:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm51",
+   "lojaId": "l2",
+   "creatorId": "c15",
+   "pedidoId": "o70",
+   "campanhaId": "k5",
+   "baseCentavos": 29741,
+   "taxaBps": 900,
+   "valorCentavos": 2677,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-05T19:03:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm52",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "pedidoId": "o72",
+   "campanhaId": "k1",
+   "baseCentavos": 78192,
+   "taxaBps": 1500,
+   "valorCentavos": 11729,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-25T17:30:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm53",
+   "lojaId": "l1",
+   "creatorId": "c8",
+   "pedidoId": "o73",
+   "campanhaId": "k2",
+   "baseCentavos": 102411,
+   "taxaBps": 1200,
+   "valorCentavos": 12289,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-02T20:56:00Z",
+   "retida": false,
+   "pagamentoId": "pg12"
+  },
+  {
+   "id": "cm54",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o74",
+   "baseCentavos": 103311,
+   "taxaBps": 1000,
+   "valorCentavos": 10331,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-02T22:24:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm55",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "pedidoId": "o75",
+   "baseCentavos": 71892,
+   "taxaBps": 1000,
+   "valorCentavos": 7189,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-12T06:09:00Z",
+   "retida": false,
+   "pagamentoId": "pg5"
+  },
+  {
+   "id": "cm56",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "pedidoId": "o77",
+   "baseCentavos": 29741,
+   "taxaBps": 800,
+   "valorCentavos": 2379,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-09T19:50:00Z",
+   "retida": false,
+   "pagamentoId": "pg4"
+  },
+  {
+   "id": "cm57",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "pedidoId": "o79",
+   "baseCentavos": 45883,
+   "taxaBps": 800,
+   "valorCentavos": 3671,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-23T04:02:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm58",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "pedidoId": "o80",
+   "campanhaId": "k2",
+   "baseCentavos": 54882,
+   "taxaBps": 1200,
+   "valorCentavos": 6586,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-25T15:11:00Z",
+   "retida": false,
+   "pagamentoId": "pg5"
+  },
+  {
+   "id": "cm59",
+   "lojaId": "l1",
+   "creatorId": "c1",
+   "pedidoId": "o81",
+   "campanhaId": "k2",
+   "baseCentavos": 22491,
+   "taxaBps": 1200,
+   "valorCentavos": 2699,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-25T00:02:00Z",
+   "retida": false,
+   "pagamentoId": "pg1"
+  },
+  {
+   "id": "cm60",
+   "lojaId": "l1",
+   "creatorId": "c8",
+   "pedidoId": "o83",
+   "baseCentavos": 19791,
+   "taxaBps": 1000,
+   "valorCentavos": 1979,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-19T20:15:00Z",
+   "retida": false,
+   "pagamentoId": "pg12"
+  },
+  {
+   "id": "cm61",
+   "lojaId": "l1",
+   "creatorId": "c8",
+   "pedidoId": "o84",
+   "baseCentavos": 76401,
+   "taxaBps": 1000,
+   "valorCentavos": 7640,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-10-31T21:17:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm62",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "pedidoId": "o87",
+   "baseCentavos": 16141,
+   "taxaBps": 800,
+   "valorCentavos": 1291,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-10-29T01:35:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm63",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "pedidoId": "o88",
+   "baseCentavos": 18683,
+   "taxaBps": 800,
+   "valorCentavos": 1495,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-12T22:09:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm64",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "pedidoId": "o89",
+   "baseCentavos": 34824,
+   "taxaBps": 800,
+   "valorCentavos": 2786,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-10-27T08:15:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm65",
+   "lojaId": "l3",
+   "creatorId": "c6",
+   "pedidoId": "o90",
+   "baseCentavos": 13932,
+   "taxaBps": 1200,
+   "valorCentavos": 1672,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-08T23:43:00Z",
+   "retida": false,
+   "pagamentoId": "pg6"
+  },
+  {
+   "id": "cm66",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "pedidoId": "o91",
+   "baseCentavos": 28773,
+   "taxaBps": 1200,
+   "valorCentavos": 3453,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-28T05:13:00Z",
+   "retida": false,
+   "pagamentoId": "pg2"
+  },
+  {
+   "id": "cm67",
+   "lojaId": "l2",
+   "creatorId": "c15",
+   "pedidoId": "o93",
+   "baseCentavos": 27106,
+   "taxaBps": 800,
+   "valorCentavos": 2168,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-04T23:44:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm68",
+   "lojaId": "l2",
+   "creatorId": "c15",
+   "pedidoId": "o96",
+   "baseCentavos": 23783,
+   "taxaBps": 800,
+   "valorCentavos": 1903,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-09-29T23:22:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm69",
+   "lojaId": "l3",
+   "creatorId": "c6",
+   "pedidoId": "o97",
+   "baseCentavos": 17991,
+   "taxaBps": 1200,
+   "valorCentavos": 2159,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-07T21:55:00Z",
+   "retida": false,
+   "pagamentoId": "pg6"
+  },
+  {
+   "id": "cm70",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "pedidoId": "o98",
+   "baseCentavos": 34824,
+   "taxaBps": 800,
+   "valorCentavos": 2786,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-09-22T21:56:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm71",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "pedidoId": "o100",
+   "baseCentavos": 22491,
+   "taxaBps": 1000,
+   "valorCentavos": 2249,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-10-28T00:34:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm72",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "pedidoId": "o101",
+   "baseCentavos": 17991,
+   "taxaBps": 1200,
+   "valorCentavos": 2159,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-30T12:49:00Z",
+   "retida": false,
+   "pagamentoId": "pg2"
+  },
+  {
+   "id": "cm73",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "pedidoId": "o105",
+   "campanhaId": "k4",
+   "baseCentavos": 40783,
+   "taxaBps": 1000,
+   "valorCentavos": 4078,
+   "tipo": "venda",
+   "status": "prevista",
+   "liberaEm": "2026-11-29T04:11:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm74",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o107",
+   "baseCentavos": 96192,
+   "taxaBps": 1000,
+   "valorCentavos": 9619,
+   "tipo": "venda",
+   "status": "estornada",
+   "liberaEm": "2026-09-18T06:54:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm75",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "pedidoId": "o108",
+   "baseCentavos": 88911,
+   "taxaBps": 1000,
+   "valorCentavos": 8891,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-11T19:04:00Z",
+   "retida": false,
+   "pagamentoId": "pg7"
+  },
+  {
+   "id": "cm76",
+   "lojaId": "l3",
+   "creatorId": "c13",
+   "pedidoId": "o109",
+   "baseCentavos": 11682,
+   "taxaBps": 1200,
+   "valorCentavos": 1402,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-09T17:22:00Z",
+   "retida": false,
+   "pagamentoId": "pg9"
+  },
+  {
+   "id": "cm77",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o110",
+   "baseCentavos": 22491,
+   "taxaBps": 1000,
+   "valorCentavos": 2249,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-10-28T06:30:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm78",
+   "lojaId": "l1",
+   "creatorId": "c12",
+   "pedidoId": "o111",
+   "campanhaId": "k2",
+   "baseCentavos": 46701,
+   "taxaBps": 1200,
+   "valorCentavos": 5604,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-22T21:52:00Z",
+   "retida": false,
+   "pagamentoId": "pg10"
+  },
+  {
+   "id": "cm79",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o112",
+   "campanhaId": "k1",
+   "baseCentavos": 62001,
+   "taxaBps": 1500,
+   "valorCentavos": 9300,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-24T15:47:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm80",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o113",
+   "baseCentavos": 44982,
+   "taxaBps": 1000,
+   "valorCentavos": 4498,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-26T21:46:00Z",
+   "retida": false,
+   "pagamentoId": "pg13"
+  },
+  {
+   "id": "cm81",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "pedidoId": "o114",
+   "baseCentavos": 31424,
+   "taxaBps": 800,
+   "valorCentavos": 2514,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-09-22T21:00:00Z",
+   "retida": false,
+   "pagamentoId": "pg14"
+  },
+  {
+   "id": "cm82",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "pedidoId": "o115",
+   "baseCentavos": 19791,
+   "taxaBps": 1000,
+   "valorCentavos": 1979,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-08T22:23:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm83",
+   "lojaId": "l1",
+   "creatorId": "c8",
+   "pedidoId": "o116",
+   "baseCentavos": 14391,
+   "taxaBps": 1000,
+   "valorCentavos": 1439,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-21T05:14:00Z",
+   "retida": false,
+   "pagamentoId": "pg12"
+  },
+  {
+   "id": "cm84",
+   "lojaId": "l3",
+   "creatorId": "c6",
+   "pedidoId": "o117",
+   "baseCentavos": 29223,
+   "taxaBps": 1200,
+   "valorCentavos": 3507,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-30T03:08:00Z",
+   "retida": false,
+   "pagamentoId": "pg6"
+  },
+  {
+   "id": "cm85",
+   "lojaId": "l2",
+   "creatorId": "c5",
+   "pedidoId": "o118",
+   "baseCentavos": 46571,
+   "taxaBps": 800,
+   "valorCentavos": 3726,
+   "tipo": "venda",
+   "status": "paga",
+   "liberaEm": "2026-10-26T14:37:00Z",
+   "retida": false,
+   "pagamentoId": "pg11"
+  },
+  {
+   "id": "cm86",
+   "lojaId": "l2",
+   "creatorId": "c2",
+   "pedidoId": "o120",
+   "baseCentavos": 19465,
+   "taxaBps": 800,
+   "valorCentavos": 1557,
+   "tipo": "venda",
+   "status": "liberada",
+   "liberaEm": "2026-11-15T20:16:00Z",
+   "retida": false
+  },
+  {
+   "id": "cm87",
+   "lojaId": "l1",
+   "creatorId": "c1",
+   "pedidoId": "o1",
+   "baseCentavos": -41310,
+   "taxaBps": 1200,
+   "valorCentavos": -4957,
+   "tipo": "estorno",
+   "status": "liberada",
+   "liberaEm": "2026-11-12T12:00:00Z",
+   "retida": false
+  }
+ ],
+ "pagamentos": [
+  {
+   "id": "pg1",
+   "lojaId": "l1",
+   "creatorId": "c1",
+   "valorCentavos": 16078,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l1",
+   "comissaoIds": [
+    "cm1",
+    "cm33",
+    "cm59"
+   ]
+  },
+  {
+   "id": "pg2",
+   "lojaId": "l3",
+   "creatorId": "c10",
+   "valorCentavos": 11382,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l3",
+   "comissaoIds": [
+    "cm2",
+    "cm26",
+    "cm43",
+    "cm46",
+    "cm66",
+    "cm72"
+   ]
+  },
+  {
+   "id": "pg3",
+   "lojaId": "l2",
+   "creatorId": "c2",
+   "valorCentavos": 10170,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l2",
+   "comissaoIds": [
+    "cm4",
+    "cm47"
+   ]
+  },
+  {
+   "id": "pg4",
+   "lojaId": "l2",
+   "creatorId": "c7",
+   "valorCentavos": 5165,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l2",
+   "comissaoIds": [
+    "cm8",
+    "cm56"
+   ]
+  },
+  {
+   "id": "pg5",
+   "lojaId": "l1",
+   "creatorId": "c4",
+   "valorCentavos": 38698,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l1",
+   "comissaoIds": [
+    "cm14",
+    "cm17",
+    "cm20",
+    "cm31",
+    "cm55",
+    "cm58"
+   ]
+  },
+  {
+   "id": "pg6",
+   "lojaId": "l3",
+   "creatorId": "c6",
+   "valorCentavos": 8039,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l3",
+   "comissaoIds": [
+    "cm16",
+    "cm65",
+    "cm69",
+    "cm84"
+   ]
+  },
+  {
+   "id": "pg7",
+   "lojaId": "l1",
+   "creatorId": "c15",
+   "valorCentavos": 30864,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l1",
+   "comissaoIds": [
+    "cm23",
+    "cm29",
+    "cm36",
+    "cm75"
+   ]
+  },
+  {
+   "id": "pg8",
+   "lojaId": "l2",
+   "creatorId": "c15",
+   "valorCentavos": 3364,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l2",
+   "comissaoIds": [
+    "cm24"
+   ]
+  },
+  {
+   "id": "pg9",
+   "lojaId": "l3",
+   "creatorId": "c13",
+   "valorCentavos": 5503,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l3",
+   "comissaoIds": [
+    "cm25",
+    "cm76"
+   ]
+  },
+  {
+   "id": "pg10",
+   "lojaId": "l1",
+   "creatorId": "c12",
+   "valorCentavos": 21644,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l1",
+   "comissaoIds": [
+    "cm28",
+    "cm41",
+    "cm78"
+   ]
+  },
+  {
+   "id": "pg11",
+   "lojaId": "l2",
+   "creatorId": "c5",
+   "valorCentavos": 4609,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l2",
+   "comissaoIds": [
+    "cm34",
+    "cm85"
+   ]
+  },
+  {
+   "id": "pg12",
+   "lojaId": "l1",
+   "creatorId": "c8",
+   "valorCentavos": 25408,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l1",
+   "comissaoIds": [
+    "cm35",
+    "cm53",
+    "cm60",
+    "cm83"
+   ]
+  },
+  {
+   "id": "pg13",
+   "lojaId": "l1",
+   "creatorId": "c2",
+   "valorCentavos": 16041,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l1",
+   "comissaoIds": [
+    "cm38",
+    "cm80"
+   ]
+  },
+  {
+   "id": "pg14",
+   "lojaId": "l2",
+   "creatorId": "c9",
+   "valorCentavos": 3125,
+   "pagoEm": "2026-11-05T14:00:00Z",
+   "forma": "pix",
+   "registradoPor": "u-l2",
+   "comissaoIds": [
+    "cm42",
+    "cm81"
+   ]
+  }
+ ],
+ "videos": [
+  {
+   "id": "v1",
+   "lojaId": "l1",
+   "campanhaId": "k1",
+   "creatorId": "c1",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "story",
+   "link": "https://instagram.com/reel/exemplo-v1",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v1.mp4",
+   "tamanhoBytes": 252706816,
+   "duracaoSeg": 61,
+   "tags": [
+    "linho",
+    "verão"
+   ],
+   "status": "aprovado",
+   "views": 30406,
+   "curtidas": 1050,
+   "comentarios": 134,
+   "publicadoEm": "2026-11-04T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-04T17:00:00Z"
+  },
+  {
+   "id": "v2",
+   "lojaId": "l1",
+   "campanhaId": "k1",
+   "creatorId": "c1",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "feed",
+   "link": "https://instagram.com/reel/exemplo-v2",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v2.mp4",
+   "tamanhoBytes": 211812352,
+   "duracaoSeg": 45,
+   "tags": [
+    "linho",
+    "verão"
+   ],
+   "status": "reprovado",
+   "motivoReprovacao": "Produto aparece pouco no vídeo.",
+   "views": 6513,
+   "curtidas": 3278,
+   "comentarios": 54,
+   "publicadoEm": "2026-11-15T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-15T17:00:00Z"
+  },
+  {
+   "id": "v3",
+   "lojaId": "l1",
+   "campanhaId": "k1",
+   "creatorId": "c4",
+   "origem": "creator",
+   "rede": "tiktok",
+   "formato": "tiktok",
+   "link": "https://tiktok.com/@juliaandrade/video/exemplo-v3",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v3.mp4",
+   "tamanhoBytes": 38797312,
+   "duracaoSeg": 73,
+   "tags": [
+    "linho",
+    "verão"
+   ],
+   "status": "reprovado",
+   "motivoReprovacao": "Produto aparece pouco no vídeo.",
+   "views": 44974,
+   "curtidas": 369,
+   "comentarios": 159,
+   "publicadoEm": "2026-11-06T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-06T17:00:00Z"
+  },
+  {
+   "id": "v4",
+   "lojaId": "l1",
+   "campanhaId": "k1",
+   "creatorId": "c4",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "story",
+   "link": "https://instagram.com/reel/exemplo-v4",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v4.mp4",
+   "tamanhoBytes": 199229440,
+   "duracaoSeg": 56,
+   "tags": [
+    "linho",
+    "verão"
+   ],
+   "status": "aprovado",
+   "views": 6520,
+   "curtidas": 3376,
+   "comentarios": 97,
+   "publicadoEm": "2026-11-10T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-10T17:00:00Z"
+  },
+  {
+   "id": "v5",
+   "lojaId": "l1",
+   "campanhaId": "k1",
+   "creatorId": "c12",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "reels",
+   "link": "https://instagram.com/reel/exemplo-v5",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v5.mp4",
+   "tamanhoBytes": 165675008,
+   "duracaoSeg": 47,
+   "tags": [
+    "linho",
+    "verão"
+   ],
+   "status": "em_analise",
+   "views": 27942,
+   "curtidas": 3912,
+   "comentarios": 1,
+   "publicadoEm": "2026-11-11T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-11T17:00:00Z"
+  },
+  {
+   "id": "v6",
+   "lojaId": "l1",
+   "campanhaId": "k1",
+   "creatorId": "c12",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "story",
+   "link": "https://instagram.com/reel/exemplo-v6",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v6.mp4",
+   "tamanhoBytes": 144703488,
+   "duracaoSeg": 44,
+   "tags": [
+    "linho",
+    "verão"
+   ],
+   "status": "aprovado",
+   "views": 50198,
+   "curtidas": 110,
+   "comentarios": 238,
+   "publicadoEm": "2026-11-03T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-03T17:00:00Z"
+  },
+  {
+   "id": "v7",
+   "lojaId": "l1",
+   "campanhaId": "k1",
+   "creatorId": "c15",
+   "origem": "creator",
+   "rede": "tiktok",
+   "formato": "tiktok",
+   "link": "https://tiktok.com/@sofiabezerra/video/exemplo-v7",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v7.mp4",
+   "tamanhoBytes": 42991616,
+   "duracaoSeg": 52,
+   "tags": [
+    "linho",
+    "verão"
+   ],
+   "status": "aprovado",
+   "views": 27297,
+   "curtidas": 3148,
+   "comentarios": 45,
+   "publicadoEm": "2026-11-19T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-19T17:00:00Z"
+  },
+  {
+   "id": "v8",
+   "lojaId": "l1",
+   "campanhaId": "k1",
+   "creatorId": "c15",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "feed",
+   "link": "https://instagram.com/reel/exemplo-v8",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v8.mp4",
+   "tamanhoBytes": 85983232,
+   "duracaoSeg": 69,
+   "tags": [
+    "linho",
+    "verão"
+   ],
+   "status": "em_analise",
+   "views": 47607,
+   "curtidas": 3987,
+   "comentarios": 43,
+   "publicadoEm": "2026-11-14T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-14T17:00:00Z"
+  },
+  {
+   "id": "v9",
+   "lojaId": "l1",
+   "campanhaId": "k2",
+   "creatorId": "c4",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "story",
+   "link": "https://instagram.com/reel/exemplo-v9",
+   "duracaoSeg": 73,
+   "tags": [
+    "saia",
+    "primavera"
+   ],
+   "status": "aprovado",
+   "views": 1198,
+   "curtidas": 2891,
+   "comentarios": 176,
+   "publicadoEm": "2026-09-23T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-09-23T17:00:00Z"
+  },
+  {
+   "id": "v10",
+   "lojaId": "l1",
+   "campanhaId": "k2",
+   "creatorId": "c4",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "reels",
+   "link": "https://instagram.com/reel/exemplo-v10",
+   "duracaoSeg": 36,
+   "tags": [
+    "saia",
+    "primavera"
+   ],
+   "status": "reprovado",
+   "motivoReprovacao": "Produto aparece pouco no vídeo.",
+   "views": 13599,
+   "curtidas": 2123,
+   "comentarios": 112,
+   "publicadoEm": "2026-09-24T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-09-24T17:00:00Z"
+  },
+  {
+   "id": "v11",
+   "lojaId": "l1",
+   "campanhaId": "k2",
+   "creatorId": "c8",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "feed",
+   "link": "https://instagram.com/reel/exemplo-v11",
+   "duracaoSeg": 45,
+   "tags": [
+    "saia",
+    "primavera"
+   ],
+   "status": "aprovado",
+   "views": 29435,
+   "curtidas": 2895,
+   "comentarios": 36,
+   "publicadoEm": "2026-10-05T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-10-05T17:00:00Z"
+  },
+  {
+   "id": "v12",
+   "lojaId": "l1",
+   "campanhaId": "k2",
+   "creatorId": "c12",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "story",
+   "link": "https://instagram.com/reel/exemplo-v12",
+   "duracaoSeg": 50,
+   "tags": [
+    "saia",
+    "primavera"
+   ],
+   "status": "aprovado",
+   "views": 43289,
+   "curtidas": 2037,
+   "comentarios": 183,
+   "publicadoEm": "2026-09-20T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-09-20T17:00:00Z"
+  },
+  {
+   "id": "v13",
+   "lojaId": "l1",
+   "campanhaId": "k2",
+   "creatorId": "c12",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "story",
+   "link": "https://instagram.com/reel/exemplo-v13",
+   "duracaoSeg": 68,
+   "tags": [
+    "saia",
+    "primavera"
+   ],
+   "status": "aprovado",
+   "views": 34361,
+   "curtidas": 2745,
+   "comentarios": 162,
+   "publicadoEm": "2026-09-18T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-09-18T17:00:00Z"
+  },
+  {
+   "id": "v14",
+   "lojaId": "l1",
+   "campanhaId": "k2",
+   "creatorId": "c15",
+   "origem": "creator",
+   "rede": "tiktok",
+   "formato": "tiktok",
+   "link": "https://tiktok.com/@sofiabezerra/video/exemplo-v14",
+   "duracaoSeg": 15,
+   "tags": [
+    "saia",
+    "primavera"
+   ],
+   "status": "aprovado",
+   "views": 7719,
+   "curtidas": 3591,
+   "comentarios": 59,
+   "publicadoEm": "2026-10-02T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-10-02T17:00:00Z"
+  },
+  {
+   "id": "v15",
+   "lojaId": "l2",
+   "campanhaId": "k4",
+   "creatorId": "c5",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "reels",
+   "link": "https://instagram.com/reel/exemplo-v15",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v15.mp4",
+   "tamanhoBytes": 165675008,
+   "duracaoSeg": 58,
+   "tags": [
+    "black friday"
+   ],
+   "status": "aprovado",
+   "views": 5715,
+   "curtidas": 106,
+   "comentarios": 73,
+   "publicadoEm": "2026-12-10T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-12-10T17:00:00Z"
+  },
+  {
+   "id": "v16",
+   "lojaId": "l2",
+   "campanhaId": "k4",
+   "creatorId": "c9",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "reels",
+   "link": "https://instagram.com/reel/exemplo-v16",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v16.mp4",
+   "tamanhoBytes": 39845888,
+   "duracaoSeg": 78,
+   "tags": [
+    "black friday"
+   ],
+   "status": "aprovado",
+   "views": 25965,
+   "curtidas": 2783,
+   "comentarios": 172,
+   "publicadoEm": "2026-11-26T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-26T17:00:00Z"
+  },
+  {
+   "id": "v17",
+   "lojaId": "l2",
+   "campanhaId": "k4",
+   "creatorId": "c15",
+   "origem": "creator",
+   "rede": "tiktok",
+   "formato": "tiktok",
+   "link": "https://tiktok.com/@sofiabezerra/video/exemplo-v17",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v17.mp4",
+   "tamanhoBytes": 124780544,
+   "duracaoSeg": 44,
+   "tags": [
+    "black friday"
+   ],
+   "status": "aprovado",
+   "views": 53584,
+   "curtidas": 527,
+   "comentarios": 269,
+   "publicadoEm": "2026-11-29T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-29T17:00:00Z"
+  },
+  {
+   "id": "v18",
+   "lojaId": "l2",
+   "campanhaId": "k4",
+   "creatorId": "c2",
+   "origem": "creator",
+   "rede": "tiktok",
+   "formato": "tiktok",
+   "link": "https://tiktok.com/@rafalima/video/exemplo-v18",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v18.mp4",
+   "tamanhoBytes": 76546048,
+   "duracaoSeg": 54,
+   "tags": [
+    "black friday"
+   ],
+   "status": "em_analise",
+   "views": 10507,
+   "curtidas": 181,
+   "comentarios": 229,
+   "publicadoEm": "2026-12-04T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-12-04T17:00:00Z"
+  },
+  {
+   "id": "v19",
+   "lojaId": "l2",
+   "campanhaId": "k4",
+   "creatorId": "c2",
+   "origem": "creator",
+   "rede": "tiktok",
+   "formato": "tiktok",
+   "link": "https://tiktok.com/@rafalima/video/exemplo-v19",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/v19.mp4",
+   "tamanhoBytes": 61865984,
+   "duracaoSeg": 39,
+   "tags": [
+    "black friday"
+   ],
+   "status": "aprovado",
+   "views": 21246,
+   "curtidas": 3046,
+   "comentarios": 68,
+   "publicadoEm": "2026-11-27T18:00:00Z",
+   "direito": "organico_e_anuncio",
+   "enviadoEm": "2026-11-27T17:00:00Z"
+  },
+  {
+   "id": "v20",
+   "lojaId": "l2",
+   "campanhaId": "k5",
+   "creatorId": "c7",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "reels",
+   "link": "https://instagram.com/reel/exemplo-v20",
+   "duracaoSeg": 28,
+   "tags": [
+    "iluminação"
+   ],
+   "status": "aprovado",
+   "views": 4190,
+   "curtidas": 417,
+   "comentarios": 111,
+   "publicadoEm": "2026-09-12T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-09-12T17:00:00Z"
+  },
+  {
+   "id": "v21",
+   "lojaId": "l2",
+   "campanhaId": "k5",
+   "creatorId": "c7",
+   "origem": "creator",
+   "rede": "tiktok",
+   "formato": "tiktok",
+   "link": "https://tiktok.com/@lucasferraz/video/exemplo-v21",
+   "duracaoSeg": 90,
+   "tags": [
+    "iluminação"
+   ],
+   "status": "aprovado",
+   "views": 42823,
+   "curtidas": 2888,
+   "comentarios": 18,
+   "publicadoEm": "2026-09-03T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-09-03T17:00:00Z"
+  },
+  {
+   "id": "v22",
+   "lojaId": "l2",
+   "campanhaId": "k5",
+   "creatorId": "c9",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "story",
+   "link": "https://instagram.com/reel/exemplo-v22",
+   "duracaoSeg": 50,
+   "tags": [
+    "iluminação"
+   ],
+   "status": "reprovado",
+   "motivoReprovacao": "Produto aparece pouco no vídeo.",
+   "views": 27529,
+   "curtidas": 868,
+   "comentarios": 233,
+   "publicadoEm": "2026-09-21T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-09-21T17:00:00Z"
+  },
+  {
+   "id": "v23",
+   "lojaId": "l2",
+   "campanhaId": "k5",
+   "creatorId": "c9",
+   "origem": "creator",
+   "rede": "instagram",
+   "formato": "reels",
+   "link": "https://instagram.com/reel/exemplo-v23",
+   "duracaoSeg": 88,
+   "tags": [
+    "iluminação"
+   ],
+   "status": "aprovado",
+   "views": 44451,
+   "curtidas": 1220,
+   "comentarios": 205,
+   "publicadoEm": "2026-09-15T18:00:00Z",
+   "direito": "organico",
+   "enviadoEm": "2026-09-15T17:00:00Z"
+  },
+  {
+   "id": "v24",
+   "lojaId": "l1",
+   "origem": "upload_loja",
+   "arquivoUrl": "https://exemplo.blob.vercel-storage.com/videos/whatsapp-cliente.mp4",
+   "tamanhoBytes": 47185920,
+   "duracaoSeg": 32,
+   "tags": [
+    "cliente"
+   ],
+   "status": "aprovado",
+   "direito": "organico",
+   "enviadoEm": "2026-11-18T12:00:00Z"
+  }
+ ],
+ "colecoes": [
+  {
+   "id": "col1",
+   "lojaId": "l1",
+   "nome": "Melhores do verão",
+   "videoIds": [
+    "v1",
+    "v4",
+    "v6",
+    "v7"
+   ]
+  },
+  {
+   "id": "col2",
+   "lojaId": "l2",
+   "nome": "Para anúncio",
+   "videoIds": [
+    "v15",
+    "v16",
+    "v17"
+   ]
+  }
+ ]
 }

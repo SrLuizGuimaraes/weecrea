@@ -121,6 +121,7 @@ function pintar(demo){
       <span class="who">${e.quem.length?e.quem.map(a=>`<img src="${a.avatar_url}" alt=""> ${esc(a.login)}`).join(', '):'sem responsável'}</span>
       ${e.pr.length?`<span>${e.pr.length} PR aberto</span>`:''}
       ${e.mov?`<span>mexeu há ${ha(e.mov)}</span>`:''}</div>
+    ${e.m.juncao?`<div class="dep">Junção ${e.m.juncao} (${({1:'27/11',2:'29/11',3:'30/11'})[e.m.juncao]})</div>`:''}
     ${e.m.recebe.length?`<div class="dep">Precisa de: ${e.m.recebe.map(i=>i.toUpperCase()).join(', ')}</div>`:''}
     ${e.is?`<div class="dep"><a href="${e.is.html_url}" target="_blank" rel="noopener">abrir issue</a></div>`:''}
   </div>`;

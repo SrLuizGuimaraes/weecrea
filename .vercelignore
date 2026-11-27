@@ -1,0 +1,10 @@
+# Nunca enviar para a Vercel pelo CLI: segredos locais e o banco local.
+.env
+.env.*
+!.env.example
+.pglite
+.claude
+.next
+node_modules
+src/generated
+dashboard

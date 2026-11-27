@@ -1,0 +1,41 @@
+# Publica o sistema na Vercel (projeto "weecrea") a cada push na main.
+# Segredo necessário no repositório (Settings → Secrets and variables → Actions): VERCEL_TOKEN.
+# Os IDs abaixo não são segredos: sem o token eles não dão acesso a nada.
+name: Deploy do sistema
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['dashboard/**', 'modulos/**', 'docs/**', 'scripts/issues/**', '**.md']
+  workflow_dispatch:
+concurrency:
+  group: deploy-sistema
+  cancel-in-progress: false
+permissions:
+  contents: read
+env:
+  VERCEL_ORG_ID: team_tpAQ5oOgBX68bNgBFTSADAGP
+  VERCEL_PROJECT_ID: prj_RVD4HJdyi2uNhMV4zmaWIPTYnYqr
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: producao
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm test
+      - run: npm install --global vercel@latest
+      # Traz as variáveis de produção (DATABASE_URL, AUTH_SECRET...) e as configurações do projeto
+      - run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      # O build roda scripts/vercel-build.mjs: aplica as migrações do banco e faz o next build
+      - run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ENV: production
+      - id: deploy
+        run: echo "url=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})" >> "$GITHUB_OUTPUT"
