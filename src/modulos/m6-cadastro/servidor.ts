@@ -8,7 +8,7 @@ import { exigirLoja } from '@/lib/acesso';
 import { mapAfiliacao, mapCreator, mapLoja } from '@/lib/dados-reais';
 import { diaEmSaoPaulo } from '@/lib/datas';
 import { db } from '@/lib/db';
-import { enviarEmail, escaparHtml, moldeEmail } from '@/lib/email';
+import { enviarEmail, moldeEmail } from '@/lib/email';
 import { urlDoApp } from '@/lib/link-senha';
 import { aprovarAfiliacaoNoBanco } from '@/modulos/m7-aprovacao/aprovacao-db';
 
@@ -153,7 +153,7 @@ export async function enviarConvitesEmailServidor(emails: string[], campanhaId?:
     const camp = campanhaId ? await db.campanha.findFirst({ where: { id: campanhaId, lojaId }, select: { id: true } }) : null;
     const link = `${urlDoApp()}/c/${loja.slug}?origem=email${camp ? `&campanha=${camp.id}` : ''}`;
     const m = moldeEmail({
-      titulo: `${escaparHtml(loja.nome)} convida você para ser creator`,
+      titulo: `${loja.nome} convida você para ser creator`,
       paragrafos: ['Cadastre-se na página da loja, ganhe um cupom exclusivo e comissão por cada venda.'],
       botao: { texto: 'Quero participar', url: link },
     });

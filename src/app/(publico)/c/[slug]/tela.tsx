@@ -17,7 +17,7 @@ export function TelaCadastro({ slug, campanhaId, origem }: { slug: string; campa
   return (
     <main className="mx-auto max-w-lg px-4 py-8">
       <header className="mb-6 text-center">
-        <p className="text-sm font-semibold text-destaque">{loja.nome}</p>
+        <p className="text-sm font-semibold text-destaque-tinta">{loja.nome}</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight">{loja.paginaCadastro.titulo}</h1>
         {loja.paginaCadastro.texto && <p className="mt-2 text-suave">{loja.paginaCadastro.texto}</p>}
       </header>
@@ -35,11 +35,11 @@ export function TelaCadastro({ slug, campanhaId, origem }: { slug: string; campa
             </div>
           )}
           <section className="mb-6 grid grid-cols-3 gap-2 text-center">
-            <div className="rounded-cartao border border-borda bg-superficie p-3"><BadgePercent size={18} className="mx-auto text-destaque" />
+            <div className="rounded-cartao border border-borda bg-superficie p-3"><BadgePercent size={18} className="mx-auto text-destaque-tinta" />
               <p className="mt-1 text-lg font-semibold">{bpsParaTexto(loja.comissaoPadraoBps)}</p><p className="text-xs text-suave">de comissão</p></div>
-            <div className="rounded-cartao border border-borda bg-superficie p-3"><Ticket size={18} className="mx-auto text-destaque" />
+            <div className="rounded-cartao border border-borda bg-superficie p-3"><Ticket size={18} className="mx-auto text-destaque-tinta" />
               <p className="mt-1 text-lg font-semibold">{loja.cupomDescontoPct}%</p><p className="text-xs text-suave">cupom exclusivo</p></div>
-            <div className="rounded-cartao border border-borda bg-superficie p-3"><Megaphone size={18} className="mx-auto text-destaque" />
+            <div className="rounded-cartao border border-borda bg-superficie p-3"><Megaphone size={18} className="mx-auto text-destaque-tinta" />
               <p className="mt-1 text-lg font-semibold">{ativas.length}</p><p className="text-xs text-suave">campanha(s) ativa(s)</p></div>
           </section>
 

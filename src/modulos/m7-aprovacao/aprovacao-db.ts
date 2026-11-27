@@ -5,7 +5,7 @@ import { avaliarCriterios, decidirAprovacao } from '@/dominio/criterios';
 import { gerarCodigoCupom } from '@/dominio/cupom';
 import { normalizarCodigoCupom } from '@/lib/cupom-db';
 import { db } from '@/lib/db';
-import { enviarEmail, escaparHtml, moldeEmail } from '@/lib/email';
+import { enviarEmail, moldeEmail } from '@/lib/email';
 import { enviarLinkSenha, urlDoApp } from '@/lib/link-senha';
 import { mapAfiliacao, mapCreator, mapLoja } from '@/lib/dados-reais';
 import { criarCupomNaLoja } from '@/modulos/m3-nuvemshop/cupons-db';
@@ -54,7 +54,7 @@ async function avisarAprovacao(lojaId: string, creatorId: string, cupom: string)
   if (!creator.usuario.senhaHash) { await enviarLinkSenha(creator.usuarioId, 'aprovacao_creator', { loja: loja.nome, cupom }); return; }
   const m = moldeEmail({
     titulo: `Você foi aprovada(o) na ${loja.nome}`,
-    paragrafos: [`Seu cupom exclusivo é ${escaparHtml(cupom)}. Entre na sua área para ver as campanhas.`],
+    paragrafos: [`Seu cupom exclusivo é ${cupom}. Entre na sua área para ver as campanhas.`],
     botao: { texto: 'Entrar', url: `${urlDoApp()}/entrar` },
   });
   await enviarEmail({ para: creator.email, assunto: `Você foi aprovado na ${loja.nome}`, ...m });
@@ -64,7 +64,7 @@ export async function avisarRecusa(lojaId: string, creatorId: string) {
   const [loja, creator] = await Promise.all([db.loja.findUniqueOrThrow({ where: { id: lojaId } }), db.creator.findUniqueOrThrow({ where: { id: creatorId } })]);
   const m = moldeEmail({
     titulo: 'Obrigado pelo seu interesse',
-    paragrafos: [`A ${escaparHtml(loja.nome)} analisou seu cadastro e, por enquanto, não vai seguir com a parceria. Você pode se cadastrar de novo daqui a 30 dias.`],
+    paragrafos: [`A ${loja.nome} analisou seu cadastro e, por enquanto, não vai seguir com a parceria. Você pode se cadastrar de novo daqui a 30 dias.`],
   });
   await enviarEmail({ para: creator.email, assunto: `Sobre o seu cadastro na ${loja.nome}`, ...m });
 }

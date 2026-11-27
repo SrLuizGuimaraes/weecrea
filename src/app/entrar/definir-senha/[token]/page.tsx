@@ -1,3 +1,4 @@
+import { Logo } from '@/componentes/marca';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { conferirToken } from '@/lib/link-senha';
@@ -26,6 +27,7 @@ export default async function DefinirSenha({ params, searchParams }: {
   return (
     <main className="flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-sm space-y-4 rounded-2xl border border-[var(--borda)] p-6">
+        <Logo alturaClasse="h-8" className="mb-2" />
         <h1 className="text-xl font-semibold">Definir senha</h1>
         {!r.ok ? (
           <>
@@ -34,7 +36,7 @@ export default async function DefinirSenha({ params, searchParams }: {
           </>
         ) : (
           <form action={definirSenha} className="space-y-4">
-            {erro && ERROS[erro] && <p role="alert" className="rounded-lg bg-red-100 px-3 py-2 text-sm text-red-800">{ERROS[erro]}</p>}
+            {erro && ERROS[erro] && <p role="alert" className="rounded-lg bg-perigo-fraco px-3 py-2 text-sm text-perigo">{ERROS[erro]}</p>}
             <input type="hidden" name="token" value={token} />
             <label className="block space-y-1">
               <span className="text-sm font-medium">Nova senha</span>
@@ -44,7 +46,7 @@ export default async function DefinirSenha({ params, searchParams }: {
               <span className="text-sm font-medium">Repita a senha</span>
               <input name="confirmacao" type="password" minLength={SENHA_MINIMA} required autoComplete="new-password" className={campo} />
             </label>
-            <button type="submit" className="w-full rounded-lg bg-[var(--texto)] px-3 py-2 font-medium text-[var(--fundo)]">Salvar senha</button>
+            <button type="submit" className="w-full rounded-lg bg-destaque px-3 py-2 font-medium text-destaque-texto">Salvar senha</button>
           </form>
         )}
       </div>
