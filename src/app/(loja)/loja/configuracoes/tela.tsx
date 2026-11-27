@@ -8,15 +8,15 @@ import QRCode from 'qrcode';
 import { Abas, AreaTexto, Aviso, Botao, CabecalhoPagina, CaixaSelecao, Campo, Cartao, Selecao } from '@/componentes';
 import { BotaoCopiar } from '@/componentes/em-breve';
 import type { Rede } from '@/contratos/tipos';
-import { useDemo } from '@/lib/demo/estado';
+import { useDados } from '@/lib/dados-reais-cliente';
 import { useToast } from '@/componentes/toast';
-import { salvarPaginaCadastro } from '@/modulos/m6-cadastro/acoes';
-import { salvarCriterios } from '@/modulos/m7-aprovacao/acoes';
+import { enviarConvitesEmailServidor, salvarPaginaCadastroServidor } from '@/modulos/m6-cadastro/servidor';
+import { salvarCriteriosServidor } from '@/modulos/m7-aprovacao/servidor';
 
 const SEGMENTOS = ['Moda', 'Beleza', 'Lifestyle', 'Casa', 'Decoração', 'Fitness', 'Gastronomia', 'Maternidade', 'Pets', 'Tecnologia', 'Dia a dia', 'Viagem'];
 
 export function TelaConfiguracoes({ lojaId, aba: a, campanha, urlApp }: { lojaId: string; aba?: string; campanha?: string; urlApp: string }) {
-  const { D, mudar } = useDemo();
+  const { D, executar } = useDados();
   const toast = useToast();
   const aba = a === 'aprovacao' ? 'aprovacao' : 'pagina';
   const loja = D.lojas.find((l) => l.id === lojaId)!;
@@ -38,10 +38,10 @@ export function TelaConfiguracoes({ lojaId, aba: a, campanha, urlApp }: { lojaId
       {aba === 'pagina' ? (
         <div className="grid gap-4 lg:grid-cols-2">
           <Cartao titulo="Página de cadastro">
-            <form key={loja.paginaCadastro.titulo + loja.paginaCadastro.aberta} className="space-y-4" onSubmit={(e) => {
+            <form key={loja.paginaCadastro.titulo + loja.paginaCadastro.aberta} className="space-y-4" onSubmit={async (e) => {
               e.preventDefault();
               const f = new FormData(e.currentTarget);
-              mudar((d) => salvarPaginaCadastro(d, lojaId, { titulo: String(f.get('titulo')), texto: String(f.get('texto')), aberta: f.get('aberta') === 'on' }), 'Página salva');
+              await executar(() => salvarPaginaCadastroServidor({ titulo: String(f.get('titulo')), texto: String(f.get('texto')), aberta: f.get('aberta') === 'on' }), 'Página salva');
             }}>
               <Campo rotulo="Título" name="titulo" required defaultValue={loja.paginaCadastro.titulo} />
               <AreaTexto rotulo="Texto" name="texto" defaultValue={loja.paginaCadastro.texto} rows={4} />
@@ -74,14 +74,13 @@ export function TelaConfiguracoes({ lojaId, aba: a, campanha, urlApp }: { lojaId
             </div>
           </Cartao>
           <Cartao titulo="Convite por e-mail" className="lg:col-span-2">
-            <form className="space-y-3" onSubmit={(e) => {
+            <form className="space-y-3" onSubmit={async (e) => {
               e.preventDefault();
-              const emails = String(new FormData(e.currentTarget).get('emails') ?? '').split(/[\s,;]+/).map((x) => x.trim()).filter(Boolean);
-              const validos = emails.filter((x) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x));
-              if (!validos.length) return toast('Informe ao menos um e-mail válido.', 'perigo');
-              if (validos.length > 50) return toast('No máximo 50 endereços por vez.', 'perigo');
-              toast(`${validos.length} convite(s) enviado(s) com o link da página (simulado)${validos.length < emails.length ? `; ${emails.length - validos.length} endereço(s) inválido(s) ignorado(s)` : ''}.`);
-              e.currentTarget.reset();
+              const formulario = e.currentTarget;
+              const emails = String(new FormData(formulario).get('emails') ?? '').split(/[\s,;]+/).map((x) => x.trim()).filter(Boolean);
+              const r = await executar(() => enviarConvitesEmailServidor(emails, campanha),
+                (d) => `${d.enviados} convite(s) enviado(s) com o link da página${d.invalidos ? `; ${d.invalidos} endereço(s) inválido(s) ignorado(s)` : ''}.`);
+              if (r) formulario.reset();
             }}>
               <AreaTexto rotulo="E-mails" name="emails" rows={3} placeholder="um@exemplo.com, outro@exemplo.com" ajuda="Até 50 endereços, separados por vírgula ou linha." />
               <div className="flex justify-end"><Botao type="submit">Enviar convites</Botao></div>
@@ -89,7 +88,7 @@ export function TelaConfiguracoes({ lojaId, aba: a, campanha, urlApp }: { lojaId
           </Cartao>
         </div>
       ) : (
-        <form key={JSON.stringify(k)} className="space-y-4" onSubmit={(e) => {
+        <form key={JSON.stringify(k)} className="space-y-4" onSubmit={async (e) => {
           e.preventDefault();
           const f = new FormData(e.currentTarget);
           const criterios = {
@@ -98,10 +97,8 @@ export function TelaConfiguracoes({ lojaId, aba: a, campanha, urlApp }: { lojaId
             segmentosAceitos: f.getAll('segmentos').map(String), exigeTerProduto: f.get('exigeProduto') === 'on',
           };
           if (!criterios.redesAceitas.length) return toast('Aceite ao menos uma rede.', 'perigo');
-          let n = 0;
-          if (mudar((d) => { n = salvarCriterios(d, lojaId, criterios); })) {
-            toast(criterios.aprovacaoAutomatica ? `Critérios salvos. A fila foi reavaliada: ${n} creator(s) aprovado(s) na hora.` : 'Critérios salvos.');
-          }
+          await executar(() => salvarCriteriosServidor(criterios),
+            (n) => (criterios.aprovacaoAutomatica ? `Critérios salvos. A fila foi reavaliada: ${n} creator(s) aprovado(s) na hora.` : 'Critérios salvos.'));
         }}>
           <Aviso tom="info">Com a aprovação automática ligada, quem atende a todos os critérios entra na hora, com cupom. Os demais ficam na fila com o motivo. O sistema nunca recusa sozinho. Hoje há {pendentes} na fila.</Aviso>
           <Cartao titulo="Critérios">

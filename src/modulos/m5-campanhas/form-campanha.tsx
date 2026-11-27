@@ -5,11 +5,11 @@ import { useRouter } from 'next/navigation';
 import { AreaTexto, Aviso, Botao, BotaoLink, CabecalhoPagina, CaixaSelecao, Campo, Cartao, Selecao } from '@/componentes';
 import type { Campanha } from '@/contratos/tipos';
 import { paraCentavos } from '@/dominio/dinheiro';
-import { useDemo } from '@/lib/demo/estado';
-import { salvarCampanha } from './acoes';
+import { useDados } from '@/lib/dados-reais-cliente';
+import { salvarCampanhaServidor } from './servidor';
 
 export function FormCampanha({ lojaId, campanhaId }: { lojaId: string; campanhaId?: string }) {
-  const { D, mudar } = useDemo();
+  const { D, executar } = useDados();
   const router = useRouter();
   const campanha = campanhaId ? D.campanhas.find((k) => k.id === campanhaId && k.lojaId === lojaId) : undefined;
   if (campanhaId && !campanha) return <Aviso tom="perigo">Campanha não encontrada.</Aviso>;
@@ -18,7 +18,7 @@ export function FormCampanha({ lojaId, campanhaId }: { lojaId: string; campanhaI
   const ativa = campanha?.status === 'ativa';
   const reais = (c?: number) => (c === undefined ? '' : (c / 100).toFixed(2));
 
-  function enviar(e: React.FormEvent<HTMLFormElement>, publicar: boolean) {
+  async function enviar(e: React.FormEvent<HTMLFormElement>, publicar: boolean) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
     const metaInd = String(f.get('metaIndividual') ?? '');
@@ -33,9 +33,8 @@ export function FormCampanha({ lojaId, campanhaId }: { lojaId: string; campanhaI
       beneficioIds: [...new Set([...f.getAll('beneficioIds').map(String), ...(ativa ? campanha!.beneficioIds : [])])],
       briefing: String(f.get('briefing') ?? ''), publicar,
     };
-    let id = '';
-    const ok = mudar((d) => { id = salvarCampanha(d, lojaId, dadosForm, campanhaId); }, campanha ? 'Campanha salva' : publicar ? 'Campanha publicada' : 'Rascunho salvo');
-    if (ok) router.push(`/loja/campanhas/${id}`);
+    const r = await executar(() => salvarCampanhaServidor(dadosForm, campanhaId), campanha ? 'Campanha salva' : publicar ? 'Campanha publicada' : 'Rascunho salvo');
+    if (r) router.push(`/loja/campanhas/${r.dado.id}`);
   }
 
   return (

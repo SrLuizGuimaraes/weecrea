@@ -4,14 +4,14 @@ import { Abas, Botao, CabecalhoPagina, CaixaSelecao, Cartao, Etiqueta, EtiquetaS
 import { BarraProgresso } from '@/componentes/progresso';
 import { bpsParaTexto, formatarReais } from '@/dominio/dinheiro';
 import { formatarData } from '@/lib/datas';
-import { useDemo } from '@/lib/demo/estado';
-import { aceitarCampanha, recusarConvite } from '@/modulos/m5-campanhas/acoes';
+import { useDados } from '@/lib/dados-reais-cliente';
+import { aceitarCampanhaServidor, recusarConviteServidor } from '@/modulos/m5-campanhas/servidor';
 import { campanhasDoCreator } from '@/modulos/m5-campanhas/dados';
 
 const ENTREGA = { publicar: 'Publicar nas redes', entregar_arquivo: 'Entregar o arquivo do vídeo', publicar_e_entregar: 'Publicar e entregar o arquivo' };
 
 export function TelaCampanhasCreator({ creatorId, aba: a }: { creatorId: string; aba?: string }) {
-  const { D, mudar } = useDemo();
+  const { D, executar } = useDados();
   const todas = campanhasDoCreator(D, creatorId);
   const grupos = {
     disponiveis: todas.filter((k) => k.campanha.status === 'ativa' && k.participacao?.status !== 'aceito' && k.participacao?.status !== 'recusado' && k.participacao?.status !== 'removido'),
@@ -49,7 +49,7 @@ export function TelaCampanhasCreator({ creatorId, aba: a }: { creatorId: string;
                   <BarraProgresso className="mt-3" valor={r.minhasVendas} total={k.metaIndividualCentavos} legenda={`Sua meta: ${formatarReais(r.minhasVendas)} de ${formatarReais(k.metaIndividualCentavos)}`} />
                 )}
                 <div className="mt-4 flex justify-end gap-2">
-                  {convidado && <Botao tamanho="p" variante="fantasma" onClick={() => mudar((d) => recusarConvite(d, creatorId, k.id), 'Convite recusado')}>Recusar convite</Botao>}
+                  {convidado && <Botao tamanho="p" variante="fantasma" onClick={() => executar(() => recusarConviteServidor(k.id), 'Convite recusado')}>Recusar convite</Botao>}
                   <Modal largura="max-w-2xl" titulo={k.nome} gatilho={<Botao tamanho="p" variante={aceita || k.status !== 'ativa' ? 'secundario' : 'primario'}>{aceita || k.status !== 'ativa' ? 'Ver briefing' : 'Ver e aceitar'}</Botao>}>
                     {(fechar) => (
                       <div className="space-y-4 text-sm">
@@ -64,7 +64,7 @@ export function TelaCampanhasCreator({ creatorId, aba: a }: { creatorId: string;
                         {!!r.beneficios.length && <ul className="space-y-1">{r.beneficios.map((b) => <li key={b.id} className="rounded-lg bg-aviso-fraco px-3 py-1.5 font-semibold text-aviso">{b.nome}</li>)}</ul>}
                         <div><p className="mb-1 font-medium">Briefing</p><p className="whitespace-pre-line rounded-lg bg-superficie-2 p-3">{k.briefing}</p></div>
                         {!aceita && k.status === 'ativa' && (
-                          <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); if (mudar((d) => aceitarCampanha(d, creatorId, k.id), `Campanha aceita. Sua comissão de ${bpsParaTexto(k.comissaoBps)} está garantida.`)) fechar(); }}>
+                          <form className="space-y-3" onSubmit={async (e) => { e.preventDefault(); if (await executar(() => aceitarCampanhaServidor(k.id), `Campanha aceita. Sua comissão de ${bpsParaTexto(k.comissaoBps)} está garantida.`)) fechar(); }}>
                             <CaixaSelecao required name="concordo" rotulo="Li o briefing e concordo com as regras da campanha" />
                             <div className="flex justify-end"><Botao type="submit">Aceitar campanha</Botao></div>
                           </form>

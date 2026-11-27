@@ -5,8 +5,7 @@ import { useState } from 'react';
 import { CheckCircle2, Clock } from 'lucide-react';
 import { AreaTexto, Botao, CaixaSelecao, Campo, Selecao } from '@/componentes';
 import { BotaoCopiar } from '@/componentes/em-breve';
-import { useDemo } from '@/lib/demo/estado';
-import { cadastrarCreator, type ResultadoCadastro } from './acoes';
+import { cadastrarCreatorServidor } from './servidor';
 
 const UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO'.split(' ');
 const SEGMENTOS = ['Moda', 'Beleza', 'Lifestyle', 'Casa', 'Decoração', 'Fitness', 'Gastronomia', 'Maternidade', 'Pets', 'Tecnologia', 'Dia a dia', 'Viagem'];
@@ -20,12 +19,12 @@ function maiorDeIdade(nascimento: string) {
 }
 
 export function FormCadastro({ slug, lojaNome, campanhaId, origem = 'pagina' }: { slug: string; lojaNome: string; campanhaId?: string; origem?: 'link' | 'qr_code' | 'email' | 'pagina' }) {
-  const { mudar } = useDemo();
+  const [enviando, setEnviando] = useState(false);
   const [resultado, setResultado] = useState<Resultado | null>(null);
   const [erro, setErro] = useState<string | null>(null);
   const [segmentos, setSegmentos] = useState<string[]>([]);
 
-  function enviar(form: FormData) {
+  async function enviar(form: FormData) {
     setErro(null);
     if (form.get('site')) return; // campo isca contra robôs
     const bio = String(form.get('bio') ?? '');
@@ -38,20 +37,21 @@ export function FormCadastro({ slug, lojaNome, campanhaId, origem = 'pagina' }: 
     if (!maiorDeIdade(String(form.get('nascimento')))) return setErro('O cadastro é só para maiores de 18 anos.');
     if (bio.length < 30 || bio.length > 500) return setErro('Fale sobre você em 30 a 500 caracteres.');
     if (segmentos.length < 1 || segmentos.length > 3) return setErro('Escolha de 1 a 3 segmentos.');
-    let r: ResultadoCadastro | undefined;
-    let falha = '';
-    const ok = mudar((d) => {
-      try {
-        r = cadastrarCreator(d, slug, {
-          nome: String(form.get('nome')), email: String(form.get('email')), whatsapp: String(form.get('whatsapp')),
-          nascimento: String(form.get('nascimento')), uf: String(form.get('uf')), cidade: String(form.get('cidade')),
-          ...(instagram ? { instagram } : {}), ...(tiktok ? { tiktok } : {}), bio, segmentos, temProduto: form.get('temProduto') === 'on',
-          origem, ...(campanhaId ? { campanhaId } : {}),
-        });
-      } catch (e) { falha = e instanceof Error ? e.message : 'Não foi possível enviar.'; throw e; }
-    });
-    if (!ok || !r) { setErro(falha || 'Não foi possível enviar.'); return; }
-    setResultado(r.status === 'aprovado' ? { tipo: 'aprovado', cupom: r.cupom } : { tipo: 'analise', motivo: r.motivo });
+    setEnviando(true);
+    let r: Awaited<ReturnType<typeof cadastrarCreatorServidor>>;
+    try {
+      r = await cadastrarCreatorServidor(slug, {
+        nome: String(form.get('nome')), email: String(form.get('email')), whatsapp: String(form.get('whatsapp')),
+        nascimento: String(form.get('nascimento')), uf: String(form.get('uf')), cidade: String(form.get('cidade')),
+        ...(instagram ? { instagram } : {}), ...(tiktok ? { tiktok } : {}), bio, segmentos, temProduto: form.get('temProduto') === 'on',
+        origem, ...(campanhaId ? { campanhaId } : {}),
+      });
+    } catch {
+      setErro('Sem conexão. Tente de novo.'); setEnviando(false); return;
+    }
+    setEnviando(false);
+    if (!r.ok) { setErro(r.erro); return; }
+    setResultado(r.dado.status === 'aprovado' ? { tipo: 'aprovado', cupom: r.dado.cupom } : { tipo: 'analise', motivo: r.dado.motivo });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -63,7 +63,7 @@ export function FormCadastro({ slug, lojaNome, campanhaId, origem = 'pagina' }: 
         <p className="text-sm text-suave">Seu cupom exclusivo da {lojaNome}:</p>
         <p className="font-mono text-3xl font-bold tracking-wider">{resultado.cupom}</p>
         <BotaoCopiar texto={resultado.cupom} rotulo="Copiar cupom" />
-        <p className="text-sm text-suave">Enviamos um e-mail com o link para você definir a senha e ver as campanhas. (Demonstração: o e-mail é simulado e nada fica gravado.)</p>
+        <p className="text-sm text-suave">Enviamos um e-mail com o link para você definir a senha e ver as campanhas.</p>
       </div>
     ) : (
       <div className="space-y-3 rounded-2xl border border-borda bg-superficie p-6 text-center">
@@ -71,7 +71,6 @@ export function FormCadastro({ slug, lojaNome, campanhaId, origem = 'pagina' }: 
         <h2 className="text-xl font-semibold">Cadastro em análise</h2>
         <p className="text-sm">A {lojaNome} vai olhar o seu perfil e você recebe a resposta por e-mail.</p>
         <p className="text-sm text-suave">Motivo: {resultado.motivo}</p>
-        <p className="text-xs text-suave">(Demonstração: nada fica gravado.)</p>
       </div>
     );
   }
@@ -116,7 +115,7 @@ export function FormCadastro({ slug, lojaNome, campanhaId, origem = 'pagina' }: 
       <CaixaSelecao name="temProduto" rotulo={`Já tenho produto da ${lojaNome}`} />
       <Campo rotulo="Sua foto" name="foto" type="file" accept="image/*" />
       <CaixaSelecao name="termos" required rotulo="Li e aceito os termos de participação e a política de privacidade" />
-      <Botao type="submit" largo tamanho="g">Quero participar</Botao>
+      <Botao type="submit" largo tamanho="g" disabled={enviando}>{enviando ? 'Enviando…' : 'Quero participar'}</Botao>
     </form>
   );
 }

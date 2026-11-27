@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Abas, CabecalhoPagina, EtiquetaStatus, Tabela, Td, Vazio } from '@/componentes';
 import { BotoesDecisao } from '@/modulos/m7-aprovacao/botoes';
-import { useDemo } from '@/lib/demo/estado';
+import { useDados } from '@/lib/dados-reais-cliente';
 import { formatarReais } from '@/dominio/dinheiro';
 import { formatarData } from '@/lib/datas';
 import { formatarNumero } from '@/lib/demo/util';
@@ -13,7 +13,7 @@ import { contagemPorAba, creatorsDaLoja } from '@/modulos/m7-aprovacao/dados';
 type Aba = 'aprovacao' | 'ativos' | 'recusados';
 
 export function TelaCreators({ lojaId, aba: a }: { lojaId: string; aba?: string }) {
-  const { D } = useDemo();
+  const { D } = useDados();
   const aba: Aba = a === 'ativos' || a === 'recusados' ? a : 'aprovacao';
   const n = contagemPorAba(D, lojaId);
   const lista = creatorsDaLoja(D, lojaId, aba);
