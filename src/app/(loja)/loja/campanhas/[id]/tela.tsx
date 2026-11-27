@@ -6,14 +6,14 @@ import { Abas, Aviso, Botao, BotaoLink, CabecalhoPagina, CaixaSelecao, Cartao, C
 import { BarraProgresso } from '@/componentes/progresso';
 import { bpsParaTexto, formatarReais } from '@/dominio/dinheiro';
 import { formatarData } from '@/lib/datas';
-import { useDemo } from '@/lib/demo/estado';
-import { cancelarCampanha, convidarCreators } from '@/modulos/m5-campanhas/acoes';
+import { useDados } from '@/lib/dados-reais-cliente';
+import { cancelarCampanhaServidor, convidarCreatorsServidor } from '@/modulos/m5-campanhas/servidor';
 import { campanhaDaLoja } from '@/modulos/m5-campanhas/dados';
 
 const ENTREGA = { publicar: 'Publicar nas redes', entregar_arquivo: 'Entregar o arquivo', publicar_e_entregar: 'Publicar e entregar o arquivo' };
 
 export function TelaDetalheCampanha({ lojaId, id, aba = 'participantes' }: { lojaId: string; id: string; aba?: string }) {
-  const { D, mudar } = useDemo();
+  const { D, executar } = useDados();
   const d = campanhaDaLoja(D, lojaId, id);
   if (!d) return <Aviso tom="perigo">Campanha não encontrada. <Link href="/loja/campanhas" className="underline">Voltar</Link></Aviso>;
   const k = d.campanha;
@@ -26,15 +26,15 @@ export function TelaDetalheCampanha({ lojaId, id, aba = 'participantes' }: { loj
           {k.status !== 'encerrada' && k.status !== 'cancelada' && (
             <Modal titulo="Convidar creators aprovados" gatilho={<Botao variante="secundario"><UserPlus size={16} />Convidar</Botao>}>
               {(fechar) => (
-                <form className="space-y-3" onSubmit={(e) => {
+                <form className="space-y-3" onSubmit={async (e) => {
                   e.preventDefault();
                   const ids = new FormData(e.currentTarget).getAll('creatorIds').map(String);
                   if (!ids.length) return;
-                  if (mudar((dd) => { convidarCreators(dd, k.id, ids); }, `${ids.length} convite(s) enviado(s)`)) fechar();
+                  if (await executar(() => convidarCreatorsServidor(k.id, ids), `${ids.length} convite(s) enviado(s)`)) fechar();
                 }}>
                   {d.convidaveis.length ? d.convidaveis.map((c) => <CaixaSelecao key={c.id} name="creatorIds" value={c.id} rotulo={c.nome} className="flex" />)
                     : <p className="text-sm text-suave">Todos os creators aprovados já estão na campanha.</p>}
-                  <p className="text-xs text-suave">Cada convidado recebe um e-mail (simulado) e vê a campanha na área dele.</p>
+                  <p className="text-xs text-suave">Cada convidado vê a campanha na área dele.</p>
                   <div className="flex justify-end"><Botao type="submit" disabled={!d.convidaveis.length}>Enviar convites</Botao></div>
                 </form>
               )}
@@ -47,7 +47,7 @@ export function TelaDetalheCampanha({ lojaId, id, aba = 'participantes' }: { loj
                   <p>Os creators deixam de ver a campanha e as vendas novas não entram nela. As comissões já geradas continuam.</p>
                   <div className="flex justify-end gap-2">
                     <Botao variante="fantasma" onClick={fechar}>Voltar</Botao>
-                    <Botao variante="perigo" onClick={() => { if (mudar((dd) => cancelarCampanha(dd, lojaId, k.id), 'Campanha cancelada')) fechar(); }}>Cancelar campanha</Botao>
+                    <Botao variante="perigo" onClick={async () => { if (await executar(() => cancelarCampanhaServidor(k.id), 'Campanha cancelada')) fechar(); }}>Cancelar campanha</Botao>
                   </div>
                 </div>
               )}

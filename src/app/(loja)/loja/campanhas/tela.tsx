@@ -8,8 +8,8 @@ import { BarraProgresso } from '@/componentes/progresso';
 import type { Beneficio } from '@/contratos/tipos';
 import { bpsParaTexto, formatarReais } from '@/dominio/dinheiro';
 import { formatarData } from '@/lib/datas';
-import { useDemo } from '@/lib/demo/estado';
-import { criarBeneficio, excluirBeneficio } from '@/modulos/m5-campanhas/acoes';
+import { useDados } from '@/lib/dados-reais-cliente';
+import { criarBeneficioServidor, excluirBeneficioServidor } from '@/modulos/m5-campanhas/servidor';
 import { beneficiosDaLoja, campanhasDaLoja, type Aba } from '@/modulos/m5-campanhas/dados';
 
 const ABAS = [
@@ -23,17 +23,17 @@ export function descreverBeneficio(b: Pick<Beneficio, 'tipo' | 'recompensa' | 'm
   return `${quando}: ${oQue}`;
 }
 
-function NovoBeneficio({ lojaId }: { lojaId: string }) {
-  const { mudar } = useDemo();
+function NovoBeneficio() {
+  const { executar } = useDados();
   const [tipo, setTipo] = useState<Beneficio['tipo']>('meta');
   const [recompensa, setRecompensa] = useState<Beneficio['recompensa']>('multiplicador');
   return (
     <Modal titulo="Novo benefício" gatilho={<Botao variante="secundario"><Plus size={16} />Novo benefício</Botao>}>
       {(fechar) => (
-        <form className="space-y-3" onSubmit={(e) => {
+        <form className="space-y-3" onSubmit={async (e) => {
           e.preventDefault();
           const f = new FormData(e.currentTarget);
-          const ok = mudar((D) => criarBeneficio(D, lojaId, {
+          const ok = await executar(() => criarBeneficioServidor({
             nome: String(f.get('nome')), tipo, recompensa,
             ...(recompensa === 'multiplicador' ? { multiplicadorX100: Math.round(Number(f.get('multiplicador')) * 100) } : {}),
             ...(recompensa === 'bonus_bps' ? { bonusBps: Math.round(Number(f.get('bonus')) * 100) } : {}),
@@ -61,7 +61,7 @@ function NovoBeneficio({ lojaId }: { lojaId: string }) {
 }
 
 export function TelaCampanhas({ lojaId, aba: abaUrl }: { lojaId: string; aba?: string }) {
-  const { D, mudar } = useDemo();
+  const { D, executar } = useDados();
   const aba = ABAS.some((a) => a.chave === abaUrl) ? abaUrl! : 'ativas';
   return (
     <>
@@ -71,14 +71,14 @@ export function TelaCampanhas({ lojaId, aba: abaUrl }: { lojaId: string; aba?: s
 
       {aba === 'beneficios' ? (
         <div className="space-y-4">
-          <div className="flex justify-end"><NovoBeneficio lojaId={lojaId} /></div>
+          <div className="flex justify-end"><NovoBeneficio /></div>
           <Tabela colunas={['Benefício', 'Regra', 'Em uso em', '']}>
             {beneficiosDaLoja(D, lojaId).map(({ beneficio: b, emUso }) => (
               <tr key={b.id}>
                 <Td className="font-medium">{b.nome}</Td><Td>{descreverBeneficio(b)}</Td>
                 <Td>{emUso.length ? emUso.join(', ') : <span className="text-suave">Nenhuma campanha</span>}</Td>
                 <Td><Botao tamanho="p" variante="fantasma" aria-label="Excluir benefício"
-                  onClick={() => mudar((d) => excluirBeneficio(d, lojaId, b.id), 'Benefício excluído')}><Trash2 size={14} /></Botao></Td>
+                  onClick={() => executar(() => excluirBeneficioServidor(b.id), 'Benefício excluído')}><Trash2 size={14} /></Botao></Td>
               </tr>
             ))}
           </Tabela>
